@@ -7,6 +7,7 @@ import DataUpdate from '../../components/Practice/DataUpdate';
 import Main from '../../Layouts/Default/Main';
 import Home from '../../pages/Home/Home';
 import Blog from '../../pages/publicPages/Blog/Blog';
+import Faq from '../../pages/publicPages/FAQ/Faq';
 import FourOfFour from '../FourOfFour/FourOfFour';
 
 const Routes = () => {
@@ -23,6 +24,11 @@ const Routes = () => {
                 {
                     path: '/blog',
                     element: <Blog></Blog>,
+                    // loader: fetch('http://localhost:5000/package')
+                },
+                {
+                    path: '/faq',
+                    element: <Faq></Faq>,
                     // loader: fetch('http://localhost:5000/package')
                 },
                 {
