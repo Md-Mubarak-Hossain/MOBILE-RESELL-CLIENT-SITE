@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useQuery } from '@tanstack/react-query'
 
 const DataGet = () => {
-    // const { data } = useLoaderData();
+
     const [Data, setData] = useState([]);
-    // const { name, version } = Data[0];
+    // const { data: Data, isLoading } = useQuery(
+    //     {
+    //         queryKey: ['Data'],
+    //         queryFn: () => fetch('http://localhost:5000/package')
+    //             .then(res => res.json())
+    //     }
+    // )
     useEffect(() => {
         fetch('http://localhost:5000/package')
             .then(res => res.json())
