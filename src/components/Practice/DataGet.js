@@ -8,12 +8,12 @@ const DataGet = () => {
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
-    //         queryFn: () => fetch('http://localhost:5000/package')
+    //         queryFn: () => fetch('http://localhost:5000/mobile')
     //             .then(res => res.json())
     //     }
     // )
     useEffect(() => {
-        fetch('http://localhost:5000/package')
+        fetch('http://localhost:5000/mobile')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

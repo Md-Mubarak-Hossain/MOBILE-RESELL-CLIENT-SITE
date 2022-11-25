@@ -11,7 +11,7 @@ const DataUpdate = () => {
     const [previousData, setUpdateData] = useState([])
     const [updateData, setData] = useState(previousData)
     useEffect(() => {
-        fetch('http://localhost:5000/package')
+        fetch('http://localhost:5000/mobile')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -20,7 +20,7 @@ const DataUpdate = () => {
     }, [])
     const handleSub = event => {
         event.preventDefault();
-        fetch(`http://localhost:5000/package/${Data._id}`, {
+        fetch(`http://localhost:5000/mobile/${Data._id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updateData)

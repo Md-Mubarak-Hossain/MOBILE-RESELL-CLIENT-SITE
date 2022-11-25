@@ -7,13 +7,13 @@ const DataPost = () => {
         const form = event.target;
         const name = form.name.value;
         const version = form.version.value;
-        const packagePost = {
+        const mobilePost = {
             name, version
         }
-        fetch('http://localhost:5000/package', {
+        fetch('http://localhost:5000/mobile', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(packagePost)
+            body: JSON.stringify(mobilePost)
         })
             .then(res => res.json())
             .then(data => {

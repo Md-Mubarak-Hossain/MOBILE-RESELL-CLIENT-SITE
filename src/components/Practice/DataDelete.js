@@ -12,7 +12,7 @@ const DataDelete = () => {
 
     // get all data for update
     useEffect(() => {
-        fetch('http://localhost:5000/package')
+        fetch('http://localhost:5000/mobile')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -29,7 +29,7 @@ const DataDelete = () => {
     const handleDelete = Data => {
         const procced = window.confirm(`Are you sure to delete???? : ${name}`)
         if (procced) {
-            fetch(`http://localhost:5000/package/${_id}`, {
+            fetch(`http://localhost:5000/mobile/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from '../../../assets/logo2.png';
 const Navbar = () => {
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
@@ -8,11 +8,15 @@ const Navbar = () => {
         <li><Link to='/faq'>FAQ</Link></li>
         <li><Link to='/dataget'>View</Link></li>
         <li><Link to='/datapost'>Post</Link ></li>
+        <li><Link to='/admindashboard'>Admin Dashboard</Link ></li>
+        <li><Link to='/sellerdashboard'>Seller Dashboard</Link ></li>
+        <li><Link to='/userdashboard'>User Dashboard</Link ></li>
     </>
     return (
-        <div className="navbar bg-primary text-primary-content">
-            <div className="navbar-start">
-                <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+        <div className="navbar bg-night ">
+            <div className="navbar-start h-16">
+                <Link className="btn btn-ghost normal-case text-xl rounded-full"><img src={logo} alt="Mobile Shop" className='w-16 h-14 rounded-full' /></Link>
+                <h2 className='text-3xl uppercase font-bold text-warning'>mobile reseller</h2>
             </div>
             <div className="navbar-end">
                 <div className="hidden lg:flex">

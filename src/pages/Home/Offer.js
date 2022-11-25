@@ -9,10 +9,10 @@ const Offer = () => {
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
                 <div className="card  bg-base-100 shadow-xl">
-                    <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                    <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRDTV55m6_ba_CPvOuskTBygXFXDRgKeb_5g&usqp=CAU" alt="img" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">
-                            Shoes!
+                            Offer! Offer!! Offer!!!
                             <div className="badge badge-secondary">NEW</div>
                         </h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
@@ -23,10 +23,10 @@ const Offer = () => {
                     </div>
                 </div>
                 <div className="card  bg-base-100 shadow-xl">
-                    <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                    <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRDTV55m6_ba_CPvOuskTBygXFXDRgKeb_5g&usqp=CAU" alt="img" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">
-                            Shoes!
+                            Offer! Offer!! Offer!!!
                             <div className="badge badge-secondary">NEW</div>
                         </h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
@@ -37,10 +37,10 @@ const Offer = () => {
                     </div>
                 </div>
                 <div className="card  bg-base-100 shadow-xl">
-                    <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                    <figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRDTV55m6_ba_CPvOuskTBygXFXDRgKeb_5g&usqp=CAU" alt="img" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">
-                            Shoes!
+                            Offer! Offer!! Offer!!!
                             <div className="badge badge-secondary">NEW</div>
                         </h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>
