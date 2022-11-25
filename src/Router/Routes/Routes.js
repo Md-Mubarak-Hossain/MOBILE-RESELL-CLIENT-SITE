@@ -17,7 +17,12 @@ import DeleteProducts from '../../pages/Dashboard/Admin/DeleteProducts';
 import GoOther from '../../pages/Dashboard/Admin/GoOther';
 import SeeAllProducts from '../../pages/Dashboard/Admin/SeeAllProducts';
 import UpdateProducts from '../../pages/Dashboard/Admin/UpdateProducts';
+import AddProduct from '../../pages/Dashboard/Seller/AddProduct';
+import DeleteProduct from '../../pages/Dashboard/Seller/DeleteProduct';
+import SeeProduct from '../../pages/Dashboard/Seller/SeeProduct';
 import SellerDashBoard from '../../pages/Dashboard/Seller/SellerDashBoard';
+import UpadeteScreen from '../../pages/Dashboard/Seller/UpadeteScreen';
+import UpdateProduct from '../../pages/Dashboard/Seller/UpdateProduct';
 import BuyerDashBoard from '../../pages/Dashboard/User/BuyerDashBoard';
 import Home from '../../pages/Home/Home';
 import Blog from '../../pages/publicPages/Blog/Blog';
@@ -51,11 +56,13 @@ const Routes = () => {
                     path: '/UpdateProducts',
                     element: <UpdateProducts></UpdateProducts>
                 },
+
                 {
                     path: '/update/:id',
                     element: <UpdateProducts></UpdateProducts>,
                     loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
                 },
+
                 {
                     path: '/delete/:id',
                     element: <DeleteProducts></DeleteProducts>,
@@ -65,9 +72,32 @@ const Routes = () => {
                     path: '/AddProducts',
                     element: <AddProducts></AddProducts>
                 },
+
                 {
                     path: '/sellerdashboard',
                     element: <SellerDashBoard></SellerDashBoard>,
+                },
+                {
+                    path: '/updateScreen',
+                    element: <UpadeteScreen></UpadeteScreen>
+                },
+                {
+                    path: '/AddProduct',
+                    element: <AddProduct></AddProduct>
+                },
+                {
+                    path: '/deleteSellerProduct/:id',
+                    element: <DeleteProduct></DeleteProduct>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
+                },
+                {
+                    path: '/updateSellerProduct/:id',
+                    element: <UpdateProduct></UpdateProduct>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
+                },
+                {
+                    path: '/seeAllProduct',
+                    element: <SeeProduct></SeeProduct>
                 },
                 {
                     path: '/A5',
