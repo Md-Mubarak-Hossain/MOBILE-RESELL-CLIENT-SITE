@@ -1,6 +1,8 @@
 import React from 'react';
 import { MdAddShoppingCart } from 'react-icons/md'
+import useTitle from '../../../components/Hooks/useTitle';
 const AddProduct = () => {
+    useTitle('Seller AddProduct');
     const handleSub = event => {
         event.preventDefault();
         const form = event.target;

@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../components/Hooks/useTitle';
 
 const Services = () => {
+    useTitle('Service Page');
     return (
         <div className='m-6 lg:m-16'>
             <div className='text-end my-6'>

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import updateImg from '../../../assets/update.jpg';
+import useTitle from '../../../components/Hooks/useTitle';
 
 const UpdateProducts = () => {
+    useTitle('Update Product');
     // default view by id
     const Data = useLoaderData();
     console.log(Data)

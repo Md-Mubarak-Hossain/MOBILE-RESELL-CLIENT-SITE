@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../../components/Hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register Page');
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">

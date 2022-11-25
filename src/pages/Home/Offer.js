@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../components/Hooks/useTitle';
 
 const Offer = () => {
+    useTitle('Offer Page');
     return (
         <div className='m-6 lg:m-16'>
             <div className='py-6'>

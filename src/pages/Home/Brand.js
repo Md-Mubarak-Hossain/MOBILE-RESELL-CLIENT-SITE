@@ -3,7 +3,9 @@ import vivo from '../../assets/vivobanner.jpg';
 import infinix from '../../assets/infinixhot9banner.jpg';
 import oppo from '../../assets/oppo.webp';
 import { Link } from 'react-router-dom';
+import useTitle from '../../components/Hooks/useTitle';
 const Brand = () => {
+    useTitle('Brand');
     return (
         <div className='m-6 lg:m-16 '>
             <div className='w-full text-center'>

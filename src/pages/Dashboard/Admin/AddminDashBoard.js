@@ -5,8 +5,10 @@ import { MdAddShoppingCart } from 'react-icons/md';
 import { AiTwotoneHome } from 'react-icons/ai';
 import { GrUpdate } from 'react-icons/gr';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
+import useTitle from '../../../components/Hooks/useTitle';
 
 const AddminDashBoard = () => {
+    useTitle('Admin DashBoard');
     return (
         <div data-theme="light" className='lg:flex'>
             <ul className="menu bg-base-100 lg:w-56 p-2 rounded-box">

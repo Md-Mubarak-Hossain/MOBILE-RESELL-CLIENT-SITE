@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../../components/Hooks/useTitle';
 
 const DeleteProduct = () => {
+    useTitle('Seller Product delete');
     // this use for view by id
     const Mobile = useLoaderData();
     const { _id, name, version } = Mobile;

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../components/Hooks/useTitle';
 
 
 const UpadeteScreen = () => {
+    useTitle('Update Product');
     const [mobile, setMobile] = useState([]);
     // const { data: Data, isLoading } = useQuery(
     //     {

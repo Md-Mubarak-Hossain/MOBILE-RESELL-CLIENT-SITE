@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../components/Hooks/useTitle';
 
 const Products = () => {
+    useTitle('Products');
     const [mobile, setMobile] = useState([]);
     // const { data: Data, isLoading } = useQuery(
     //     {

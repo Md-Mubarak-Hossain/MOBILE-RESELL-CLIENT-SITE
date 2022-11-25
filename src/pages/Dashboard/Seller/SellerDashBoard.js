@@ -5,8 +5,10 @@ import { AiTwotoneHome } from 'react-icons/ai';
 import { GrUpdate } from 'react-icons/gr';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import Products from '../Admin/Products';
+import useTitle from '../../../components/Hooks/useTitle';
 
 const SellerDashBoard = () => {
+    useTitle('Seller DashBoard');
     return (
         <div data-theme="light" className='lg:flex'>
             <ul className="menu bg-base-100 lg:w-56 p-2 rounded-box">

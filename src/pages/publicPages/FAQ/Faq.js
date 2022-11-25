@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../../components/Hooks/useTitle';
 import Footer from '../../shared/Footer/Footer';
 
 const Faq = () => {
+    useTitle('FAQ Page');
     const [faqs, setFaq] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/faqAns')
