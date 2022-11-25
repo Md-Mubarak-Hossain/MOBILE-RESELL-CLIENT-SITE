@@ -2,15 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
 const Navbar = () => {
+    const LoginMenu = <>
+        <div className="dropdown dropdown-hover relative">
+            <label tabIndex={0} className="btn my-1">Login</label>
+            <ul tabIndex={0} className="dropdown-content  p-1 shadow w-40 absolute top-20 right-1 flex flex-col justify-center items-center text-black bg-transparent">
+                <li><Link to='/admin'><button className='btn btn-outline btn-warning'>Admin Login</button></Link></li>
+                <li><Link to='/seller'><button className='btn btn-outline btn-warning'>Seller Login</button></Link></li>
+                <li><Link to='/user'><button className='btn btn-outline btn-warning'>User Login</button></Link></li>
+            </ul>
+        </div>
+    </>
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/faq'>FAQ</Link></li>
-        <li><Link to='/dataget'>View</Link></li>
-        <li><Link to='/datapost'>Post</Link ></li>
+        {/* <li><Link to='/dataget'>View</Link></li>
+        <li><Link to='/datapost'>Post</Link ></li> */}
         <li><Link to='/admindashboard'>Admin Dashboard</Link ></li>
         <li><Link to='/sellerdashboard'>Seller Dashboard</Link ></li>
         <li><Link to='/userdashboard'>User Dashboard</Link ></li>
+        <li>{LoginMenu}</li>
     </>
     return (
         <div className="navbar bg-night ">
