@@ -5,6 +5,7 @@ import DataGet from '../../components/Practice/DataGet';
 import DataPost from '../../components/Practice/DataPost';
 import DataUpdate from '../../components/Practice/DataUpdate';
 import Main from '../../Layouts/Default/Main';
+import Spin from '../../pages/account/Spinner/Spin';
 import Infinix from '../../pages/Categories/Infinix/Infinix';
 import A5 from '../../pages/Categories/Oppo/A5';
 import A9 from '../../pages/Categories/Oppo/A9';
@@ -156,6 +157,10 @@ const Routes = () => {
                     element: <DataDelete></DataDelete>,
                     loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
                 },
+                {
+                    path: '/spinner',
+                    element: <Spin></Spin>
+                }
             ]
         },
         {
