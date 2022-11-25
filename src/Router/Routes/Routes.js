@@ -5,9 +5,12 @@ import DataGet from '../../components/Practice/DataGet';
 import DataPost from '../../components/Practice/DataPost';
 import DataUpdate from '../../components/Practice/DataUpdate';
 import Main from '../../Layouts/Default/Main';
+import Infinix from '../../pages/Categories/Infinix/Infinix';
 import A5 from '../../pages/Categories/Oppo/A5';
 import A9 from '../../pages/Categories/Oppo/A9';
 import F7 from '../../pages/Categories/Oppo/F7';
+import Oppo from '../../pages/Categories/Oppo/Oppo';
+import Vivo from '../../pages/Categories/Vivo/Vivo';
 import AddminDashBoard from '../../pages/Dashboard/Admin/AddminDashBoard';
 import AddProducts from '../../pages/Dashboard/Admin/AddProducts';
 import DeleteProducts from '../../pages/Dashboard/Admin/DeleteProducts';
@@ -69,6 +72,18 @@ const Routes = () => {
                 {
                     path: '/A5',
                     element: <A5></A5>
+                },
+                {
+                    path: '/oppo',
+                    element: <Oppo></Oppo>
+                },
+                {
+                    path: '/vivo',
+                    element: <Vivo></Vivo>
+                },
+                {
+                    path: '/infinix',
+                    element: <Infinix></Infinix>
                 },
                 {
                     path: '/A9',

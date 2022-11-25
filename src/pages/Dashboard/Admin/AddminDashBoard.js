@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GoOther from './GoOther';
 import Products from './Products';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { AiTwotoneHome } from 'react-icons/ai';

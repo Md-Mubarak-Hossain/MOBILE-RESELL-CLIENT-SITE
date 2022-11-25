@@ -25,7 +25,7 @@ const DeleteProducts = () => {
     }
 
     const handleDelete = Mobile => {
-        const procced = window.confirm(`Are you sure to delete???? : ${name}`)
+        const procced = window.confirm(`Are you sure to delete??:${name}`)
         if (procced) {
             fetch(`http://localhost:5000/mobile/${_id}`, {
                 method: 'DELETE',
@@ -41,7 +41,6 @@ const DeleteProducts = () => {
                     }
 
                 })
-
         }
     }
 
