@@ -5,6 +5,10 @@ import DataGet from '../../components/Practice/DataGet';
 import DataPost from '../../components/Practice/DataPost';
 import DataUpdate from '../../components/Practice/DataUpdate';
 import Main from '../../Layouts/Default/Main';
+import AdminLogin from '../../pages/account/Login/AdminLogin/AdminLogin';
+import SellerLogin from '../../pages/account/Login/SellerLogin/SellerLogin';
+import Login from '../../pages/account/Login/UserLogin/Login';
+import Register from '../../pages/account/Register/Register';
 import Spin from '../../pages/account/Spinner/Spin';
 import Infinix from '../../pages/Categories/Infinix/Infinix';
 import A5 from '../../pages/Categories/Oppo/A5';
@@ -160,6 +164,22 @@ const Routes = () => {
                 {
                     path: '/spinner',
                     element: <Spin></Spin>
+                },
+                {
+                    path: '/register',
+                    element: <Register></Register>
+                },
+                {
+                    path: '/admin',
+                    element: <AdminLogin></AdminLogin>
+                },
+                {
+                    path: '/user',
+                    element: <Login></Login>
+                },
+                {
+                    path: '/seller',
+                    element: <SellerLogin></SellerLogin>
                 }
             ]
         },

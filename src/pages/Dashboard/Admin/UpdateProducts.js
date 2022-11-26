@@ -60,54 +60,56 @@ const UpdateProducts = () => {
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Update now!</h1>
                         <div className='py-6'>
-                            <img src={updateImg} alt="img" />
+                            <img src={updateImg} alt="img" className='rounded' />
                         </div>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">name</span>
-                                </label>
-                                <input onChange={onChangeHandle} defaultValue={name} placeholder='enter name' name='name' className="input input-bordered" />
+                            <div className='grid grid-cols-2 gap-2'>
+                                <div className="form-control lg:px-2">
+                                    <label className="label">
+                                        <span className="label-text">name</span>
+                                    </label>
+                                    <input onChange={onChangeHandle} defaultValue={name} placeholder='enter name' name='name' className="input input-bordered" />
+                                </div>
+                                <div className="form-control lg:px-2">
+                                    <label className="label">
+                                        <span className="label-text">Brand</span>
+                                    </label>
+                                    <input type="text" onChange={onChangeHandle} defaultValue={brand} placeholder='enter name' name='brand' className="input input-bordered" />
+                                </div>
+                                <div className="form-control lg:px-2">
+                                    <label className="label">
+                                        <span className="label-text">Category</span>
+                                    </label>
+                                    <input type="text" onChange={onChangeHandle} defaultValue={category} placeholder='enter name' name='category' className="input input-bordered" />
+                                </div>
+                                <div className="form-control lg:px-2">
+                                    <label className="label">
+                                        <span className="label-text">Ram</span>
+                                    </label>
+                                    <input type="text" onChange={onChangeHandle} defaultValue={ram} placeholder='enter name' name='ram' className="input input-bordered" />
+                                </div>
+                                <div className="form-control lg:px-2">
+                                    <label className="label">
+                                        <span className="label-text">Camera</span>
+                                    </label>
+                                    <input type="text" onChange={onChangeHandle} defaultValue={camera} placeholder='enter name' name='camera' className="input input-bordered" />
+                                </div>
+                                <div className="form-control lg:px-2">
+                                    <label className="label">
+                                        <span className="label-text">Re-sale Price</span>
+                                    </label>
+                                    <input type="text" onChange={onChangeHandle} defaultValue={resalePrice} placeholder='enter name' name='resalePrice' className="input input-bordered" />
+                                </div>
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Brand</span>
-                                </label>
-                                <input type="text" onChange={onChangeHandle} defaultValue={brand} placeholder='enter name' name='brand' className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Category</span>
-                                </label>
-                                <input type="text" onChange={onChangeHandle} defaultValue={category} placeholder='enter name' name='category' className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Ram</span>
-                                </label>
-                                <input type="text" onChange={onChangeHandle} defaultValue={ram} placeholder='enter name' name='ram' className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Camera</span>
-                                </label>
-                                <input type="text" onChange={onChangeHandle} defaultValue={camera} placeholder='enter name' name='camera' className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Re-sale Price</span>
-                                </label>
-                                <input type="text" onChange={onChangeHandle} defaultValue={resalePrice} placeholder='enter name' name='resalePrice' className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
+                            <div className="form-control lg:px-2">
                                 <label className="label">
                                     <span className="label-text">useTime</span>
                                 </label>
                                 <input type="text" onChange={onChangeHandle} defaultValue={useTime} placeholder='enter name' name='useTime' className="input input-bordered" />
                             </div>
-                            <div className="form-control mt-6">
+                            <div className="form-control lg:px-2 mt-6">
                                 <button className="btn btn-primary">Update</button>
                             </div>
                         </div>
@@ -115,7 +117,7 @@ const UpdateProducts = () => {
                 </div>
             </form>
 
-            <div>
+            <div className='px-5 pb-2'>
                 <Link to='/seeAllProducts'><button className='btn btn-outline btn-warning'>Return Products Screen</button></Link>
             </div>
         </div >

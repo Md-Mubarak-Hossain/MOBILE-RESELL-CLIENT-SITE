@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
+import AdminLogin from '../../account/Login/AdminLogin/AdminLogin';
 const Navbar = () => {
+
+
     const LoginMenu = <>
         <div className="dropdown dropdown-hover relative">
             <label tabIndex={0} className="btn my-1">Login</label>
@@ -12,22 +15,31 @@ const Navbar = () => {
             </ul>
         </div>
     </>
+    const adminDashboard = <>
+        <li><Link to='/admindashboard'>Admin Dashboard</Link ></li>
+    </>
+    const sellerDashboard = <>
+        <li><Link to='/sellerdashboard'>Seller Dashboard</Link ></li>
+    </>
+    const userDashboard = <>
+        <li><Link to='/userdashboard'>User Dashboard</Link ></li>
+    </>
+
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/faq'>FAQ</Link></li>
         {/* <li><Link to='/dataget'>View</Link></li>
         <li><Link to='/datapost'>Post</Link ></li> */}
-        <li><Link to='/admindashboard'>Admin Dashboard</Link ></li>
-        <li><Link to='/sellerdashboard'>Seller Dashboard</Link ></li>
-        <li><Link to='/userdashboard'>User Dashboard</Link ></li>
+        {/* {adminDashboard} */}
+        <li><Link to='/register'>Register</Link></li>
         <li>{LoginMenu}</li>
     </>
     return (
         <div className="navbar bg-night ">
             <div className="navbar-start h-16">
                 <Link className="btn btn-ghost normal-case text-xl rounded-full"><img src={logo} alt="Mobile Shop" className='w-16 h-14 rounded-full' /></Link>
-                <h2 className='text-3xl uppercase font-bold text-warning'>mobile reseller</h2>
+                <h2 className='hidden lg:flex lg:text-3xl uppercase lg:font-bold text-warning'>mobile reseller</h2>
             </div>
             <div className="navbar-end">
                 <div className="hidden lg:flex">
