@@ -31,15 +31,15 @@ const AddminDashBoard = () => {
                     </Link >
                 </li>
                 <li>
-                    <Link className='text-primary'>
+                    <Link to='/Seller' className='text-primary'>
                         <BsFillPersonLinesFill></BsFillPersonLinesFill>
-                        <h2 className='text-primary'>All Seller</h2>
+                        <p className='text-primary'>All Seller</p>
                     </Link>
                 </li>
                 <li>
-                    <Link className='text-primary'>
+                    <Link to='/User' className='text-primary'>
                         <BsFillPersonLinesFill></BsFillPersonLinesFill>
-                        <h2 className='text-primary'>All User</h2>
+                        <p className='text-primary'>All User</p>
                     </Link>
                 </li>
             </ul>

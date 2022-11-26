@@ -29,7 +29,7 @@ const F7 = () => {
                 {
                     mobile.map(d => <div key={d._id} className="hero">
                         {
-                            d.category.includes("f7") ?
+                            d.category?.includes("f7") ?
                                 <div className="hero-content flex-col lg:flex-row p-2 lg:border w-full rounded-lg">
                                     <div>
                                         <img alt='img' src={d.picture} className=" rounded-lg shadow-xl h-72" />

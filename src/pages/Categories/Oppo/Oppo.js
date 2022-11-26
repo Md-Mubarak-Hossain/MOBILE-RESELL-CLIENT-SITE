@@ -1,3 +1,4 @@
+// import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../components/Hooks/useTitle';
@@ -5,7 +6,9 @@ import useTitle from '../../../components/Hooks/useTitle';
 const Oppo = () => {
     useTitle('Oppo Brand');
     const [mobile, setMobile] = useState([]);
-
+    const [MobileData, setD] = useState([]);
+    const { name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
+        battery, picture, location } = MobileData;
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
@@ -13,14 +16,41 @@ const Oppo = () => {
     //             .then(res => res.json())
     //     }
     // )
+
     useEffect(() => {
         fetch('http://localhost:5000/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
     console.log(mobile);
+    console.log(MobileData);
+    // data post
+    const mobilePost = {
+        name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
+        battery, picture, location
+    }
+    console.log(mobilePost)
+    const handleClick = () => {
+        fetch('http://localhost:5000/wish', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(mobilePost)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    // form.reset();
+                    alert('Added success')
+                }
+                else {
+                    alert('sorry');
+                }
+            })
+    }
+
     return (
-        <div className='lg:m-16'>
+        <div className='lg:m-16' >
             <div className='text-center lg:mb-5'>
                 <p className='text-xl lg:text-4xl font-bold'>The Second Hand Mobile Screen</p>
                 <p class='text-xl lg:text-4xl font-bold text-warning'>Brand: Oppo</p>
@@ -29,7 +59,7 @@ const Oppo = () => {
                 {
                     mobile.map(d => <div key={d._id} className="hero">
                         {
-                            d.brand.includes("Oppo") ?
+                            d.brand?.includes("Oppo") ?
                                 <div className="hero-content flex-col lg:flex-row p-2 lg:border w-full rounded-lg">
                                     <div>
                                         <img alt='img' src={d.picture} className=" rounded-lg shadow-xl h-72" />
@@ -48,8 +78,8 @@ const Oppo = () => {
                                             <p className="lg:text-xl">resalePrice:{d.resalePrice}</p>
                                             <p className="lg:text-xl">location:{d.location}</p>
                                         </div>
-                                        <Link to={`/delete/${d._id}`}><button className="btn btn-primary btn-sm">X</button></Link>
-                                        <Link to={`/update/${d._id}`}> <button className="btn btn-primary btn-sm">update</button></Link>
+                                        <Link to={`/payment/${d._id}`}> <button className="btn btn-primary btn-sm">Buy Now</button></Link>
+                                        <Link> <button onClick={() => handleClick(setD(d))} className="btn btn-primary btn-sm">Add Wish List</button></Link>
                                     </div>
                                 </div>
                                 : <>

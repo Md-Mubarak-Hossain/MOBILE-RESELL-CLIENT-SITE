@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
-const AddWishList = () => {
-    const [mobile, setMobile] = useState([]);
+const User = () => {
+    const [user, setUser] = useState([]);
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
@@ -12,33 +11,29 @@ const AddWishList = () => {
     //     }
     // )
     useEffect(() => {
-        fetch('http://localhost:5000/wish')
+        fetch('http://localhost:5000/user')
             .then(res => res.json())
-            .then(data => setMobile(data))
+            .then(data => setUser(data))
     }, [])
-    console.log(mobile);
+    console.log(user);
     return (
         <div className="overflow-x-auto w-full">
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>The Update Screen</p>
-                <h2>Total Mobiles:{mobile.length}</h2>
+                <p className='text-xl lg:text-4xl font-bold'>The User Update Screen</p>
+                <h2>Total users:{user.length}</h2>
             </div>
             <table className="table lg:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
-                        <th>Remove</th>
-                        <th>Brand</th>
-                        <th>Category</th>
-                        <th>resell-price</th>
-                        <th>Payment</th>
+                        <th></th>
+                        <th>username</th>
+                        <th>Address</th>
+
                     </tr>
                 </thead>
                 {
-                    mobile.map(d => <tbody key={d._id}>
+                    user.map(d => <tbody key={d._id}>
                         <tr className='border'>
-                            <th>
-                                <Link to={`/delete/${d._id}`}><button className="btn btn-outline btn-primary btn-sm">X</button></Link>
-                            </th>
                             <td>
                                 <div className="flex items-center space-x-2">
                                     <div className="avatar">
@@ -47,19 +42,21 @@ const AddWishList = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="font-bold">{d.name}</div>
-                                        <div className="text-sm opacity-50">{d.category}</div>
+                                        <div className="font-bold">{d.username}</div>
+                                        <div className="text-sm opacity-50">{d.location}</div>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                {d.name}
+                                {d.phone}
                                 <br />
-                                <span className="badge badge-ghost badge-sm">{d.brand}</span>
+                                <span className="badge badge-ghost badge-sm">{d.email}</span>
                             </td>
-                            <td>'$'{d.resalePrice}</td>
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{d.password}</span>
+                            </td>
                             <th>
-                                <Link to={`/payment/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">Payment</button></Link>
+                                <Link to={`/removeUser/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">Remove</button></Link>
                             </th>
                         </tr>
 
@@ -73,4 +70,4 @@ const AddWishList = () => {
     );
 };
 
-export default AddWishList;
+export default User;

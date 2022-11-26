@@ -20,8 +20,12 @@ import AddminDashBoard from '../../pages/Dashboard/Admin/AddminDashBoard';
 import AddProducts from '../../pages/Dashboard/Admin/AddProducts';
 import DeleteProducts from '../../pages/Dashboard/Admin/DeleteProducts';
 import GoOther from '../../pages/Dashboard/Admin/GoOther';
+import RemoveSeller from '../../pages/Dashboard/Admin/RemoveSeller';
+import RemoveUser from '../../pages/Dashboard/Admin/RemoveUser';
 import SeeAllProducts from '../../pages/Dashboard/Admin/SeeAllProducts';
+import Seller from '../../pages/Dashboard/Admin/Seller';
 import UpdateProducts from '../../pages/Dashboard/Admin/UpdateProducts';
+import User from '../../pages/Dashboard/Admin/User';
 import AddProduct from '../../pages/Dashboard/Seller/AddProduct';
 import DeleteProduct from '../../pages/Dashboard/Seller/DeleteProduct';
 import SeeProduct from '../../pages/Dashboard/Seller/SeeProduct';
@@ -29,10 +33,13 @@ import SellerDashBoard from '../../pages/Dashboard/Seller/SellerDashBoard';
 import UpadeteScreen from '../../pages/Dashboard/Seller/UpadeteScreen';
 import UpdateProduct from '../../pages/Dashboard/Seller/UpdateProduct';
 import BuyerDashBoard from '../../pages/Dashboard/User/BuyerDashBoard';
+import Book from '../../pages/Dashboard/User/Book';
 import Home from '../../pages/Home/Home';
 import Blog from '../../pages/publicPages/Blog/Blog';
 import Faq from '../../pages/publicPages/FAQ/Faq';
 import FourOfFour from '../FourOfFour/FourOfFour';
+import AddWishList from '../../pages/Dashboard/User/AddWishList';
+import Payment from '../../pages/Dashboard/User/Payment';
 
 const Routes = () => {
     const router = createBrowserRouter([
@@ -48,6 +55,24 @@ const Routes = () => {
                 {
                     path: '/admindashboard',
                     element: <AddminDashBoard></AddminDashBoard>,
+                },
+                {
+                    path: '/User',
+                    element: <User></User>
+                },
+                {
+                    path: '/removeUser/:id',
+                    element: <RemoveUser></RemoveUser>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/user/${params.id}`)
+                },
+                {
+                    path: '/Seller',
+                    element: <Seller></Seller>
+                },
+                {
+                    path: '/removeSeller/:id',
+                    element: <RemoveSeller></RemoveSeller>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/seller/${params.id}`)
                 },
                 {
                     path: '/seeAllProducts',
@@ -66,6 +91,22 @@ const Routes = () => {
                     path: '/update/:id',
                     element: <UpdateProducts></UpdateProducts>,
                     loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
+                },
+                {
+                    path: '/book',
+                    element: <Book></Book>,
+                    loader: () => fetch(`http://localhost:5000/wish`)
+                },
+                {
+                    path: '/wishlist',
+                    element: <AddWishList></AddWishList>,
+                    loader: () => fetch(`http://localhost:5000/wish`)
+                },
+                {
+                    path: '/payment/:id',
+                    element: <Payment></Payment>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/wish/${params.id}`)
+
                 },
 
                 {

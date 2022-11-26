@@ -23,15 +23,18 @@ const Navbar = () => {
     </>
     const userDashboard = <>
         <li><Link to='/userdashboard'>User Dashboard</Link ></li>
+        <li><Link to='/wishlist'>AddWishList</Link ></li>
     </>
 
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/faq'>FAQ</Link></li>
+        {/* <li><Link to='/blog'>Blog</Link></li> */}
+        {/* <li><Link to='/faq'>FAQ</Link></li> */}
         {/* <li><Link to='/dataget'>View</Link></li>
         <li><Link to='/datapost'>Post</Link ></li> */}
-        {/* {adminDashboard} */}
+        {adminDashboard}
+        {sellerDashboard}
+        {userDashboard}
         <li><Link to='/register'>Register</Link></li>
         <li>{LoginMenu}</li>
     </>

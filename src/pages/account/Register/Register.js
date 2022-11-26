@@ -9,11 +9,12 @@ const Register = () => {
     const handleSub = event => {
         event.preventDefault();
         const form = event.target;
-        const username = form.name.value;
+        const username = form.username.value;
         const phone = form.phone.value;
         const email = form.email.value;
         const location = form.location.value;
         const password = form.password.value;
+        const picture = form.picture.value;
         if (password.length > 6) {
             setError('')
             createUser(email, password)
@@ -24,7 +25,7 @@ const Register = () => {
                 .catch(err => console.error(err))
 
             const userRegister = {
-                username, phone, email, location, password
+                username, phone, email, location, password, picture
             }
             fetch('http://localhost:5000/user', {
                 method: 'POST',
@@ -83,6 +84,12 @@ const Register = () => {
                                     <span className="label-text">Location</span>
                                 </label>
                                 <input type="text" placeholder="location" name='location' className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Profile Photo</span>
+                                </label>
+                                <input type="text" placeholder="Photo url" name='picture' className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
