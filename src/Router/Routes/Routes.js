@@ -40,6 +40,8 @@ import Faq from '../../pages/publicPages/FAQ/Faq';
 import FourOfFour from '../FourOfFour/FourOfFour';
 import AddWishList from '../../pages/Dashboard/User/AddWishList';
 import Payment from '../../pages/Dashboard/User/Payment';
+import SellerRegister from '../../pages/account/Register/SellerRegister';
+import Navbar from '../../pages/shared/Navbar/Navbar';
 
 const Routes = () => {
     const router = createBrowserRouter([
@@ -102,6 +104,11 @@ const Routes = () => {
                     element: <AddWishList></AddWishList>,
                     loader: () => fetch(`http://localhost:5000/wish`)
                 },
+                // {
+                //     path: '/wishlist/:id',
+                //     element: <AddWishList></AddWishList>,
+                //     loader: ({ params }) => fetch(`http://localhost:5000/wish${params.id}`)
+                // },
                 {
                     path: '/payment/:id',
                     element: <Payment></Payment>,
@@ -211,17 +218,21 @@ const Routes = () => {
                     element: <Register></Register>
                 },
                 {
-                    path: '/admin',
+                    path: '/adminlogin',
                     element: <AdminLogin></AdminLogin>
                 },
                 {
-                    path: '/user',
+                    path: '/userlogin',
                     element: <Login></Login>
                 },
                 {
-                    path: '/seller',
+                    path: '/sellerlogin',
                     element: <SellerLogin></SellerLogin>
-                }
+                },
+                {
+                    path: '/sellerRegister',
+                    element: <SellerRegister></SellerRegister>
+                },
             ]
         },
         {

@@ -1,42 +1,97 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
-import AdminLogin from '../../account/Login/AdminLogin/AdminLogin';
+import { AuthContext } from '../../../ContextApi/Context';
+
 const Navbar = () => {
-
-
+    const sellers = useLoaderData()
+    console.log(sellers);
+    const { user, logOut } = useContext(AuthContext);
+    const logout = () => {
+        logOut()
+            .then(result => { })
+            .catch(err => console.error(err))
+    }
     const LoginMenu = <>
         <div className="dropdown dropdown-hover relative">
             <label tabIndex={0} className="btn my-1">Login</label>
-            <ul tabIndex={0} className="dropdown-content  p-1 shadow w-40 absolute top-20 right-1 flex flex-col justify-center items-center text-black bg-transparent">
-                <li><Link to='/admin'><button className='btn btn-outline btn-warning'>Admin Login</button></Link></li>
-                <li><Link to='/seller'><button className='btn btn-outline btn-warning'>Seller Login</button></Link></li>
-                <li><Link to='/user'><button className='btn btn-outline btn-warning'>User Login</button></Link></li>
+            <ul tabIndex={0} className="dropdown-content rounded-box p-1 shadow w-52 absolute top-20 right-1 place-items-center text-black bg-base-100 ">
+                <h2 className='text-warning'>Select a Category </h2>
+                <li><Link to='/adminlogin'><button className='btn btn-outline btn-warning'>Admin Login</button></Link></li>
+                <li><Link to='/sellerlogin'><button className='btn btn-outline btn-warning'>Seller Login</button></Link></li>
+                <li><Link to='/userlogin'><button className='btn btn-outline btn-warning'>User Login</button></Link></li>
             </ul>
         </div>
     </>
-    const adminDashboard = <>
-        <li><Link to='/admindashboard'>Admin Dashboard</Link ></li>
+    const registerMenu = <>
+        <div className="dropdown dropdown-hover relative">
+            <label tabIndex={0} className="btn m-1">Register</label>
+            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100  rounded-box w-52 absolute top-20 text-center place-items-center">
+                <h2 className='text-warning'>Select a Category </h2>
+                <li><Link to='/register'><button className='btn btn-outline btn-warning'>User</button></Link></li>
+                <li><Link to='/sellerRegister'><button className='btn btn-outline btn-warning'>Seller</button></Link></li>
+            </ul>
+        </div>
     </>
-    const sellerDashboard = <>
-        <li><Link to='/sellerdashboard'>Seller Dashboard</Link ></li>
+    const AdminDashboard =
+        <>
+            {
+                user && user.uid && user.email?.includes("mubarak@gmail.com") ?
+                    <>
+                        <li> <Link to='/admindashboard'>Admin Dashboard</Link></li>
+                    </>
+                    : <>
+                    </>
+            }
+        </>
+
+
+    const UserDashboard =
+        <>
+            {
+                user && user.uid && !user?.email.includes("mubarak@gmail.com") ?
+                    <>
+                        <li><Link to='/userdashboard'>User Dashboard</Link ></li>
+                        <li><Link to='/wishlist'>AddWishList</Link ></li>
+
+                    </>
+                    : <>
+                    </>
+            }
+        </>
+    const login = <>
+        {
+            user && user.uid ?
+                <li><Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link></li>
+                :
+                <>
+                    {registerMenu}
+                    {LoginMenu}
+                </>
+
+        }
     </>
-    const userDashboard = <>
-        <li><Link to='/userdashboard'>User Dashboard</Link ></li>
-        <li><Link to='/wishlist'>AddWishList</Link ></li>
+
+    const sellerDashboard = <>{
+        sellers?.map(seller => < li key={seller._id}>
+            {user && user.uid && seller?.email.incluses(user.email) ?
+                < Link to='/sellerdashboard'>Seller Dashboard</Link >
+                : <>
+                </>
+            }
+        </li>)
+
+    }
     </>
+
 
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
-        {/* <li><Link to='/blog'>Blog</Link></li> */}
-        {/* <li><Link to='/faq'>FAQ</Link></li> */}
-        {/* <li><Link to='/dataget'>View</Link></li>
-        <li><Link to='/datapost'>Post</Link ></li> */}
-        {adminDashboard}
+        <li><Link to='/blog'>Blog</Link></li>
+        {AdminDashboard}
         {sellerDashboard}
-        {userDashboard}
-        <li><Link to='/register'>Register</Link></li>
-        <li>{LoginMenu}</li>
+        {UserDashboard}
+        <li>{login}</li>
     </>
     return (
         <div className="navbar bg-night ">

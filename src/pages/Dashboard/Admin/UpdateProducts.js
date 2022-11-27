@@ -9,16 +9,7 @@ const UpdateProducts = () => {
     const Data = useLoaderData();
     console.log(Data)
     const { name, brand, ram, camera, useTime, resalePrice, category } = Data;
-    /*
-    
-                    name: mobile.name,
-                    brand: mobile.brand,
-                    ram: mobile.ram,
-                    camera: mobile.camera,
-                    useTime: mobile.useTime,
-                    resalePrice: mobile.resalePrice,
-                    category: mobile.category,
-    */
+
     // load all data
     const [previousData, setUpdateData] = useState([])
     const [updateData, setData] = useState(previousData)

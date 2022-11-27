@@ -1,47 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import useTitle from '../../../../components/Hooks/useTitle';
 import login from '../../../../assets/login.jpg';
-import AddminDashBoard from '../../../Dashboard/Admin/AddminDashBoard';
-import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../../../ContextApi/Context';
-
+import { AuthContext } from '../../../../ContextApi/Context';
+import { Navigate } from 'react-router-dom';
 const AdminLogin = () => {
     useTitle('Admin Login');
-    // const { user } = useContext(AuthContext);
-    const [admin, setAdmin] = useState([]);
-    const [user, setUser] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/admin')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setAdmin(data);
-            })
-    }, [])
-    console.log(admin);
+    const { user, logIn } = useContext(AuthContext);
     const handleSub = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const newUser = {
-            email: email, password: password
-        }
-        setUser(newUser)
+        logIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                user ?
+
+                    alert('successfully login')
+                    : alert('login failed')
+
+            })
+            .catch(err => console.error(err))
+
     }
     console.log(user)
-    const onClickHandle = user => {
-        user.email === admin[0].email ?
-            <>
-                <AddminDashBoard></AddminDashBoard>
-                <Link to='/'><button className='btn'>Log Out</button></Link>
-                <div className='hidden'><AdminLogin></AdminLogin></div>
-            </>
-            // console.log(admin[0].email, user.email)
-            : <>
-            </>
-    }
+
     return (
         <form onSubmit={handleSub}>
             <div div className="hero min-h-screen bg-base-200">
@@ -67,7 +51,7 @@ const AdminLogin = () => {
                                 <input type="text" placeholder="password" name='password' className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
-                                <button onClick={() => onClickHandle(user)} className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Login</button>
                             </div>
                         </div>
                     </div>

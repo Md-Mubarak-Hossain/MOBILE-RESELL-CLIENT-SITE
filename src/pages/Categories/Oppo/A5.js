@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../components/Hooks/useTitle';
+import { AuthContext } from '../../../ContextApi/Context';
+
 
 const A5 = () => {
     useTitle('Oppo A5');
     const [mobile, setMobile] = useState([]);
-
+    const [MobileData, setD] = useState([]);
+    const { name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
+        battery, picture, location } = MobileData;
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
@@ -13,17 +17,44 @@ const A5 = () => {
     //             .then(res => res.json())
     //     }
     // )
+
     useEffect(() => {
         fetch('http://localhost:5000/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
     console.log(mobile);
+    console.log(MobileData);
+    // data post
+    const mobilePost = {
+        name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
+        battery, picture, location
+    }
+    console.log(mobilePost)
+    const handleClick = () => {
+        fetch('http://localhost:5000/wish', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(mobilePost)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    // form.reset();
+                    alert('Added success')
+                }
+                else {
+                    alert('sorry');
+                }
+            })
+    }
+
     return (
-        <div className='lg:m-16'>
+        <div className='lg:m-16' >
             <div className='text-center lg:mb-5'>
                 <p className='text-xl lg:text-4xl font-bold'>The Second Hand Mobile Screen</p>
-                <p class='text-xl lg:text-4xl font-bold text-warning'>Category: Oppo A5</p>
+                <p class='text-xl lg:text-4xl font-bold text-warning'>Brand: Oppo</p>
             </div>
             <div className='grid grid-cols-1 lg:gap-2 lg:grid-cols-2'>
                 {
@@ -48,12 +79,12 @@ const A5 = () => {
                                             <p className="lg:text-xl">resalePrice:{d.resalePrice}</p>
                                             <p className="lg:text-xl">location:{d.location}</p>
                                         </div>
-                                        <Link to={`/delete/${d._id}`}><button className="btn btn-primary btn-sm">X</button></Link>
-                                        <Link to={`/update/${d._id}`}> <button className="btn btn-primary btn-sm">update</button></Link>
+                                        <Link to={`/payment/${d._id}`}> <button className="btn btn-primary btn-sm">Buy Now</button></Link>
+                                        <Link> <button onClick={() => handleClick(setD(d))} className="btn btn-primary btn-sm">Add Wish List</button></Link>
                                     </div>
                                 </div>
-                                : <>
-                                </>
+                                : <div className='hidden'>
+                                </div>
                         }
                     </div>)
                 }
@@ -61,5 +92,4 @@ const A5 = () => {
         </div >
     );
 };
-
 export default A5;

@@ -1,10 +1,13 @@
 // import { data } from 'autoprefixer';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../components/Hooks/useTitle';
+import { AuthContext } from '../../../ContextApi/Context';
+import Spin from '../../account/Spinner/Spin';
 
 const Oppo = () => {
     useTitle('Oppo Brand');
+    const { loading } = useContext(AuthContext)
     const [mobile, setMobile] = useState([]);
     const [MobileData, setD] = useState([]);
     const { name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
@@ -48,7 +51,6 @@ const Oppo = () => {
                 }
             })
     }
-
     return (
         <div className='lg:m-16' >
             <div className='text-center lg:mb-5'>

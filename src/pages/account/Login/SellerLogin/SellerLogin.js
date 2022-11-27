@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useTitle from '../../../../components/Hooks/useTitle';
 import sellerlogin from '../../../../assets/sellerlogin.png';
+import { SellerAuth } from '../../../../ContextApi/SellerContext';
 const SellerLogin = () => {
     useTitle('Seller Login');
+    const { email } = useContext(SellerAuth)
     return (
         <form>
+            {email}
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
