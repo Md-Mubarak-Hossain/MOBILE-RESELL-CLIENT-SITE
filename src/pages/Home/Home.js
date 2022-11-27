@@ -12,8 +12,15 @@ const Home = () => {
     useTitle('Home');
     return (
         <div>
-            <Banner></Banner>
-            <Advertise></Advertise>
+            <div className="flex flex-col w-full lg:flex-row">
+                <div className="grid flex-grow lg:m-0 lg:p-0 bg-base-300 rounded-box place-items-center w-2/3">
+                    <Banner></Banner>
+                </div>
+                <div className="lg:divider-horizontal w-0 divider-base-300 m-0 p-0"></div>
+                <div className="grid flex-grow lg:m-0 lg:p-0 bg-base-300 rounded-box place-items-center w-1/3 px-2">
+                    <Advertise></Advertise>
+                </div>
+            </div>
             <Brand></Brand>
             <Category></Category>
             <Offer></Offer>

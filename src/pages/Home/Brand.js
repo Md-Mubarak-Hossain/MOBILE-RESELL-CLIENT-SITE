@@ -7,7 +7,7 @@ import useTitle from '../../components/Hooks/useTitle';
 const Brand = () => {
     useTitle('Brand');
     return (
-        <div className='m-6 lg:m-16 '>
+        <div className='mx-6 lg:mx-16 '>
             <div className='w-full text-center'>
                 <h2 className='text-xl'>Super Brand</h2>
                 <h2 className='text-3xl font-bold'>Our Re-Sale Product</h2>

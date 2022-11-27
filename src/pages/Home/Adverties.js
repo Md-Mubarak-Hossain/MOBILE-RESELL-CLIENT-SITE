@@ -1,45 +1,56 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import config from '../../config';
 import {
-    AdvertisingProvider,
-    AdvertisingSlot,
-    logVersionInfo
+    AdvertisingProvider, AdvertisingSlot, logVersionInfo
 } from 'react-advertising';
+import { IoMdNotificationsOutline } from 'react-icons/io'
+import vivo from '../Home/Offer/vivo.jpg';
+import oppo from '../Home/Offer/oppo.jpg';
+import infinix from '../Home/Offer/infinix.jpg';
 
 const Advertise = () => {
+    let [imag, setImag] = useState(0)
+    let img = [oppo, oppo, infinix, infinix, vivo, vivo]
+    useEffect(() => {
+        setInterval(() => {
+            setImag(imag + 1);
+            if (imag === img.length) {
+                setImag(0)
+            }
+        }, 20000)
+    }, [])
+    const [mobile, setMobile] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/mobile')
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setMobile(data)
+            })
     }, [])
+
+    console.log(imag)
+    console.log(mobile)
     logVersionInfo();
     return (
-        <div>
-            <AdvertisingProvider config={config}>
-                <div>
-                    <img
-                        src="https://developer.sabre.com/sites/default/files/2019-10/Picture4-1-1024x242_3.png"
-                        alt="logo"
-                    />
-                    <h1>
-                        React Advertising Demo
-                        <br />
-
-                    </h1>
-                </div>
-                <div>
-                    <p>
-                        This demo shows how to integrate advertising into your React
-                        application using Google Publisher Tags and Prebid.
-                    </p>
-                    <h2>Slot <em>banner-ad</em>:</h2>
-                    <AdvertisingSlot id="banner-ad" />
-                    <p>
-                        This version uses the ES6 modules from the npm package, which is the
-                        default and recommended way, also used by <em>create-react-app</em>
-                    </p>
-                </div>
-            </AdvertisingProvider>
+        <div className='flex flex-col justify-center items-center place-items-start mb-0 pb-0'>
+            {
+                mobile.length > 0 ?
+                    <div className='card justify-center items-center place-items-center relative'>
+                        <AdvertisingProvider config={config} >
+                            <img src={img[imag]} alt="logo" />
+                            <div>
+                                <h2 className='absolute top-0 '>
+                                    <p className='text-5xl font-bold text-warning'>
+                                        <IoMdNotificationsOutline></IoMdNotificationsOutline>
+                                    </p>
+                                    Ads <em>10% discount on bkash payment </em>:</h2>
+                                <AdvertisingSlot id="banner-ad" />
+                            </div>
+                        </AdvertisingProvider>
+                    </div >
+                    : <div className='hidden'>
+                    </div>}
         </div >
     );
 }

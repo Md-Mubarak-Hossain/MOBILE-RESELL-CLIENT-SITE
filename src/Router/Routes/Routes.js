@@ -1,9 +1,5 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import DataDelete from '../../components/Practice/DataDelete';
-import DataGet from '../../components/Practice/DataGet';
-import DataPost from '../../components/Practice/DataPost';
-import DataUpdate from '../../components/Practice/DataUpdate';
 import Main from '../../Layouts/Default/Main';
 import AdminLogin from '../../pages/account/Login/AdminLogin/AdminLogin';
 import SellerLogin from '../../pages/account/Login/SellerLogin/SellerLogin';
@@ -190,25 +186,7 @@ const Routes = () => {
                     element: <Faq></Faq>,
                     // loader: fetch('http://localhost:5000/mobile')
                 },
-                {
-                    path: '/dataget',
-                    element: <DataGet></DataGet>,
 
-                },
-                {
-                    path: '/datapost',
-                    element: <DataPost></DataPost>
-                },
-                {
-                    path: '/dataupdate/:id',
-                    element: <DataUpdate></DataUpdate>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
-                },
-                {
-                    path: '/datadelete/:id',
-                    element: <DataDelete></DataDelete>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
-                },
                 {
                     path: '/spinner',
                     element: <Spin></Spin>

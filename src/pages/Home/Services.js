@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 const Services = () => {
     const seeMore = <><label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label></>
     const close = <label htmlFor="bkashPay" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
-
     return (
         <div className='card shadow-2xl lg:m-16  place-items-center'>
             <h2 className='text-xl font-bold'>Services</h2>
