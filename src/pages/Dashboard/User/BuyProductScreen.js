@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../components/Hooks/useTitle';
 
-const BuyProduct = () => {
+const BuyProductScreen = () => {
     useTitle('Buy Product');
     const [mobile, setMobile] = useState([]);
     const [MobileData, setD] = useState([]);
@@ -47,7 +47,7 @@ const BuyProduct = () => {
             </div>
             <div className='grid grid-cols-1  lg:grid-cols-4'>
                 {
-                    mobile.map(d => <div key={d._id} className="hero mb-10">
+                    mobile.slice(0, 8).map(d => <div key={d._id} className="hero mb-10">
 
                         <div className="hero-content flex-col  p-1  w-full rounded-lg">
                             <div>
@@ -79,4 +79,4 @@ const BuyProduct = () => {
 };
 
 
-export default BuyProduct;
+export default BuyProductScreen;

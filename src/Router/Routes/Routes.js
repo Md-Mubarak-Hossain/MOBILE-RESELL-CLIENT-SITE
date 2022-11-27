@@ -29,7 +29,6 @@ import SellerDashBoard from '../../pages/Dashboard/Seller/SellerDashBoard';
 import UpadeteScreen from '../../pages/Dashboard/Seller/UpadeteScreen';
 import UpdateProduct from '../../pages/Dashboard/Seller/UpdateProduct';
 import BuyerDashBoard from '../../pages/Dashboard/User/BuyerDashBoard';
-import Book from '../../pages/Dashboard/User/Book';
 import Home from '../../pages/Home/Home';
 import Blog from '../../pages/publicPages/Blog/Blog';
 import Faq from '../../pages/publicPages/FAQ/Faq';
@@ -38,6 +37,7 @@ import AddWishList from '../../pages/Dashboard/User/AddWishList';
 import Payment from '../../pages/Dashboard/User/Payment';
 import SellerRegister from '../../pages/account/Register/SellerRegister';
 import Navbar from '../../pages/shared/Navbar/Navbar';
+import BuyProduct from '../../pages/Dashboard/User/BuyProduct';
 
 const Routes = () => {
     const router = createBrowserRouter([
@@ -48,7 +48,7 @@ const Routes = () => {
                 {
                     path: '/',
                     element: <Home></Home>,
-                    // loader: fetch('http://localhost:5000/mobile')
+                    loader: fetch('http://localhost:5000/mobile')
                 },
                 {
                     path: '/admindashboard',
@@ -91,25 +91,14 @@ const Routes = () => {
                     loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
                 },
                 {
-                    path: '/book',
-                    element: <Book></Book>,
-                    loader: () => fetch(`http://localhost:5000/wish`)
-                },
-                {
                     path: '/wishlist',
                     element: <AddWishList></AddWishList>,
                     loader: () => fetch(`http://localhost:5000/wish`)
                 },
-                // {
-                //     path: '/wishlist/:id',
-                //     element: <AddWishList></AddWishList>,
-                //     loader: ({ params }) => fetch(`http://localhost:5000/wish${params.id}`)
-                // },
                 {
                     path: '/payment/:id',
                     element: <Payment></Payment>,
                     loader: ({ params }) => fetch(`http://localhost:5000/wish/${params.id}`)
-
                 },
 
                 {
@@ -177,14 +166,16 @@ const Routes = () => {
                     element: <BuyerDashBoard></BuyerDashBoard>,
                 },
                 {
+                    path: '/buyerProduct',
+                    element: <BuyProduct></BuyProduct>
+                },
+                {
                     path: '/blog',
-                    element: <Blog></Blog>,
-                    // loader: fetch('http://localhost:5000/mobile')
+                    element: <Blog></Blog>
                 },
                 {
                     path: '/faq',
-                    element: <Faq></Faq>,
-                    // loader: fetch('http://localhost:5000/mobile')
+                    element: <Faq></Faq>
                 },
 
                 {

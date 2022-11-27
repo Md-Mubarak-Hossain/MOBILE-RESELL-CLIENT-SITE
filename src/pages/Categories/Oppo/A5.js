@@ -51,40 +51,40 @@ const A5 = () => {
     }
 
     return (
-        <div className='lg:m-16' >
+        <div>
             <div className='text-center lg:mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>The Second Hand Mobile Screen</p>
-                <p class='text-xl lg:text-4xl font-bold text-warning'>Brand: Oppo</p>
+                <p className='text-xs lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
+                <p class='text-xs lg:text-2xl font-bold'>Brand: Oppo</p>
             </div>
-            <div className='grid grid-cols-1 lg:gap-2 lg:grid-cols-2'>
+            <div className='grid grid-cols-1 lg:grid-cols-5'>
                 {
                     mobile.map(d => <div key={d._id} className="hero">
                         {
                             d.category?.includes("A5") ?
-                                <div className="hero-content flex-col lg:flex-row p-2 lg:border w-full rounded-lg">
+                                <div className="card place-items-center p-2 w-full rounded-lg">
                                     <div>
-                                        <img alt='img' src={d.picture} className=" rounded-lg shadow-xl h-72" />
+                                        <img alt='img' src={d.picture} className=" rounded-lg shadow-xl w-32 h-40" />
                                     </div>
                                     <div>
-                                        <h1 className="lg:text-xl font-bold">{d.name}</h1>
+                                        <h1 className="lg:text-xs font-bold">{d.name}</h1>
                                         <div className='grid gap-2 lg:gap-0 grid-cols-2 lg:grid-cols-1 w-full'>
-                                            <p className="lg:text-xl">Brand:{d.brand}</p>
-                                            <p className="lg:text-xl">Category:{d.category}</p>
-                                            <p className="lg:text-xl">Seller:{d.seller}</p>
-                                            <p className="lg:text-xl">Ram:{d.ram}</p>
-                                            <p className="lg:text-xl">Camera:{d.camera}</p>
-                                            <p className="lg:text-xl">Battery:{d.battery}</p>
-                                            <p className="lg:text-xl">useTime:{d.useTime}</p>
-                                            <p className="lg:text-xl">price:{d.price}</p>
-                                            <p className="lg:text-xl">resalePrice:{d.resalePrice}</p>
-                                            <p className="lg:text-xl">location:{d.location}</p>
+                                            {/* <p className="lg:text-xs">Brand:{d.brand}</p>
+                                            <p className="lg:text-xs">Category:{d.category}</p>
+                                            <p className="lg:text-xs">Seller:{d.seller}</p>
+                                            <p className="lg:text-xs">Ram:{d.ram}</p>
+                                            <p className="lg:text-xs">Camera:{d.camera}</p>
+                                            <p className="lg:text-xs">Battery:{d.battery}</p>
+                                            <p className="lg:text-xs">useTime:{d.useTime}</p>
+                                            <p className="lg:text-xs">price:{d.price}</p>
+                                            <p className="lg:text-xs">resalePrice:{d.resalePrice}</p>
+                                            <p className="lg:text-xs">location:{d.location}</p> */}
                                         </div>
-                                        <Link to={`/payment/${d._id}`}> <button className="btn btn-primary btn-sm">Buy Now</button></Link>
-                                        <Link> <button onClick={() => handleClick(setD(d))} className="btn btn-primary btn-sm">Add Wish List</button></Link>
+                                        <Link to={`/payment/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
+                                        <Link> <button onClick={() => handleClick(setD(d))} className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Add Wish List</button></Link>
                                     </div>
                                 </div>
-                                : <div className='hidden'>
-                                </div>
+                                : <>
+                                </>
                         }
                     </div>)
                 }

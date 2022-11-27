@@ -103,6 +103,8 @@ const Navbar = () => {
         {AdminDashboard}
         {sellerDashboard}
         {UserDashboard}
+        <li> <Link to='/userdashboard'>User Dashboard</Link></li>
+        <li><Link to='/wishlist'>WishList</Link></li>
         <li>{login}</li>
     </>
     return (
