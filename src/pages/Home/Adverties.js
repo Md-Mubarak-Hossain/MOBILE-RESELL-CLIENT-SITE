@@ -1,21 +1,47 @@
-import React from 'react';
-import home from '../../assets/home.jpg';
+import React, { useEffect } from 'react';
+import config from '../../config';
+import {
+    AdvertisingProvider,
+    AdvertisingSlot,
+    logVersionInfo
+} from 'react-advertising';
 
-const Adverties = () => {
+const Advertise = () => {
+    useEffect(() => {
+        fetch('http://localhost:5000/mobile')
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }, [])
+    logVersionInfo();
     return (
-        <div className='m-6 lg:m-16 text-center'>
-            <div className="card w-full bg-base-100 shadow-xl">
-                <figure><img src={home} alt="Shoes" className='w-full h-80' /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
+        <div>
+            <AdvertisingProvider config={config}>
+                <div>
+                    <img
+                        src="https://developer.sabre.com/sites/default/files/2019-10/Picture4-1-1024x242_3.png"
+                        alt="logo"
+                    />
+                    <h1>
+                        React Advertising Demo
+                        <br />
 
-export default Adverties;
+                    </h1>
+                </div>
+                <div>
+                    <p>
+                        This demo shows how to integrate advertising into your React
+                        application using Google Publisher Tags and Prebid.
+                    </p>
+                    <h2>Slot <em>banner-ad</em>:</h2>
+                    <AdvertisingSlot id="banner-ad" />
+                    <p>
+                        This version uses the ES6 modules from the npm package, which is the
+                        default and recommended way, also used by <em>create-react-app</em>
+                    </p>
+                </div>
+            </AdvertisingProvider>
+        </div >
+    );
+}
+
+export default Advertise;

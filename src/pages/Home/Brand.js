@@ -1,6 +1,6 @@
 import React from 'react';
-import vivo from '../../assets/vivobanner.jpg';
-import infinix from '../../assets/infinixhot9banner.jpg';
+import vivo from '../../assets/vivobanner.webp';
+import infinix from '../../assets/infinixhot.jpg';
 import oppo from '../../assets/oppo.webp';
 import { Link } from 'react-router-dom';
 import useTitle from '../../components/Hooks/useTitle';
@@ -41,7 +41,7 @@ const Brand = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div>
-                        <img alt='img' src={infinix} className="rounded-lg shadow-2xl w-full h-72" />
+                        <img alt='img' src={infinix} className="rounded-lg shadow-2xl w-full h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Infinix Hot12i</h1>
@@ -67,7 +67,7 @@ const Brand = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <div>
-                        <img alt='img' src={vivo} className="rounded-lg shadow-2xl w-full h-72" />
+                        <img alt='img' src={vivo} className="rounded-lg shadow-2xl w-full h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Vivo</h1>

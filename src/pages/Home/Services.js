@@ -22,11 +22,11 @@ const Services = () => {
                         <h2 className='text-3xl font-bold text-warning'>Online Payment</h2>
                     </div>
                     <div className='flex flex-col justify-center items-center place-items-center'>
-                        <label htmlFor="bkashPay" className="bg-transparent my-5 place-items-center">
+                        <label htmlFor="onlinePayment" className="bg-transparent my-5 place-items-center">
                             <img src={onlinePayment} alt="img" className='bg-white h-32 w-72' />
-                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                            <label htmlFor="onlinePayment" className='btn btn-link btn-active'>See more ...</label>
                         </label>
-                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <input type="checkbox" id="onlinePayment" className="modal-toggle" />
                         <div className="modal  sm:modal-middle h-screen right-10  ">
                             <div className="w-80  bg-pink-600 pb-5">
                                 <h3 className="font-bold text-lg py-2 ">
@@ -56,7 +56,7 @@ const Services = () => {
                                 <div className="flex justify-center items-center place-items-center text-center">
                                     <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
                                     >procced</label>
-                                    {close}
+                                    <label htmlFor="onlinePayment" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
                                 </div>
                                 <div className='w-full py-5'>
                                     <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
@@ -72,11 +72,11 @@ const Services = () => {
                         <h2 className='text-3xl font-bold text-warning'>Online Shop</h2>
                     </div>
                     <div className='flex flex-col justify-center items-center place-items-center'>
-                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                        <label htmlFor="onlineShop" className="bg-transparent my-5">
                             <img src={onlineShop} alt="img" className='bg-white h-32 w-72' />
-                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                            <label htmlFor="onlineShop" className='btn btn-link btn-active'>See more ...</label>
                         </label>
-                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <input type="checkbox" id="onlineShop" className="modal-toggle" />
                         <div className="modal  sm:modal-middle h-screen right-10  ">
                             <div className="w-80  bg-pink-600 pb-5">
                                 <h3 className="font-bold text-lg py-2 ">
@@ -106,7 +106,7 @@ const Services = () => {
                                 <div className="flex justify-center items-center place-items-center text-center">
                                     <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
                                     >procced</label>
-                                    {close}
+                                    <label htmlFor="onlineShop" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
                                 </div>
                                 <div className='w-full py-5'>
                                     <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
@@ -122,11 +122,11 @@ const Services = () => {
                         <h2 className='text-3xl font-bold text-warning'>Online Resale</h2>
                     </div>
                     <div className='flex flex-col justify-center items-center place-items-center'>
-                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                        <label htmlFor="onlineResell" className="bg-transparent my-5">
                             <img src={onlineResell} alt="img" className='bg-white h-32 w-72' />
-                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                            <label htmlFor="onlineResell" className='btn btn-link btn-active'>See more ...</label>
                         </label>
-                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <input type="checkbox" id="onlineResell" className="modal-toggle" />
                         <div className="modal  sm:modal-middle h-screen right-10  ">
                             <div className="w-80  bg-pink-600 pb-5">
                                 <h3 className="font-bold text-lg py-2 ">
@@ -156,7 +156,7 @@ const Services = () => {
                                 <div className="flex justify-center items-center place-items-center text-center">
                                     <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
                                     >procced</label>
-                                    {close}
+                                    <label htmlFor="onlineResell" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
                                 </div>
                                 <div className='w-full py-5'>
                                     <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
@@ -172,11 +172,11 @@ const Services = () => {
                         <h2 className='text-3xl font-bold text-warning'>Free Shipping</h2>
                     </div>
                     <div className='flex flex-col justify-center items-center place-items-center'>
-                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                        <label htmlFor="freeShipping" className="bg-transparent my-5">
                             <img src={freeShipping} alt="img" className='bg-white h-32 w-72' />
-                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                            <label htmlFor="freeShipping" className='btn btn-link btn-active'>See more ...</label>
                         </label>
-                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <input type="checkbox" id="freeShipping" className="modal-toggle" />
                         <div className="modal  sm:modal-middle h-screen right-10  ">
                             <div className="w-80  bg-pink-600 pb-5">
                                 <h3 className="font-bold text-lg py-2 ">
@@ -206,7 +206,7 @@ const Services = () => {
                                 <div className="flex justify-center items-center place-items-center text-center">
                                     <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
                                     >procced</label>
-                                    {close}
+                                    <label htmlFor="freeShipping" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
                                 </div>
                                 <div className='w-full py-5'>
                                     <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
@@ -222,11 +222,11 @@ const Services = () => {
                         <h2 className='text-3xl font-bold text-warning'>Old To New</h2>
                     </div>
                     <div className='flex flex-col justify-center items-center place-items-center'>
-                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                        <label htmlFor="exchangeOffer" className="bg-transparent my-5">
                             <img src={exchangeOffer} alt="img" className='bg-white h-32 w-72' />
-                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                            <label htmlFor="exchangeOffer" className='btn btn-link btn-active'>See more ...</label>
                         </label>
-                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <input type="checkbox" id="exchangeOffer" className="modal-toggle" />
                         <div className="modal  sm:modal-middle h-screen right-10  ">
                             <div className="w-80  bg-pink-600 pb-5">
                                 <h3 className="font-bold text-lg py-2 ">
@@ -256,7 +256,7 @@ const Services = () => {
                                 <div className="flex justify-center items-center place-items-center text-center">
                                     <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
                                     >procced</label>
-                                    {close}
+                                    <label htmlFor="exchangeOffer" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
                                 </div>
                                 <div className='w-full py-5'>
                                     <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
@@ -272,11 +272,11 @@ const Services = () => {
                         <h2 className='text-3xl font-bold text-warning'>Free Repair</h2>
                     </div>
                     <div className='flex flex-col justify-center items-center place-items-center'>
-                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                        <label htmlFor="freeRepair" className="bg-transparent my-5">
                             <img src={freeRepair} alt="img" className='bg-white h-32 w-72' />
-                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                            <label htmlFor="freeRepair" className='btn btn-link btn-active'>See more ...</label>
                         </label>
-                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <input type="checkbox" id="freeRepair" className="modal-toggle" />
                         <div className="modal  sm:modal-middle h-screen right-10  ">
                             <div className="w-80  bg-pink-600 pb-5">
                                 <h3 className="font-bold text-lg py-2 ">
@@ -306,7 +306,7 @@ const Services = () => {
                                 <div className="flex justify-center items-center place-items-center text-center">
                                     <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
                                     >procced</label>
-                                    {close}
+                                    <label htmlFor="freeRepair" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
                                 </div>
                                 <div className='w-full py-5'>
                                     <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>

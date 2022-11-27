@@ -99,6 +99,7 @@ const Navbar = () => {
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/faq'>FAQ</Link></li>
         {AdminDashboard}
         {sellerDashboard}
         {UserDashboard}
