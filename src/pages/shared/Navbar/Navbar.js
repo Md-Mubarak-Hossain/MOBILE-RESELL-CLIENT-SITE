@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
 import { AuthContext } from '../../../ContextApi/Context';
 import { SellerAuth } from '../../../ContextApi/SellerContext';
+import { UserAuth } from '../../../ContextApi/UserContext';
 
 const Navbar = () => {
+    const { users } = useContext(UserAuth)
+    console.log(users)
     const { sellers } = useContext(SellerAuth)
     console.log(sellers);
     const { user, logOut } = useContext(AuthContext);
@@ -35,12 +38,15 @@ const Navbar = () => {
             </ul>
         </div>
     </>
+
+    const signOut = < li > <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link></li>
     const AdminDashboard =
         <>
             {
                 user && user.uid && user.email?.includes("mubarak@gmail.com") ?
                     <>
                         <li> <Link to='/admindashboard'>Admin Dashboard</Link></li>
+                        {signOut}
                     </>
                     : <>
                     </>
@@ -50,7 +56,10 @@ const Navbar = () => {
     const sellerDashboard = <>{
         sellers?.map(seller => <li li key={seller._id}>
             {user && user.uid && seller.email.includes(user.email) ?
-                <li> <Link to='/sellerdashboard'>Seller Dashboard</Link></li>
+                <>
+                    <li> <Link to='/sellerdashboard'>Seller Dashboard</Link></li>
+                    {signOut}
+                </>
                 : <>
                 </>}
         </li>)
@@ -58,11 +67,12 @@ const Navbar = () => {
     }
     </>
     const UserDashboard = <>{
-        sellers?.map(seller => <li li key={seller._id}>
-            {user && user.uid && !seller.email.includes(user.email) && !user.email?.includes("mubarak@gmail.com") ?
+        users?.map(usr => <li key={usr._id}>
+            {user && user.uid && usr.email.includes(user.email) ?
                 <>
-                    <li> <Link to='/userdashboard'>Seller Dashboard</Link></li>
+                    <li> <Link to='/userdashboard'>User Dashboard</Link></li>
                     <li><Link to='/wishlist'>WishList</Link></li>
+                    {signOut}
                 </>
                 : <>
                 </>}
@@ -73,18 +83,15 @@ const Navbar = () => {
     const login = <>
         {
             user && user.uid ?
-                <li><Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link></li>
-                :
                 <>
+
+                </>
+                : <>
                     {registerMenu}
                     {LoginMenu}
                 </>
-
         }
     </>
-
-
-
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>

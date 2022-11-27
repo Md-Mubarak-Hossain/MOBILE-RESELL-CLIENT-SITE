@@ -9,6 +9,7 @@ import {
 } from '@tanstack/react-query';
 import Context from './ContextApi/Context';
 import SellerContext from './ContextApi/SellerContext';
+import UserContext from './ContextApi/UserContext';
 
 const queryClient = new QueryClient()
 
@@ -16,11 +17,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <SellerContext>
-        <Context>
-          <App />
-        </Context>
-      </SellerContext>
+      <UserContext>
+        <SellerContext>
+          <Context>
+            <App />
+          </Context>
+        </SellerContext>
+      </UserContext>
     </QueryClientProvider>
   </React.StrictMode>
 );
