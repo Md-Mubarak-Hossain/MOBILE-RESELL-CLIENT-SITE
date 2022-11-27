@@ -1,40 +1,318 @@
-import React from 'react';
-import useTitle from '../../components/Hooks/useTitle';
+import React, { useEffect, useState } from 'react';
+import onlinePayment from '../../../src/pages/Dashboard/User/PaymentLogo/onlinePayment.png';
+import onlineShop from '../../../src/pages/Dashboard/User/PaymentLogo/onlineShop.png';
+import onlineResell from '../../../src/pages/Dashboard/User/PaymentLogo/onlineResell.png';
+import freeShipping from '../../../src/pages/Dashboard/User/PaymentLogo/freeShipping.png';
+import freeRepair from '../../../src/pages/Dashboard/User/PaymentLogo/repairService.png';
+import exchangeOffer from '../../../src/pages/Dashboard/User/PaymentLogo/exchangeOffer.webp';
+import { BiPhoneCall } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
-    useTitle('Service Page');
+    const seeMore = <><label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label></>
+    const close = <label htmlFor="bkashPay" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
+
     return (
-        <div className='m-6 lg:m-16'>
-            <div className='text-end my-6'>
-                <h2 className='text-xl'>services</h2>
-                <h2 className='text-3xl'>our best services</h2>
-            </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
-                <div className="collapse">
-                    <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                        Click me to show/hide content
+        <div className='card shadow-2xl lg:m-16  place-items-center'>
+            <h2 className='text-xl font-bold'>Services</h2>
+            <h2 className='text-5xl text-warning font-bold'>Our Best Services</h2>
+            <div className='p-5 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                <div className='lg:border border-fuchsia-700 card px-3 pt-3'>
+                    <div className='w-full text-center'>
+                        <h2 className='text-3xl font-bold text-warning'>Online Payment</h2>
                     </div>
-                    <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                        <p>hello</p>
+                    <div className='flex flex-col justify-center items-center place-items-center'>
+                        <label htmlFor="bkashPay" className="bg-transparent my-5 place-items-center">
+                            <img src={onlinePayment} alt="img" className='bg-white h-32 w-72' />
+                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                        </label>
+                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <div className="modal  sm:modal-middle h-screen right-10  ">
+                            <div className="w-80  bg-pink-600 pb-5">
+                                <h3 className="font-bold text-lg py-2 ">
+                                    <img src={onlinePayment} alt=" img" className='bg-white w-full h-24' />
+                                </h3>
+                                <div className='p-5'>
+                                    <div className='card text-white shadow-pink-900 shadow-2xl p-2 text-center'>
+                                        <h2>Merchant:{Math.floor(Math.random() * 100)}{(Math.random() + 1).toString(36).substring(7)}</h2>
+                                        <h2>Invoice no:{Math.random()}</h2>
+                                        <h2>Amount: $</h2>
+                                    </div>
+                                </div>
+                                <div className='card text-white text-center w-full'>
+                                    <h2 className='pb-4'>Your bkash account number</h2>
+                                    <p className='text-black-600'>
+                                        <input type="text" placeholder="e.g 01xxxxxxxxx" className="w-48 h-8  bg-white rounded pl-2" />
+                                    </p>
+                                </div>
+                                <div className='px-2'>
+                                    <div className="flex justify-center place-items-center">
+                                        <label className="label cursor-pointer ">
+                                            <input type="checkbox" required className=" checkbox-white bg-white checkbox-xs" />
+                                        </label>
+                                        <p className="text-white text-xs">I agree to the<span className="btn btn-link lowercase text-xs text-white">terms & conditions!!!</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center items-center place-items-center text-center">
+                                    <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
+                                    >procced</label>
+                                    {close}
+                                </div>
+                                <div className='w-full py-5'>
+                                    <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="collapse">
-                    <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                        Click me to show/hide content
+
+                {/* .....online shope..... */}
+                <div className='lg:border border-fuchsia-700 card py-3'>
+                    <div className='w-full text-center'>
+                        <h2 className='text-3xl font-bold text-warning'>Online Shop</h2>
                     </div>
-                    <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                        <p>hello</p>
+                    <div className='flex flex-col justify-center items-center place-items-center'>
+                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                            <img src={onlineShop} alt="img" className='bg-white h-32 w-72' />
+                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                        </label>
+                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <div className="modal  sm:modal-middle h-screen right-10  ">
+                            <div className="w-80  bg-pink-600 pb-5">
+                                <h3 className="font-bold text-lg py-2 ">
+                                    <img src={onlineShop} alt=" img" className='bg-white w-full h-24' />
+                                </h3>
+                                <div className='p-5'>
+                                    <div className='card text-white shadow-pink-900 shadow-2xl p-2 text-center'>
+                                        <h2>Merchant:{Math.floor(Math.random() * 100)}{(Math.random() + 1).toString(36).substring(7)}</h2>
+                                        <h2>Invoice no:{Math.random()}</h2>
+                                        <h2>Amount: $</h2>
+                                    </div>
+                                </div>
+                                <div className='card text-white text-center w-full'>
+                                    <h2 className='pb-4'>Your bkash account number</h2>
+                                    <p className='text-black-600'>
+                                        <input type="text" placeholder="e.g 01xxxxxxxxx" className="w-48 h-8  bg-white rounded pl-2" />
+                                    </p>
+                                </div>
+                                <div className='px-2'>
+                                    <div className="flex justify-center place-items-center">
+                                        <label className="label cursor-pointer ">
+                                            <input type="checkbox" required className=" checkbox-white bg-white checkbox-xs" />
+                                        </label>
+                                        <p className="text-white text-xs">I agree to the<span className="btn btn-link lowercase text-xs text-white">terms & conditions!!!</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center items-center place-items-center text-center">
+                                    <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
+                                    >procced</label>
+                                    {close}
+                                </div>
+                                <div className='w-full py-5'>
+                                    <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="collapse">
-                    <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                        Click me to show/hide content
+
+                {/* ....online resale.... */}
+                <div className='lg:border border-fuchsia-700 card py-3'>
+                    <div className='w-full text-center'>
+                        <h2 className='text-3xl font-bold text-warning'>Online Resale</h2>
                     </div>
-                    <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                        <p>hello</p>
+                    <div className='flex flex-col justify-center items-center place-items-center'>
+                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                            <img src={onlineResell} alt="img" className='bg-white h-32 w-72' />
+                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                        </label>
+                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <div className="modal  sm:modal-middle h-screen right-10  ">
+                            <div className="w-80  bg-pink-600 pb-5">
+                                <h3 className="font-bold text-lg py-2 ">
+                                    <img src={onlineResell} alt=" img" className='bg-white w-full h-24' />
+                                </h3>
+                                <div className='p-5'>
+                                    <div className='card text-white shadow-pink-900 shadow-2xl p-2 text-center'>
+                                        <h2>Merchant:{Math.floor(Math.random() * 100)}{(Math.random() + 1).toString(36).substring(7)}</h2>
+                                        <h2>Invoice no:{Math.random()}</h2>
+                                        <h2>Amount: $</h2>
+                                    </div>
+                                </div>
+                                <div className='card text-white text-center w-full'>
+                                    <h2 className='pb-4'>Your bkash account number</h2>
+                                    <p className='text-black-600'>
+                                        <input type="text" placeholder="e.g 01xxxxxxxxx" className="w-48 h-8  bg-white rounded pl-2" />
+                                    </p>
+                                </div>
+                                <div className='px-2'>
+                                    <div className="flex justify-center place-items-center">
+                                        <label className="label cursor-pointer ">
+                                            <input type="checkbox" required className=" checkbox-white bg-white checkbox-xs" />
+                                        </label>
+                                        <p className="text-white text-xs">I agree to the<span className="btn btn-link lowercase text-xs text-white">terms & conditions!!!</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center items-center place-items-center text-center">
+                                    <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
+                                    >procced</label>
+                                    {close}
+                                </div>
+                                <div className='w-full py-5'>
+                                    <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ....free shipping.... */}
+                <div className='lg:border border-fuchsia-700 card py-3'>
+                    <div className='w-full text-center'>
+                        <h2 className='text-3xl font-bold text-warning'>Free Shipping</h2>
+                    </div>
+                    <div className='flex flex-col justify-center items-center place-items-center'>
+                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                            <img src={freeShipping} alt="img" className='bg-white h-32 w-72' />
+                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                        </label>
+                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <div className="modal  sm:modal-middle h-screen right-10  ">
+                            <div className="w-80  bg-pink-600 pb-5">
+                                <h3 className="font-bold text-lg py-2 ">
+                                    <img src={freeShipping} alt=" img" className='bg-white w-full h-24' />
+                                </h3>
+                                <div className='p-5'>
+                                    <div className='card text-white shadow-pink-900 shadow-2xl p-2 text-center'>
+                                        <h2>Merchant:{Math.floor(Math.random() * 100)}{(Math.random() + 1).toString(36).substring(7)}</h2>
+                                        <h2>Invoice no:{Math.random()}</h2>
+                                        <h2>Amount: $</h2>
+                                    </div>
+                                </div>
+                                <div className='card text-white text-center w-full'>
+                                    <h2 className='pb-4'>Your bkash account number</h2>
+                                    <p className='text-black-600'>
+                                        <input type="text" placeholder="e.g 01xxxxxxxxx" className="w-48 h-8  bg-white rounded pl-2" />
+                                    </p>
+                                </div>
+                                <div className='px-2'>
+                                    <div className="flex justify-center place-items-center">
+                                        <label className="label cursor-pointer ">
+                                            <input type="checkbox" required className=" checkbox-white bg-white checkbox-xs" />
+                                        </label>
+                                        <p className="text-white text-xs">I agree to the<span className="btn btn-link lowercase text-xs text-white">terms & conditions!!!</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center items-center place-items-center text-center">
+                                    <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
+                                    >procced</label>
+                                    {close}
+                                </div>
+                                <div className='w-full py-5'>
+                                    <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ...exchange.... */}
+                <div className='lg:border border-fuchsia-700 card py-3'>
+                    <div className='w-full text-center'>
+                        <h2 className='text-3xl font-bold text-warning'>Old To New</h2>
+                    </div>
+                    <div className='flex flex-col justify-center items-center place-items-center'>
+                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                            <img src={exchangeOffer} alt="img" className='bg-white h-32 w-72' />
+                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                        </label>
+                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <div className="modal  sm:modal-middle h-screen right-10  ">
+                            <div className="w-80  bg-pink-600 pb-5">
+                                <h3 className="font-bold text-lg py-2 ">
+                                    <img src={exchangeOffer} alt=" img" className='bg-white w-full h-24' />
+                                </h3>
+                                <div className='p-5'>
+                                    <div className='card text-white shadow-pink-900 shadow-2xl p-2 text-center'>
+                                        <h2>Merchant:{Math.floor(Math.random() * 100)}{(Math.random() + 1).toString(36).substring(7)}</h2>
+                                        <h2>Invoice no:{Math.random()}</h2>
+                                        <h2>Amount: $</h2>
+                                    </div>
+                                </div>
+                                <div className='card text-white text-center w-full'>
+                                    <h2 className='pb-4'>Your bkash account number</h2>
+                                    <p className='text-black-600'>
+                                        <input type="text" placeholder="e.g 01xxxxxxxxx" className="w-48 h-8  bg-white rounded pl-2" />
+                                    </p>
+                                </div>
+                                <div className='px-2'>
+                                    <div className="flex justify-center place-items-center">
+                                        <label className="label cursor-pointer ">
+                                            <input type="checkbox" required className=" checkbox-white bg-white checkbox-xs" />
+                                        </label>
+                                        <p className="text-white text-xs">I agree to the<span className="btn btn-link lowercase text-xs text-white">terms & conditions!!!</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center items-center place-items-center text-center">
+                                    <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
+                                    >procced</label>
+                                    {close}
+                                </div>
+                                <div className='w-full py-5'>
+                                    <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* .......free repair.... */}
+                <div className='lg:border border-fuchsia-700 card py-3'>
+                    <div className='w-full text-center'>
+                        <h2 className='text-3xl font-bold text-warning'>Free Repair</h2>
+                    </div>
+                    <div className='flex flex-col justify-center items-center place-items-center'>
+                        <label htmlFor="bkashPay" className="bg-transparent my-5">
+                            <img src={freeRepair} alt="img" className='bg-white h-32 w-72' />
+                            <label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label>
+                        </label>
+                        <input type="checkbox" id="bkashPay" className="modal-toggle" />
+                        <div className="modal  sm:modal-middle h-screen right-10  ">
+                            <div className="w-80  bg-pink-600 pb-5">
+                                <h3 className="font-bold text-lg py-2 ">
+                                    <img src={freeRepair} alt="img" className='bg-white w-full h-24' />
+                                </h3>
+                                <div className='p-5'>
+                                    <div className='card text-white shadow-pink-900 shadow-2xl p-2 text-center'>
+                                        <h2>Merchant:{Math.floor(Math.random() * 100)}{(Math.random() + 1).toString(36).substring(7)}</h2>
+                                        <h2>Invoice no:{Math.random()}</h2>
+                                        <h2>Amount: $</h2>
+                                    </div>
+                                </div>
+                                <div className='card text-white text-center w-full'>
+                                    <h2 className='pb-4'>Your bkash account number</h2>
+                                    <p className='text-black-600'>
+                                        <input type="text" placeholder="e.g 01xxxxxxxxx" className="w-48 h-8  bg-white rounded pl-2" />
+                                    </p>
+                                </div>
+                                <div className='px-2'>
+                                    <div className="flex justify-center place-items-center">
+                                        <label className="label cursor-pointer ">
+                                            <input type="checkbox" required className=" checkbox-white bg-white checkbox-xs" />
+                                        </label>
+                                        <p className="text-white text-xs">I agree to the<span className="btn btn-link lowercase text-xs text-white">terms & conditions!!!</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center items-center place-items-center text-center">
+                                    <label className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0"
+                                    >procced</label>
+                                    {close}
+                                </div>
+                                <div className='w-full py-5'>
+                                    <h2 className='flex justify-center items-center place-items-center'><p><BiPhoneCall></BiPhoneCall></p><p>16247</p></h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

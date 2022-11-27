@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
+import { AdminAuth } from '../../../ContextApi/AdminContext';
 import { AuthContext } from '../../../ContextApi/Context';
 import { SellerAuth } from '../../../ContextApi/SellerContext';
 import { UserAuth } from '../../../ContextApi/UserContext';
 
 const Navbar = () => {
+    const { admins } = useContext(AdminAuth)
     const { users } = useContext(UserAuth)
     console.log(users)
     const { sellers } = useContext(SellerAuth)
@@ -41,21 +43,23 @@ const Navbar = () => {
 
     const signOut = < li > <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link></li>
     const AdminDashboard =
-        <>
-            {
-                user && user.uid && user.email?.includes("mubarak@gmail.com") ?
+        <>{
+            admins?.map(admin => <li key={admin._id}>
+                {user && user.uid?.includes("WfPgID7xMcQ02ZN9GEWCYBmO9WX2") && admin.email.includes("mubarak@gmail.com") ?
                     <>
                         <li> <Link to='/admindashboard'>Admin Dashboard</Link></li>
                         {signOut}
                     </>
                     : <>
-                    </>
-            }
+                    </>}
+            </li>)
+
+        }
         </>
 
     const sellerDashboard = <>{
-        sellers?.map(seller => <li li key={seller._id}>
-            {user && user.uid && seller.email.includes(user.email) ?
+        sellers?.map(seller => <li key={seller._id}>
+            {user && user.uid && seller.email?.includes(user.email) ?
                 <>
                     <li> <Link to='/sellerdashboard'>Seller Dashboard</Link></li>
                     {signOut}
@@ -68,7 +72,7 @@ const Navbar = () => {
     </>
     const UserDashboard = <>{
         users?.map(usr => <li key={usr._id}>
-            {user && user.uid && usr.email.includes(user.email) ?
+            {user && user.uid && usr.email?.includes(user.email) ?
                 <>
                     <li> <Link to='/userdashboard'>User Dashboard</Link></li>
                     <li><Link to='/wishlist'>WishList</Link></li>

@@ -10,6 +10,7 @@ import {
 import Context from './ContextApi/Context';
 import SellerContext from './ContextApi/SellerContext';
 import UserContext from './ContextApi/UserContext';
+import AdminContext from './ContextApi/AdminContext';
 
 const queryClient = new QueryClient()
 
@@ -17,15 +18,17 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <UserContext>
-        <SellerContext>
-          <Context>
-            <App />
-          </Context>
-        </SellerContext>
-      </UserContext>
+      <AdminContext>
+        <UserContext>
+          <SellerContext>
+            <Context>
+              <App />
+            </Context>
+          </SellerContext>
+        </UserContext>
+      </AdminContext>
     </QueryClientProvider>
-  </React.StrictMode>
+  </React.StrictMode >
 );
 
 // If you want to start measuring performance in your app, pass a function
