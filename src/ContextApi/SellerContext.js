@@ -1,11 +1,17 @@
 import { getAuth } from 'firebase/auth';
-import React, { createContext } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 export const SellerAuth = createContext();
 const Auth = getAuth(app)
 const SellerContext = ({ children }) => {
     const email = 'jaka@gmail.com'
-    const authInfo = { email }
+    const [sellers, setSeller] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/seller')
+            .then(res => res.json())
+            .then(data => setSeller(data))
+    }, [])
+    const authInfo = { email, sellers }
     return (
         <SellerAuth.Provider value={authInfo}>
             {children}

@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
 import { AuthContext } from '../../../ContextApi/Context';
+import { SellerAuth } from '../../../ContextApi/SellerContext';
 
 const Navbar = () => {
-    const sellers = useLoaderData()
+    const { sellers } = useContext(SellerAuth)
     console.log(sellers);
     const { user, logOut } = useContext(AuthContext);
+    console.log(user)
     const logout = () => {
         logOut()
             .then(result => { })
@@ -45,20 +47,29 @@ const Navbar = () => {
             }
         </>
 
+    const sellerDashboard = <>{
+        sellers?.map(seller => <li li key={seller._id}>
+            {user && user.uid && seller.email.includes(user.email) ?
+                <li> <Link to='/sellerdashboard'>Seller Dashboard</Link></li>
+                : <>
+                </>}
+        </li>)
 
-    const UserDashboard =
-        <>
-            {
-                user && user.uid && !user?.email.includes("mubarak@gmail.com") ?
-                    <>
-                        <li><Link to='/userdashboard'>User Dashboard</Link ></li>
-                        <li><Link to='/wishlist'>AddWishList</Link ></li>
+    }
+    </>
+    const UserDashboard = <>{
+        sellers?.map(seller => <li li key={seller._id}>
+            {user && user.uid && !seller.email.includes(user.email) && !user.email?.includes("mubarak@gmail.com") ?
+                <>
+                    <li> <Link to='/userdashboard'>Seller Dashboard</Link></li>
+                    <li><Link to='/wishlist'>WishList</Link></li>
+                </>
+                : <>
+                </>}
+        </li>)
 
-                    </>
-                    : <>
-                    </>
-            }
-        </>
+    }
+    </>
     const login = <>
         {
             user && user.uid ?
@@ -72,17 +83,6 @@ const Navbar = () => {
         }
     </>
 
-    const sellerDashboard = <>{
-        sellers?.map(seller => < li key={seller._id}>
-            {user && user.uid && seller?.email.incluses(user.email) ?
-                < Link to='/sellerdashboard'>Seller Dashboard</Link >
-                : <>
-                </>
-            }
-        </li>)
-
-    }
-    </>
 
 
     const menubar = <>

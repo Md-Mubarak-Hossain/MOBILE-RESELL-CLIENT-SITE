@@ -1,13 +1,25 @@
 import React, { useContext } from 'react';
 import useTitle from '../../../../components/Hooks/useTitle';
 import sellerlogin from '../../../../assets/sellerlogin.png';
-import { SellerAuth } from '../../../../ContextApi/SellerContext';
+import { AuthContext } from '../../../../ContextApi/Context';
 const SellerLogin = () => {
     useTitle('Seller Login');
-    const { email } = useContext(SellerAuth)
+    const { logIn } = useContext(AuthContext);
+    const handleSub = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        logIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                alert('successfully login')
+            })
+            .catch(err => console.error(err))
+    }
     return (
-        <form>
-            {email}
+        <form onSubmit={handleSub}>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
