@@ -27,7 +27,7 @@ const SellerRegister = () => {
             const SellerRegister = {
                 username, phone, email, location, password, picture
             }
-            fetch('http://localhost:5000/seller', {
+            fetch('https://mobile-server.vercel.app/seller', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(SellerRegister)

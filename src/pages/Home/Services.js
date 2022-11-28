@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import onlinePayment from '../../../src/pages/Dashboard/User/PaymentLogo/onlinePayment.png';
-import onlineShop from '../../../src/pages/Dashboard/User/PaymentLogo/onlineShop.png';
-import onlineResell from '../../../src/pages/Dashboard/User/PaymentLogo/onlineResell.png';
-import freeShipping from '../../../src/pages/Dashboard/User/PaymentLogo/freeShipping.png';
-import freeRepair from '../../../src/pages/Dashboard/User/PaymentLogo/repairService.png';
-import exchangeOffer from '../../../src/pages/Dashboard/User/PaymentLogo/exchangeOffer.webp';
+import React from 'react';
+import onlinePayment from '../UserDashboard/PaymentLogo/onlinePayment.png';
+import onlineShop from '../UserDashboard/PaymentLogo/onlineShop.png';
+import onlineResell from '../UserDashboard/PaymentLogo/onlineResell.png';
+import freeShipping from '../UserDashboard/PaymentLogo/freeShipping.png';
+import freeRepair from '../UserDashboard/PaymentLogo/repairService.png';
+import exchangeOffer from '../UserDashboard/PaymentLogo/exchangeOffer.webp';
 import { BiPhoneCall } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+
 
 const Services = () => {
-    const seeMore = <><label htmlFor="bkashPay" className='btn btn-link btn-active'>See more ...</label></>
-    const close = <label htmlFor="bkashPay" className="w-24 mx-1 px-5 text-xs shadow-xl py-2 text-white bg-pink-900 rounded-0">close</label>
+
     return (
         <div className='card shadow-2xl lg:m-16  place-items-center'>
             <h2 className='text-xl font-bold'>Services</h2>

@@ -12,33 +12,35 @@ import A9 from '../../pages/Categories/Oppo/A9';
 import F7 from '../../pages/Categories/Oppo/F7';
 import Oppo from '../../pages/Categories/Oppo/Oppo';
 import Vivo from '../../pages/Categories/Vivo/Vivo';
-import AddminDashBoard from '../../pages/Dashboard/Admin/AddminDashBoard';
-import AddProducts from '../../pages/Dashboard/Admin/AddProducts';
-import DeleteProducts from '../../pages/Dashboard/Admin/DeleteProducts';
-import GoOther from '../../pages/Dashboard/Admin/GoOther';
-import RemoveSeller from '../../pages/Dashboard/Admin/RemoveSeller';
-import RemoveUser from '../../pages/Dashboard/Admin/RemoveUser';
-import SeeAllProducts from '../../pages/Dashboard/Admin/SeeAllProducts';
-import Seller from '../../pages/Dashboard/Admin/Seller';
-import UpdateProducts from '../../pages/Dashboard/Admin/UpdateProducts';
-import User from '../../pages/Dashboard/Admin/User';
-import AddProduct from '../../pages/Dashboard/Seller/AddProduct';
-import DeleteProduct from '../../pages/Dashboard/Seller/DeleteProduct';
-import SeeProduct from '../../pages/Dashboard/Seller/SeeProduct';
-import SellerDashBoard from '../../pages/Dashboard/Seller/SellerDashBoard';
-import UpadeteScreen from '../../pages/Dashboard/Seller/UpadeteScreen';
-import UpdateProduct from '../../pages/Dashboard/Seller/UpdateProduct';
-import BuyerDashBoard from '../../pages/Dashboard/User/BuyerDashBoard';
+import GoOther from '../../pages/AdminDashboard/GoOther';
+import User from '../../pages/AdminDashboard/User';
 import Home from '../../pages/Home/Home';
 import Blog from '../../pages/publicPages/Blog/Blog';
 import Faq from '../../pages/publicPages/FAQ/Faq';
 import FourOfFour from '../FourOfFour/FourOfFour';
-import AddWishList from '../../pages/Dashboard/User/AddWishList';
-import Payment from '../../pages/Dashboard/User/Payment';
+import AddWishList from '../../pages/UserDashboard/AddWishList';
+import Payment from '../../pages/UserDashboard/Payment';
 import SellerRegister from '../../pages/account/Register/SellerRegister';
-import Navbar from '../../pages/shared/Navbar/Navbar';
-import BuyProduct from '../../pages/Dashboard/User/BuyProduct';
-
+import BuyProduct from '../../pages/UserDashboard/BuyProduct';
+import Dashboard from '../../pages/Dashboard/Dashboard';
+import SellerLayout from '../../Layouts/Default/SellerLayout';
+import AddProduct from '../../pages/Dashboard/AddProduct';
+import DeleteProduct from '../../pages/Dashboard/DeleteProduct';
+import UpdateProduct from '../../pages/Dashboard/UpdateProduct';
+import SeeProduct from '../../pages/Dashboard/SeeProduct';
+import UpadeteScreen from '../../pages/Dashboard/UpadeteScreen';
+import UserLayOut from '../../Layouts/Default/UserLayOut';
+import UserDashBoard from '../../pages/UserDashboard/UserDashBoard';
+import AdminLayout from '../../Layouts/Default/AdminLayout';
+import AddminDashBoard from '../../pages/AdminDashboard/AddminDashBoard';
+import RemoveUser from '../../pages/AdminDashboard/RemoveUser';
+import RemoveSeller from '../../pages/AdminDashboard/RemoveSeller';
+import SeeAllProducts from '../../pages/AdminDashboard/SeeAllProducts';
+import Seller from '../../pages/AdminDashboard/Seller';
+import UpdateProducts from '../../pages/AdminDashboard/UpdateProducts';
+import DeleteProducts from '../../pages/AdminDashboard/DeleteProducts';
+import AddProducts from '../../pages/AdminDashboard/AddProducts';
+import Products from '../../pages/AdminDashboard/Products';
 const Routes = () => {
     const router = createBrowserRouter([
         {
@@ -48,94 +50,6 @@ const Routes = () => {
                 {
                     path: '/',
                     element: <Home></Home>,
-                    loader: fetch('http://localhost:5000/mobile')
-                },
-                {
-                    path: '/admindashboard',
-                    element: <AddminDashBoard></AddminDashBoard>,
-                },
-                {
-                    path: '/User',
-                    element: <User></User>
-                },
-                {
-                    path: '/removeUser/:id',
-                    element: <RemoveUser></RemoveUser>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/user/${params.id}`)
-                },
-                {
-                    path: '/Seller',
-                    element: <Seller></Seller>
-                },
-                {
-                    path: '/removeSeller/:id',
-                    element: <RemoveSeller></RemoveSeller>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/seller/${params.id}`)
-                },
-                {
-                    path: '/seeAllProducts',
-                    element: <SeeAllProducts></SeeAllProducts>
-                },
-                {
-                    path: '/goOther',
-                    element: <GoOther></GoOther>
-                },
-                {
-                    path: '/UpdateProducts',
-                    element: <UpdateProducts></UpdateProducts>
-                },
-
-                {
-                    path: '/update/:id',
-                    element: <UpdateProducts></UpdateProducts>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
-                },
-                {
-                    path: '/wishlist',
-                    element: <AddWishList></AddWishList>,
-                    loader: () => fetch(`http://localhost:5000/wish`)
-                },
-                {
-                    path: '/payment/:id',
-                    element: <Payment></Payment>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/wish/${params.id}`)
-                },
-
-                {
-                    path: '/delete/:id',
-                    element: <DeleteProducts></DeleteProducts>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
-                },
-                {
-                    path: '/AddProducts',
-                    element: <AddProducts></AddProducts>
-                },
-
-                {
-                    path: '/sellerdashboard',
-                    element: <SellerDashBoard></SellerDashBoard>,
-                },
-                {
-                    path: '/updateScreen',
-                    element: <UpadeteScreen></UpadeteScreen>
-                },
-                {
-                    path: '/AddProduct',
-                    element: <AddProduct></AddProduct>
-                },
-                {
-                    path: '/deleteSellerProduct/:id',
-                    element: <DeleteProduct></DeleteProduct>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
-                },
-                {
-                    path: '/updateSellerProduct/:id',
-                    element: <UpdateProduct></UpdateProduct>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/mobile/${params.id}`)
-                },
-                {
-                    path: '/seeAllProduct',
-                    element: <SeeProduct></SeeProduct>
                 },
                 {
                     path: '/A5',
@@ -160,14 +74,6 @@ const Routes = () => {
                 {
                     path: '/F7',
                     element: <F7></F7>
-                },
-                {
-                    path: '/userdashboard',
-                    element: <BuyerDashBoard></BuyerDashBoard>,
-                },
-                {
-                    path: '/buyerProduct',
-                    element: <BuyProduct></BuyProduct>
                 },
                 {
                     path: '/blog',
@@ -201,6 +107,125 @@ const Routes = () => {
                 {
                     path: '/sellerRegister',
                     element: <SellerRegister></SellerRegister>
+                },
+            ]
+        },
+        {
+            path: '/admindashboard',
+            element: <AdminLayout></AdminLayout>,
+            children: [
+                {
+                    path: '/admindashboard',
+                    element: <AddminDashBoard></AddminDashBoard>
+                },
+                {
+                    path: '/admindashboard/User',
+                    element: <User></User>
+                },
+                {
+                    path: '/admindashboard/removeUser/:id',
+                    element: <RemoveUser></RemoveUser>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/user/${params.id}`)
+                },
+                {
+                    path: '/admindashboard/Seller',
+                    element: <Seller></Seller>
+                },
+                {
+                    path: '/admindashboard/removeSeller/:id',
+                    element: <RemoveSeller></RemoveSeller>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/seller/${params.id}`)
+                },
+                {
+                    path: '/admindashboard/Products',
+                    element: <Products></Products>
+                },
+                {
+                    path: '/admindashboard/seeAllProducts',
+                    element: <SeeAllProducts></SeeAllProducts>
+                },
+                {
+                    path: '/admindashboard/goOther',
+                    element: <GoOther></GoOther>
+                },
+                {
+                    path: '/admindashboard/UpdateProducts',
+                    element: <UpdateProducts></UpdateProducts>
+                },
+
+                {
+                    path: '/admindashboard/update/:id',
+                    element: <UpdateProducts></UpdateProducts>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
+                },
+
+
+                {
+                    path: '/admindashboard/delete/:id',
+                    element: <DeleteProducts></DeleteProducts>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
+                },
+                {
+                    path: '/admindashboard/AddProducts',
+                    element: <AddProducts></AddProducts>
+                },
+
+            ]
+        },
+        {
+            path: '/dashboard',
+            element: <SellerLayout></SellerLayout>,
+            children: [
+                {
+                    path: '/dashboard',
+                    element: <Dashboard></Dashboard>
+                },
+
+                {
+                    path: '/dashboard/updateScreen',
+                    element: <UpadeteScreen></UpadeteScreen>
+                },
+                {
+                    path: '/dashboard/addproduct',
+                    element: <AddProduct></AddProduct>
+                },
+                {
+                    path: '/dashboard/deleteSellerProduct/:id',
+                    element: <DeleteProduct></DeleteProduct>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
+                },
+                {
+                    path: '/dashboard/updateSellerProduct/:id',
+                    element: <UpdateProduct></UpdateProduct>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
+                },
+                {
+                    path: '/dashboard/seeAllProduct',
+                    element: <SeeProduct></SeeProduct>
+                },
+            ]
+        },
+        {
+            path: '/userdashboard',
+            element: <UserLayOut></UserLayOut>,
+            children: [
+                {
+                    path: '/userdashboard',
+                    element: <UserDashBoard></UserDashBoard>
+                },
+                {
+                    path: '/userdashboard/buyerProduct',
+                    element: <BuyProduct></BuyProduct>
+                },
+                {
+                    path: '/userdashboard/wishlist',
+                    element: <AddWishList></AddWishList>,
+                    loader: () => fetch(`https://mobile-server.vercel.app/wish`)
+                },
+                {
+                    path: '/userdashboard/payment/:id',
+                    element: <Payment></Payment>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/wish/${params.id}`)
                 },
             ]
         },

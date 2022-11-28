@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import updateImg from '../../../assets/update.jpg';
-import useTitle from '../../../components/Hooks/useTitle';
+import updateImg from '../../assets/update.jpg';
+import useTitle from '../../components/Hooks/useTitle';
 
 const UpdateProducts = () => {
     useTitle('Update Product');
@@ -14,7 +14,7 @@ const UpdateProducts = () => {
     const [previousData, setUpdateData] = useState([])
     const [updateData, setData] = useState(previousData)
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -23,7 +23,7 @@ const UpdateProducts = () => {
     }, [])
     const handleSub = event => {
         event.preventDefault();
-        fetch(`http://localhost:5000/mobile/${Data._id}`, {
+        fetch(`https://mobile-server.vercel.app/mobile/${Data._id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updateData)

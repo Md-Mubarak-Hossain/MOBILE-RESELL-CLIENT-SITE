@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import bkash from '../../../pages/Dashboard/User/PaymentLogo/bkash.png';
-import rocket from '../../../pages/Dashboard/User/PaymentLogo/rocket.png';
+import React, { useState } from 'react';
+import bkash from '../../../src/pages/UserDashboard/PaymentLogo/bkash.png';
+import rocket from '../../../src/pages/UserDashboard/PaymentLogo/rocket.png';
+
 
 import { BiPhoneCall } from 'react-icons/bi';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -11,7 +12,7 @@ const Payment = () => {
     const [updateData, setData] = useState(product)
     const handleSub = event => {
         event.preventDefault();
-        fetch(`http://localhost:5000/mobile/${product._id}`, {
+        fetch(`https://mobile-server.vercel.app/mobile/${product._id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updateData)

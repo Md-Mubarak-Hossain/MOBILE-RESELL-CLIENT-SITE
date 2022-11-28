@@ -7,7 +7,7 @@ const Auth = getAuth(app)
 const AdminContext = ({ children }) => {
     const [admins, setAdmin] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/admin')
+        fetch('https://mobile-server.vercel.app/admin')
             .then(res => res.json())
             .then(data => setAdmin(data))
     }, [])

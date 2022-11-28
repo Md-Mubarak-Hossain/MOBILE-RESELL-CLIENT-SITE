@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 
 const BuyProductScreen = () => {
     useTitle('Buy Product');
@@ -9,7 +9,7 @@ const BuyProductScreen = () => {
     const { name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
         battery, picture, location } = MobileData;
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
@@ -22,7 +22,7 @@ const BuyProductScreen = () => {
     }
     console.log(mobilePost)
     const handleClick = () => {
-        fetch('http://localhost:5000/wish', {
+        fetch('https://mobile-server.vercel.app/wish', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(mobilePost)
@@ -40,8 +40,8 @@ const BuyProductScreen = () => {
             })
     }
     return (
-        <div className='lg:my-16' >
-            <div className='text-center lg:mb-5'>
+        <div>
+            <div className='text-center'>
                 <p className='text-xl lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
                 <p class='text-xl font-bold'>Total:{mobile.length}</p>
             </div>
@@ -51,7 +51,7 @@ const BuyProductScreen = () => {
 
                         <div className="hero-content flex-col  p-1  w-full rounded-lg">
                             <div>
-                                <img alt='img' src={d.picture} className="rounded-lg shadow-xl w-32 h-40" />
+                                <img alt='img' src={d.picture} className="rounded-lg shadow-xl w-24 h-32" />
                             </div>
                             <div>
                                 <h1 className="lg:text-xs text-xl font-bold">{d.name}</h1>
@@ -66,7 +66,7 @@ const BuyProductScreen = () => {
                                             <p className="lg:text-xs text-xl">location:{d.location}</p> */}
                                     <p className="lg:text-xs text-xl">price:{d.price}</p>
                                     <p className="lg:text-xs text-xl">resalePrice:{d.resalePrice}</p>
-                                    <Link to={`/payment/${d._id}`}> <button className="badge badge-primary btn-outline btn-xs text-xs ">Buy Now</button></Link>
+                                    <Link to={`/userdashbord/payment/${d._id}`}> <button className="badge badge-primary btn-outline btn-xs text-xs ">Buy Now</button></Link>
                                     <Link> <button onClick={() => handleClick(setD(d))} className="badge badge-primary btn-outline btn-xs text-xs">Add Wish List</button></Link>
                                 </div>
                             </div>
@@ -74,7 +74,8 @@ const BuyProductScreen = () => {
                     </div>)
                 }
             </div>
-        </div>
+            <Link to='/userdashboard/buyerProduct'><button className='btn btn-link'>See more..</button></Link>
+        </div >
     );
 };
 

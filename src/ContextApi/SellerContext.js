@@ -7,7 +7,7 @@ const SellerContext = ({ children }) => {
     const [sellers, setSeller] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/seller')
+        fetch('https://mobile-server.vercel.app/seller')
             .then(res => res.json())
             .then(data => setSeller(data))
     }, [])

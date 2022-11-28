@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 
 const DeleteProduct = () => {
     useTitle('Seller Product delete');
@@ -12,7 +12,7 @@ const DeleteProduct = () => {
 
     // get all Mobile for update
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -29,7 +29,7 @@ const DeleteProduct = () => {
     const handleDelete = Mobile => {
         const procced = window.confirm(`Are you sure to delete??:${name}`)
         if (procced) {
-            fetch(`http://localhost:5000/mobile/${_id}`, {
+            fetch(`https://mobile-server.vercel.app/mobile/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -61,12 +61,12 @@ const DeleteProduct = () => {
                                 <button className='btn' onClick={() => handleDelete(Mobile)}>Delete</button>
                             </div>
                         </div>
-                        <div>Return <Link to='/seeAllProducts'><button className='btn btn-outline btn-warning'>View Products</button>
+                        <div>Return <Link to='/dashboard/seeAllProducts'><button className='btn btn-outline btn-warning'>View Products</button>
                         </Link></div>
                     </div>
                     : <div className='card'>
                         <div className='card-title'>All Mobile successfully deleted</div>
-                        <div className='card-actions'>Return <Link to='/seeAllProducts'><button className='btn btn-outline btn-warning'>View Mobile Products Screen</button>
+                        <div className='card-actions'>Return <Link to='/dashboard/seeAllProducts'><button className='btn btn-outline btn-warning'>View Mobile Products Screen</button>
                         </Link></div>
                     </div>
             }

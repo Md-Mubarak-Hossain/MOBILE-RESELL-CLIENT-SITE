@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Seller = () => {
+const User = () => {
     const [user, setUser] = useState([]);
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
-    //         queryFn: () => fetch('http://localhost:5000/mobile')
+    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
     //             .then(res => res.json())
     //     }
     // )
     useEffect(() => {
-        fetch('http://localhost:5000/seller')
+        fetch('https://mobile-server.vercel.app/user')
             .then(res => res.json())
             .then(data => setUser(data))
     }, [])
@@ -56,7 +56,7 @@ const Seller = () => {
                                 <span className="badge badge-ghost badge-sm">{d.password}</span>
                             </td>
                             <th>
-                                <Link to={`/removeSeller/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">Remove</button></Link>
+                                <Link to={`/admindashboard/removeUser/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">Remove</button></Link>
                             </th>
                         </tr>
 
@@ -70,4 +70,4 @@ const Seller = () => {
     );
 };
 
-export default Seller;
+export default User;

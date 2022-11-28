@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 import SeeAllProducts from './SeeAllProducts';
+
 
 const DeleteProducts = () => {
     useTitle('Delete Product');
@@ -15,7 +16,7 @@ const DeleteProducts = () => {
 
     // get all Mobile for update
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -26,7 +27,7 @@ const DeleteProducts = () => {
     const handleDelete = Mobile => {
         const procced = window.confirm(`Are you sure to delete??:${name}`)
         if (procced) {
-            fetch(`http://localhost:5000/mobile/${_id}`, {
+            fetch(`https://mobile-server.vercel.app/mobile/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

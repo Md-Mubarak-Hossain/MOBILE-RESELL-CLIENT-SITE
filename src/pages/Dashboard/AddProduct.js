@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdAddShoppingCart } from 'react-icons/md'
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 const AddProduct = () => {
     useTitle('Seller AddProduct');
     const handleSub = event => {
@@ -35,7 +35,7 @@ const AddProduct = () => {
             location
 
         }
-        fetch('http://localhost:5000/mobile', {
+        fetch('https://mobile-server.vercel.app/mobile', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(mobilePost)

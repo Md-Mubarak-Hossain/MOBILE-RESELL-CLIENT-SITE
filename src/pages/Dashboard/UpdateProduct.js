@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import updateImg from '../../../assets/update.jpg';
-import useTitle from '../../../components/Hooks/useTitle';
+import updateImg from '../../assets/update.jpg';
+import useTitle from '../../components/Hooks/useTitle';
 
 const UpdateProduct = () => {
     useTitle('Seller Update Page');
@@ -9,21 +9,12 @@ const UpdateProduct = () => {
     const Data = useLoaderData();
     console.log(Data)
     const { name, brand, ram, camera, useTime, resalePrice, category } = Data;
-    /*
-    
-                    name: mobile.name,
-                    brand: mobile.brand,
-                    ram: mobile.ram,
-                    camera: mobile.camera,
-                    useTime: mobile.useTime,
-                    resalePrice: mobile.resalePrice,
-                    category: mobile.category,
-    */
+
     // load all data
     const [previousData, setUpdateData] = useState([])
     const [updateData, setData] = useState(previousData)
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -32,7 +23,7 @@ const UpdateProduct = () => {
     }, [])
     const handleSub = event => {
         event.preventDefault();
-        fetch(`http://localhost:5000/mobile/${Data._id}`, {
+        fetch(`https://mobile-server.vercel.app/mobile/${Data._id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updateData)
@@ -108,15 +99,14 @@ const UpdateProduct = () => {
                                 <input type="text" onChange={onChangeHandle} defaultValue={useTime} placeholder='enter name' name='useTime' className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Update</button>
+                                <button className="btn btn-outline btn-primary">Update</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
-
             <div>
-                <Link to='/seeAllProducts'><button className='btn btn-outline btn-warning'>Return Products Screen</button></Link>
+                <Link to='/dashboard/seeAllProducts'><button className='btn btn-link btn-warning'>Return Products Screen</button></Link>
             </div>
         </div >
     );

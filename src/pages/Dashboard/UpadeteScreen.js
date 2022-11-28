@@ -1,69 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../components/Hooks/useTitle';
 
 
-const AddWishList = () => {
+const UpadeteScreen = () => {
+    useTitle('Update Product');
     const [mobile, setMobile] = useState([]);
-    // const [previousMobile, setPreviouMobile] = useState([])
-    const [restMobile, setRestMobile] = useState(mobile);
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
-    //         queryFn: () => fetch('http://localhost:5000/mobile')
+    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
     //             .then(res => res.json())
     //     }
     // )
     useEffect(() => {
-        fetch('http://localhost:5000/wish')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
     console.log(mobile);
-
-    const handleReset = () => {
-        return <AddWishList></AddWishList>
-
-    }
-    const handleDelete = id => {
-        const procced = window.confirm(`Are you sure to delete??`)
-        if (procced) {
-            fetch(`http://localhost:5000/wish/${id}`, {
-                method: 'DELETE',
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.deletedCount > 0) {
-                        const remainMobile = restMobile.filter(d => d._id !== id)
-                        setMobile(remainMobile);
-                        handleReset();
-                        alert('successfully deleted')
-                    }
-
-                })
-        }
-    }
     return (
-        <form className="overflow-x-auto w-full" >
+        <div className="overflow-x-auto w-full">
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>WishList</p>
+                <p className='text-xl lg:text-4xl font-bold'>The Seller Update Screen</p>
                 <h2>Total Mobiles:{mobile.length}</h2>
             </div>
             <table className="table lg:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
-                        <th>Remove</th>
+                        <th>Delete</th>
                         <th>Brand</th>
                         <th>Category</th>
                         <th>resell-price</th>
-                        <th>Payment</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 {
                     mobile.map(d => <tbody key={d._id}>
                         <tr className='border'>
                             <th>
-                                <Link ><button onClick={() => handleDelete(d._id)} className="btn btn-outline btn-primary btn-sm">X</button></Link>
+                                <Link to={`/dashboard/deleteSellerProduct/${d._id}`}><button className="btn btn-outline btn-primary btn-sm">X</button></Link>
                             </th>
                             <td>
                                 <div className="flex items-center space-x-2">
@@ -85,18 +61,17 @@ const AddWishList = () => {
                             </td>
                             <td>'$'{d.resalePrice}</td>
                             <th>
-                                <Link to={`/payment/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">{d?.paid || "Payment"}</button></Link>
+                                <Link to={`/dashboard/updateSellerProduct/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
                             </th>
                         </tr>
-
                     </tbody>)}
                 <tfoot>
                     <tr>
                     </tr>
                 </tfoot>
             </table>
-        </form >
+        </div>
     );
 };
 
-export default AddWishList;
+export default UpadeteScreen;

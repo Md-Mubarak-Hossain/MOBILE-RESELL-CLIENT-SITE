@@ -6,7 +6,7 @@ const Auth = getAuth(app)
 const UserContext = ({ children }) => {
     const [users, setUser] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('https://mobile-server.vercel.app/user')
             .then(res => res.json())
             .then(data => setUser(data))
     }, [])

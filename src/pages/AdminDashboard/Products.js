@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 
 const Products = () => {
     useTitle('Products');
@@ -8,18 +8,18 @@ const Products = () => {
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
-    //         queryFn: () => fetch('http://localhost:5000/mobile')
+    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
     //             .then(res => res.json())
     //     }
     // )
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
     console.log(mobile);
     return (
-        <div className='w-full lg:pr-4 lg:py-8'>
+        <div className='w-full'>
             <div className='text-center mb-5'>
                 <p className='text-xl lg:text-4xl font-bold'>The Second Hand Mobile Screen</p>
                 <h2>Total Mobiles:{mobile.length}</h2>
@@ -27,9 +27,9 @@ const Products = () => {
             <div>
                 {
                     mobile?.slice(0, 3).map(d => <div key={d._id} className="hero  my-5 w-full border">
-                        <div className="hero-content flex-col lg:flex-row p-2">
+                        <div className="hero-content flex-col lg:flex-row p-2 w-full">
                             <div>
-                                <img alt='img' src={d.picture} className=" rounded-lg shadow-xl" />
+                                <img alt='img' src={d.picture} className=" rounded-lg shadow-xl h-96" />
                             </div>
                             <div>
                                 <h1 className="text-xl font-bold">{d.name}</h1>
@@ -43,15 +43,15 @@ const Products = () => {
                                 <p className="text-xl">price:{d.price}</p>
                                 <p className="text-xl">resalePrice:{d.resalePrice}</p>
                                 <p className="text-xl">location:{d.location}</p>
-                                <Link to={`/delete/${d._id}`}><button className="btn btn-primary btn-sm mx-2">X</button></Link>
-                                <Link to={`/update/${d._id}`}> <button className="btn btn-primary btn-sm">update</button></Link>
+                                <Link to={`/admindashboard/delete/${d._id}`}><button className="btn btn-outline btn-primary btn-sm mx-2">X</button></Link>
+                                <Link to={`/admindashboard/update/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
                             </div>
                         </div>
                     </div>)
                 }
             </div>
             <div className='w-full'>
-                <Link to='/seeAllProducts'><button className='btn btn-outline btn-primary w-full'>See more</button></Link>
+                <Link to='/admindashboard/seeAllProducts'><button className='btn btn-link btn-primary w-full'>See more</button></Link>
             </div>
         </div >
     );

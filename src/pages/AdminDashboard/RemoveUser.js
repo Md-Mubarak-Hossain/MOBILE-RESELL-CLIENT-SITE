@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 
 const RemoveUser = () => {
     useTitle('Remove User');
@@ -12,7 +12,7 @@ const RemoveUser = () => {
 
     // get all Mobile for update
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('https://mobile-server.vercel.app/user')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -29,7 +29,7 @@ const RemoveUser = () => {
     const handleDelete = User => {
         const procced = window.confirm(`Are you sure to delete??:${username}`)
         if (procced) {
-            fetch(`http://localhost:5000/user/${_id}`, {
+            fetch(`https://mobile-server.vercel.app/user/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

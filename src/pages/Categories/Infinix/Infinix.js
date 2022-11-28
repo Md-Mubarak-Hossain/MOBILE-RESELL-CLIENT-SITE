@@ -15,13 +15,13 @@ const Infinix = () => {
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
-    //         queryFn: () => fetch('http://localhost:5000/mobile')
+    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
     //             .then(res => res.json())
     //     }
     // )
 
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
@@ -34,7 +34,7 @@ const Infinix = () => {
     }
     console.log(mobilePost)
     const handleClick = () => {
-        fetch('http://localhost:5000/wish', {
+        fetch('https://mobile-server.vercel.app/wish', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(mobilePost)
@@ -80,7 +80,7 @@ const Infinix = () => {
                                             <p className="lg:text-xs">resalePrice:{d.resalePrice}</p>
                                             <p className="lg:text-xs">location:{d.location}</p> */}
                                         </div>
-                                        <Link to={`/payment/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
+                                        <Link to={`/userdashboard/payment/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
                                         <Link> <button onClick={() => handleClick(setD(d))} className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Add Wish List</button></Link>
                                     </div>
                                 </div>

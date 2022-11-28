@@ -6,7 +6,7 @@ const Faq = () => {
     useTitle('FAQ Page');
     const [faqs, setFaq] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/faqAns')
+        fetch('https://mobile-server.vercel.app/faqAns')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

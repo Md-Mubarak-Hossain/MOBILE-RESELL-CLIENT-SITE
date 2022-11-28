@@ -1,39 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const User = () => {
-    const [user, setUser] = useState([]);
+
+const GoOther = () => {
+    const [mobile, setMobile] = useState([]);
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
-    //         queryFn: () => fetch('http://localhost:5000/mobile')
+    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
     //             .then(res => res.json())
     //     }
     // )
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
-            .then(data => setUser(data))
+            .then(data => setMobile(data))
     }, [])
-    console.log(user);
+    console.log(mobile);
     return (
         <div className="overflow-x-auto w-full">
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>The User Update Screen</p>
-                <h2>Total users:{user.length}</h2>
+                <p className='text-xl lg:text-4xl font-bold'>The Update Screen</p>
+                <h2>Total Mobiles:{mobile.length}</h2>
             </div>
             <table className="table lg:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
-                        <th></th>
-                        <th>username</th>
-                        <th>Address</th>
-
+                        <th>Delete</th>
+                        <th>Brand</th>
+                        <th>Category</th>
+                        <th>resell-price</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 {
-                    user.map(d => <tbody key={d._id}>
+                    mobile.map(d => <tbody key={d._id}>
                         <tr className='border'>
+                            <th>
+                                <Link to={`/delete/${d._id}`}><button className="btn btn-outline btn-primary btn-sm">X</button></Link>
+                            </th>
                             <td>
                                 <div className="flex items-center space-x-2">
                                     <div className="avatar">
@@ -42,21 +47,19 @@ const User = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="font-bold">{d.username}</div>
-                                        <div className="text-sm opacity-50">{d.location}</div>
+                                        <div className="font-bold">{d.name}</div>
+                                        <div className="text-sm opacity-50">{d.category}</div>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                {d.phone}
+                                {d.name}
                                 <br />
-                                <span className="badge badge-ghost badge-sm">{d.email}</span>
+                                <span className="badge badge-ghost badge-sm">{d.brand}</span>
                             </td>
-                            <td>
-                                <span className="badge badge-ghost badge-sm">{d.password}</span>
-                            </td>
+                            <td>'$'{d.resalePrice}</td>
                             <th>
-                                <Link to={`/removeUser/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">Remove</button></Link>
+                                <Link to={`/update/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
                             </th>
                         </tr>
 
@@ -70,4 +73,4 @@ const User = () => {
     );
 };
 
-export default User;
+export default GoOther;

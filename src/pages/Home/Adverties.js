@@ -10,18 +10,19 @@ import infinix from '../Home/Offer/infinix.jpg';
 
 const Advertise = () => {
     let [imag, setImag] = useState(0)
-    let img = [oppo, oppo, infinix, infinix, vivo, vivo]
+    let img = [oppo, infinix, vivo]
     useEffect(() => {
         setInterval(() => {
-            setImag(imag + 1);
+            setImag(imag++);
             if (imag === img.length) {
                 setImag(0)
             }
         }, 20000)
     }, [])
+
     const [mobile, setMobile] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

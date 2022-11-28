@@ -2,42 +2,68 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-const GoOther = () => {
+const AddWishList = () => {
     const [mobile, setMobile] = useState([]);
+    // const [previousMobile, setPreviouMobile] = useState([])
+    const [restMobile, setRestMobile] = useState(mobile);
     // const { data: Data, isLoading } = useQuery(
     //     {
     //         queryKey: ['Data'],
-    //         queryFn: () => fetch('http://localhost:5000/mobile')
+    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
     //             .then(res => res.json())
     //     }
     // )
     useEffect(() => {
-        fetch('http://localhost:5000/mobile')
+        fetch('https://mobile-server.vercel.app/wish')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
     console.log(mobile);
+
+    const handleReset = () => {
+        return <AddWishList></AddWishList>
+
+    }
+    const handleDelete = id => {
+        const procced = window.confirm(`Are you sure to delete??`)
+        if (procced) {
+            fetch(`https://mobile-server.vercel.app/wish/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        const remainMobile = restMobile.filter(d => d._id !== id)
+                        setMobile(remainMobile);
+                        handleReset();
+                        alert('successfully deleted')
+                    }
+
+                })
+        }
+    }
     return (
-        <div className="overflow-x-auto w-full">
+        <form className="overflow-x-auto w-full" >
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>The Update Screen</p>
+                <p className='text-xl lg:text-4xl font-bold'>WishList</p>
                 <h2>Total Mobiles:{mobile.length}</h2>
             </div>
             <table className="table lg:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
-                        <th>Delete</th>
+                        <th>Remove</th>
                         <th>Brand</th>
                         <th>Category</th>
                         <th>resell-price</th>
-                        <th>Update</th>
+                        <th>Payment</th>
                     </tr>
                 </thead>
                 {
                     mobile.map(d => <tbody key={d._id}>
                         <tr className='border'>
                             <th>
-                                <Link to={`/delete/${d._id}`}><button className="btn btn-outline btn-primary btn-sm">X</button></Link>
+                                <Link ><button onClick={() => handleDelete(d._id)} className="btn btn-outline btn-primary btn-sm">X</button></Link>
                             </th>
                             <td>
                                 <div className="flex items-center space-x-2">
@@ -59,7 +85,7 @@ const GoOther = () => {
                             </td>
                             <td>'$'{d.resalePrice}</td>
                             <th>
-                                <Link to={`/update/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
+                                <Link to={`/userdashboard/payment/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">{d?.paid || "Payment"}</button></Link>
                             </th>
                         </tr>
 
@@ -69,8 +95,8 @@ const GoOther = () => {
                     </tr>
                 </tfoot>
             </table>
-        </div >
+        </form >
     );
 };
 
-export default GoOther;
+export default AddWishList;
