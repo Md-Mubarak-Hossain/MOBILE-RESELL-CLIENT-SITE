@@ -1,60 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
-
-const A5 = () => {
+import useTitle from '../../components/Hooks/useTitle';
+const AdminA5 = () => {
     useTitle('Oppo A5');
     const [mobile, setMobile] = useState([]);
-    const [MobileData, setD] = useState([]);
-    const name = MobileData.d?.name
-    const brand = MobileData.d?.brand
-    const ram = MobileData.d?.ram
-    const picture = MobileData.d?.picture
-    const camera = MobileData.d?.camera
-    const price = MobileData.d?.price
-    const resalePrice = MobileData.d?.resalePrice
-    const battery = MobileData.d?.battery
-    const useTime = MobileData.d?.useTime
-    const location = MobileData.d?.location
-    const seller = MobileData.d?.seller
-    console.log(name)
     useEffect(() => {
         fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
 
-    // data post
-    const mobilePost = {
-        name, brand,
-        ram,
-        picture,
-        camera,
-        price,
-        resalePrice,
-        battery,
-        useTime,
-        location,
-        seller
-    }
-    console.log(mobilePost)
-    const handleClick = () => {
-        fetch('https://mobile-server.vercel.app/wish', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(mobilePost)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.acknowledged) {
-                    alert('Added in wish list')
-                }
-                else {
-                    alert('sorry');
-                }
-            })
-    }
     return (
         <div data-theme='light' className='w-full'>
             <div className='text-center lg:mb-5'>
@@ -84,8 +39,7 @@ const A5 = () => {
                                             <p className="lg:text-xs">resalePrice:{d.resalePrice}</p>
                                             <p className="lg:text-xs">location:{d.location}</p>
                                         </div>
-                                        <Link to={`/userdashboard/payment2/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
-                                        <Link> <button onClick={() => handleClick(setD(d = { d }))} className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Add Wish List</button></Link>
+                                        <Link to={`/admindashboard/update/${d._id}`}> <button className="btn btn-outline btn-primary btn-xs">update</button></Link>
                                     </div>
                                 </div>
                                 : <>
@@ -97,4 +51,4 @@ const A5 = () => {
         </div >
     );
 };
-export default A5;
+export default AdminA5;

@@ -13,15 +13,23 @@ const Navbar = () => {
             .catch(err => console.error(err))
     }
     const profile = <div className="avatar">
-        <div className="w-16 rounded-full">
-            <img src={user?.photoURL} title={user?.displayName} alt='profile' />
-        </div>
+        {users?.map(usr => <li key={usr._id}>
+            {
+                user && user.uid && usr.email?.includes(user.email) ?
+                    <>
+                        <div className="w-16 rounded-full">
+                            <img src={usr.picture} title={usr.username} alt='profile' />
+                        </div>
+                    </>
+                    : <></>
+            }
+        </li>)}
     </div>
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/faq'>FAQ</Link></li>
-        <li> <Link to='/userdashboard'>Dashboard</Link></li>
+        <li> <Link to='/userdashboard'>User Dashboard</Link></li>
         <li> <Link to='/userdashboard/wishlist'>Wish List</Link></li>
         <li> <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link>
         </li>
@@ -29,7 +37,7 @@ const Navbar = () => {
     </>
     return (
         <div className='w-full bg-night text-center'>
-            <h2 className='hidden lg:flex lg:text-xl uppercase lg:font-semibold text-warning w-full text-center'>mobile reseller</h2>
+            <h2 className='hidden lg:flex lg:text-xl uppercase lg:font-semibold text-warning w-full text-center'>mobile reuser</h2>
             <div className="navbar">
                 <div className="navbar-start h-16">
                     <Link className="btn btn-ghost normal-case text-xl rounded-full"><img src={logo} alt="Mobile Shop" className='w-16 h-14 rounded-full' /></Link>

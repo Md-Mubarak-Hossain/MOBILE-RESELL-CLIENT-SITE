@@ -1,29 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../components/Hooks/useTitle';
-
+import { AuthContext } from '../../ContextApi/Context';
 
 const UpadeteScreen = () => {
     useTitle('Update Product');
     const [mobile, setMobile] = useState([]);
-    // const { data: Data, isLoading } = useQuery(
-    //     {
-    //         queryKey: ['Data'],
-    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
-    //             .then(res => res.json())
-    //     }
-    // )
+    const { user } = useContext(AuthContext)
     useEffect(() => {
-        fetch('https://mobile-server.vercel.app/mobile')
+        fetch(`https://mobile-server.vercel.app/mobileWithEmail?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMobile(data))
-    }, [])
+    }, [user])
     console.log(mobile);
     return (
-        <div className="overflow-x-auto w-full">
+        <div className="overflow-x-auto w-full rounded">
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>The Seller Update Screen</p>
-                <h2>Total Mobiles:{mobile.length}</h2>
+                <p className='text-xl lg:text-2xl font-bold'>The Seller Update Screen</p>
+                <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
             <table className="table lg:w-full">
                 <thead>
@@ -36,10 +30,9 @@ const UpadeteScreen = () => {
                     </tr>
                 </thead>
                 {
-                    mobile.map(d => <tbody key={d._id}>
+                    mobile?.map(d => <tbody key={d._id}>
                         <tr className='border'>
                             <th>
-                                <Link to={`/dashboard/deleteSellerProduct/${d._id}`}><button className="btn btn-outline btn-primary btn-sm">X</button></Link>
                             </th>
                             <td>
                                 <div className="flex items-center space-x-2">
@@ -61,7 +54,7 @@ const UpadeteScreen = () => {
                             </td>
                             <td>'$'{d.resalePrice}</td>
                             <th>
-                                <Link to={`/dashboard/updateSellerProduct/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
+                                <Link to={`/sellerdashboard/updateSellerProduct/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
                             </th>
                         </tr>
                     </tbody>)}

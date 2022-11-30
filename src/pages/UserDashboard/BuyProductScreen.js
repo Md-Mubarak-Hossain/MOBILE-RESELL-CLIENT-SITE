@@ -32,7 +32,7 @@ const BuyProductScreen = () => {
                 console.log(data)
                 if (data.acknowledged) {
                     // form.reset();
-                    alert('Added success')
+                    alert('Added wish list')
                 }
                 else {
                     alert('sorry');
@@ -58,12 +58,12 @@ const BuyProductScreen = () => {
                                 <div className='grid   grid-cols-1  w-full'>
                                     <p className="lg:text-xs text-xl">Brand:{d.brand}</p>
 
-                                    {/* <p className="lg:text-xs text-xl">Seller:{d.seller}</p>
-                                            <p className="lg:text-xs text-xl">Ram:{d.ram}</p>
-                                            <p className="lg:text-xs text-xl">Camera:{d.camera}</p>
-                                            <p className="lg:text-xs text-xl">Battery:{d.battery}</p>
-                                            <p className="lg:text-xs text-xl">useTime:{d.useTime}</p>
-                                            <p className="lg:text-xs text-xl">location:{d.location}</p> */}
+                                    <p className="lg:text-xs text-xl">Seller:{d.seller}</p>
+                                    <p className="lg:text-xs text-xl">Ram:{d.ram}</p>
+                                    <p className="lg:text-xs text-xl">Camera:{d.camera}</p>
+                                    <p className="lg:text-xs text-xl">Battery:{d.battery}</p>
+                                    <p className="lg:text-xs text-xl">useTime:{d.useTime}</p>
+                                    <p className="lg:text-xs text-xl">location:{d.location}</p>
                                     <p className="lg:text-xs text-xl">price:{d.price}</p>
                                     <p className="lg:text-xs text-xl">resalePrice:{d.resalePrice}</p>
                                     <Link to={`/userdashbord/payment/${d._id}`}> <button className="badge badge-primary btn-outline btn-xs text-xs ">Buy Now</button></Link>

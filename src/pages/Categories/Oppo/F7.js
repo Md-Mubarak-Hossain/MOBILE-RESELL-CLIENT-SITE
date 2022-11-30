@@ -1,35 +1,41 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../components/Hooks/useTitle';
-import { AuthContext } from '../../../ContextApi/Context';
-import Spin from '../../account/Spinner/Spin';
 
 const F7 = () => {
     useTitle('Oppo F7');
-    const { loading } = useContext(AuthContext)
     const [mobile, setMobile] = useState([]);
     const [MobileData, setD] = useState([]);
-    const { name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
-        battery, picture, location } = MobileData;
-    // const { data: Data, isLoading } = useQuery(
-    //     {
-    //         queryKey: ['Data'],
-    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
-    //             .then(res => res.json())
-    //     }
-    // )
-
+    const name = MobileData.d?.name
+    const brand = MobileData.d?.brand
+    const ram = MobileData.d?.ram
+    const picture = MobileData.d?.picture
+    const camera = MobileData.d?.camera
+    const price = MobileData.d?.price
+    const resalePrice = MobileData.d?.resalePrice
+    const battery = MobileData.d?.battery
+    const useTime = MobileData.d?.useTime
+    const location = MobileData.d?.location
+    const seller = MobileData.d?.seller
+    console.log(name)
     useEffect(() => {
         fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
-    console.log(mobile);
-    console.log(MobileData);
+
     // data post
     const mobilePost = {
-        name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,
-        battery, picture, location
+        name, brand,
+        ram,
+        picture,
+        camera,
+        price,
+        resalePrice,
+        battery,
+        useTime,
+        location,
+        seller
     }
     console.log(mobilePost)
     const handleClick = () => {
@@ -42,17 +48,15 @@ const F7 = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    // form.reset();
-                    alert('Added success')
+                    alert('Added in wish list')
                 }
                 else {
                     alert('sorry');
                 }
             })
     }
-
     return (
-        <div>
+        <div data-theme='light' className='w-full'>
             <div className='text-center lg:mb-5'>
                 <p className='text-xs lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
                 <p class='text-xs lg:text-2xl font-bold'>Brand: Oppo</p>
@@ -70,7 +74,7 @@ const F7 = () => {
                                     <div>
                                         <h1 className="lg:text-xs font-bold">{d.name}</h1>
                                         <div className='grid gap-2 lg:gap-0 grid-cols-2 lg:grid-cols-1 w-full'>
-                                            {/* <p className="lg:text-xs">Brand:{d.brand}</p>
+                                            <p className="lg:text-xs">Brand:{d.brand}</p>
                                             <p className="lg:text-xs">Category:{d.category}</p>
                                             <p className="lg:text-xs">Seller:{d.seller}</p>
                                             <p className="lg:text-xs">Ram:{d.ram}</p>
@@ -79,10 +83,10 @@ const F7 = () => {
                                             <p className="lg:text-xs">useTime:{d.useTime}</p>
                                             <p className="lg:text-xs">price:{d.price}</p>
                                             <p className="lg:text-xs">resalePrice:{d.resalePrice}</p>
-                                            <p className="lg:text-xs">location:{d.location}</p> */}
+                                            <p className="lg:text-xs">location:{d.location}</p>
                                         </div>
-                                        <Link to={`/userdashboard/payment/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
-                                        <Link> <button onClick={() => handleClick(setD(d))} className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Add Wish List</button></Link>
+                                        <Link to={`/userdashboard/payment2/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
+                                        <Link> <button onClick={() => handleClick(setD(d = { d }))} className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Add Wish List</button></Link>
                                     </div>
                                 </div>
                                 : <div className='hidden'>

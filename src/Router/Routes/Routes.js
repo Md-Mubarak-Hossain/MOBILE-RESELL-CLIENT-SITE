@@ -25,7 +25,6 @@ import BuyProduct from '../../pages/UserDashboard/BuyProduct';
 import Dashboard from '../../pages/Dashboard/Dashboard';
 import SellerLayout from '../../Layouts/Default/SellerLayout';
 import AddProduct from '../../pages/Dashboard/AddProduct';
-import DeleteProduct from '../../pages/Dashboard/DeleteProduct';
 import UpdateProduct from '../../pages/Dashboard/UpdateProduct';
 import SeeProduct from '../../pages/Dashboard/SeeProduct';
 import UpadeteScreen from '../../pages/Dashboard/UpadeteScreen';
@@ -33,14 +32,27 @@ import UserLayOut from '../../Layouts/Default/UserLayOut';
 import UserDashBoard from '../../pages/UserDashboard/UserDashBoard';
 import AdminLayout from '../../Layouts/Default/AdminLayout';
 import AddminDashBoard from '../../pages/AdminDashboard/AddminDashBoard';
-import RemoveUser from '../../pages/AdminDashboard/RemoveUser';
-import RemoveSeller from '../../pages/AdminDashboard/RemoveSeller';
 import SeeAllProducts from '../../pages/AdminDashboard/SeeAllProducts';
 import Seller from '../../pages/AdminDashboard/Seller';
 import UpdateProducts from '../../pages/AdminDashboard/UpdateProducts';
-import DeleteProducts from '../../pages/AdminDashboard/DeleteProducts';
 import AddProducts from '../../pages/AdminDashboard/AddProducts';
 import Products from '../../pages/AdminDashboard/Products';
+import Payment2 from '../../pages/UserDashboard/Payment2';
+import AdminProtected from '../ProtectedRoute/AdminProtected';
+import AdminWishList from '../../pages/AdminDashboard/AdminWishList';
+import AdminBlog from '../../pages/AdminDashboard/AdminBlog';
+import AdminFaq from '../../pages/AdminDashboard/AdminFaq';
+import AdminHome from '../../pages/AdminDashboard/AdminHome';
+import AdminOppo from '../../pages/AdminDashboard/AdminOppo';
+import AdminVivo from '../../pages/AdminDashboard/AdminVivo';
+import AdminInfinix from '../../pages/AdminDashboard/AdminInfinix';
+import AdminA9 from '../../pages/AdminDashboard/AdminA9';
+import AdminA5 from '../../pages/AdminDashboard/AdminA5';
+import AdminF7 from '../../pages/AdminDashboard/AdminF7';
+import AdminSpin from '../../pages/AdminDashboard/AdminSpin';
+import AdminCategory from '../../pages/AdminDashboard/Other/AdminCategory';
+import SellerProtected from '../ProtectedRoute/SellerProtected';
+import UserProtected from '../ProtectedRoute/UserProtected';
 const Routes = () => {
     const router = createBrowserRouter([
         {
@@ -112,33 +124,32 @@ const Routes = () => {
         },
         {
             path: '/admindashboard',
-            element: <AdminLayout></AdminLayout>,
+            element: <AdminProtected><AdminLayout></AdminLayout></AdminProtected>,
             children: [
                 {
                     path: '/admindashboard',
                     element: <AddminDashBoard></AddminDashBoard>
                 },
                 {
+                    path: '/admindashboard/home',
+                    element: <AdminHome></AdminHome>
+                },
+                {
                     path: '/admindashboard/User',
                     element: <User></User>
                 },
-                {
-                    path: '/admindashboard/removeUser/:id',
-                    element: <RemoveUser></RemoveUser>,
-                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/user/${params.id}`)
-                },
+
                 {
                     path: '/admindashboard/Seller',
                     element: <Seller></Seller>
                 },
                 {
-                    path: '/admindashboard/removeSeller/:id',
-                    element: <RemoveSeller></RemoveSeller>,
-                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/seller/${params.id}`)
-                },
-                {
                     path: '/admindashboard/Products',
                     element: <Products></Products>
+                },
+                {
+                    path: '/admindashboard/wishlist',
+                    element: <AdminWishList></AdminWishList>
                 },
                 {
                     path: '/admindashboard/seeAllProducts',
@@ -159,48 +170,78 @@ const Routes = () => {
                     loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
                 },
 
-
-                {
-                    path: '/admindashboard/delete/:id',
-                    element: <DeleteProducts></DeleteProducts>,
-                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
-                },
                 {
                     path: '/admindashboard/AddProducts',
                     element: <AddProducts></AddProducts>
+                },
+                {
+                    path: '/admindashboard/category',
+                    element: <AdminCategory></AdminCategory>
+                },
+                {
+                    path: '/admindashboard/A5',
+                    element: <AdminA5></AdminA5>
+                },
+                {
+                    path: '/admindashboard/oppo',
+                    element: <AdminOppo></AdminOppo>
+                },
+                {
+                    path: '/admindashboard/vivo',
+                    element: <AdminVivo></AdminVivo>
+                },
+                {
+                    path: '/admindashboard/infinix',
+                    element: <AdminInfinix></AdminInfinix>
+                },
+                {
+                    path: '/admindashboard/A9',
+                    element: <AdminA9></AdminA9>
+                },
+                {
+                    path: '/admindashboard/F7',
+                    element: <AdminF7></AdminF7>
+                },
+                {
+                    path: '/admindashboard/blog',
+                    element: <AdminBlog></AdminBlog>
+                },
+                {
+                    path: '/admindashboard/faq',
+                    element: <AdminFaq></AdminFaq>
+                },
+
+                {
+                    path: '/admindashboard/spinner',
+                    element: <AdminSpin></AdminSpin>
                 },
 
             ]
         },
         {
-            path: '/dashboard',
-            element: <SellerLayout></SellerLayout>,
+            path: '/sellerdashboard',
+            element: <SellerProtected><SellerLayout></SellerLayout></SellerProtected>,
             children: [
                 {
-                    path: '/dashboard',
+                    path: '/sellerdashboard',
                     element: <Dashboard></Dashboard>
                 },
 
                 {
-                    path: '/dashboard/updateScreen',
+                    path: '/sellerdashboard/updateScreen',
                     element: <UpadeteScreen></UpadeteScreen>
                 },
                 {
-                    path: '/dashboard/addproduct',
-                    element: <AddProduct></AddProduct>
+                    path: '/sellerdashboard/addproduct',
+                    element: <SellerProtected><AddProduct></AddProduct></SellerProtected>
                 },
                 {
-                    path: '/dashboard/deleteSellerProduct/:id',
-                    element: <DeleteProduct></DeleteProduct>,
+                    path: '/sellerdashboard/updateSellerProduct/:id',
+                    element: <SellerProtected> <UpdateProduct></UpdateProduct></SellerProtected>,
                     loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
                 },
                 {
-                    path: '/dashboard/updateSellerProduct/:id',
-                    element: <UpdateProduct></UpdateProduct>,
-                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
-                },
-                {
-                    path: '/dashboard/seeAllProduct',
+                    path: '/sellerdashboard/seeAllProduct',
                     element: <SeeProduct></SeeProduct>
                 },
             ]
@@ -215,17 +256,22 @@ const Routes = () => {
                 },
                 {
                     path: '/userdashboard/buyerProduct',
-                    element: <BuyProduct></BuyProduct>
+                    element: <UserProtected><BuyProduct></BuyProduct></UserProtected>
                 },
                 {
                     path: '/userdashboard/wishlist',
-                    element: <AddWishList></AddWishList>,
+                    element: <UserProtected><AddWishList></AddWishList></UserProtected>,
                     loader: () => fetch(`https://mobile-server.vercel.app/wish`)
                 },
                 {
                     path: '/userdashboard/payment/:id',
-                    element: <Payment></Payment>,
+                    element: <UserProtected><Payment></Payment></UserProtected>,
                     loader: ({ params }) => fetch(`https://mobile-server.vercel.app/wish/${params.id}`)
+                },
+                {
+                    path: '/userdashboard/payment2/:id',
+                    element: <UserProtected><Payment2></Payment2></UserProtected>,
+                    loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
                 },
             ]
         },

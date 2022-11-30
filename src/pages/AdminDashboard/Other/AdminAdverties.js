@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import config from '../../config';
+import config from '../../../config';
 import {
     AdvertisingProvider, AdvertisingSlot, logVersionInfo
 } from 'react-advertising';
-import vivo from '../Home/Offer/vivo.jpg';
-import oppo from '../Home/Offer/oppo.jpg';
-import infinix from '../Home/Offer/infinix.jpg';
+import vivo from '../../Home/Offer/vivo.jpg';
+import oppo from '../../Home/Offer/oppo.jpg';
+import infinix from '../../Home/Offer/infinix.jpg';
 import { useQuery } from '@tanstack/react-query';
-import Spin from '../account/Spinner/Spin';
+import Spin from '../../../pages/AdminDashboard/AdminSpin';
 
-const Advertise = () => {
+const AdminAdvertise = () => {
     let [imag, setImag] = useState(0)
     let img = [oppo, infinix, vivo]
 
@@ -53,4 +53,4 @@ const Advertise = () => {
     );
 }
 
-export default Advertise;
+export default AdminAdvertise;

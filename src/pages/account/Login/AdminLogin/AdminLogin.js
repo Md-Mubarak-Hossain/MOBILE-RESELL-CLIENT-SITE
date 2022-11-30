@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import useTitle from '../../../../components/Hooks/useTitle';
 import login from '../../../../assets/login.jpg';
 import { AuthContext } from '../../../../ContextApi/Context';
-import { Navigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 const AdminLogin = () => {
     useTitle('Admin Login');
     const { user, logIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/admindashboard';
     const handleSub = event => {
         event.preventDefault();
         const form = event.target;
@@ -15,14 +18,11 @@ const AdminLogin = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                user ?
-
-                    alert('successfully login')
-                    : alert('login failed')
+                navigate(from, { replace: true })
+                alert('successfully login')
 
             })
             .catch(err => console.error(err))
-
     }
     console.log(user)
 
@@ -48,7 +48,7 @@ const AdminLogin = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" name='password' className="input input-bordered" />
+                                <input type="password" placeholder="password" name='password' className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>

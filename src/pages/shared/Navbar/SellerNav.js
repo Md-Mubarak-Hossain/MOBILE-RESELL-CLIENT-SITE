@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
 import { AuthContext } from '../../../ContextApi/Context';
-import { UserAuth } from '../../../ContextApi/UserContext';
+import { SellerAuth } from '../../../ContextApi/SellerContext';
 
 const SellerNav = () => {
-    const { users } = useContext(UserAuth)
+    const { sellers } = useContext(SellerAuth)
     const { user, logOut } = useContext(AuthContext);
     const logout = () => {
         logOut()
@@ -13,15 +13,23 @@ const SellerNav = () => {
             .catch(err => console.error(err))
     }
     const profile = <div className="avatar">
-        <div className="w-16 rounded-full">
-            <img src={user?.photoURL} title={user?.displayName} alt='profile' />
-        </div>
+        {sellers?.map(seller => <li key={seller._id}>
+            {
+                user && user.uid && seller.email?.includes(user.email) ?
+                    <>
+                        <div className="w-16 rounded-full">
+                            <img src={seller.picture} title={seller.username} alt='profile' />
+                        </div>
+                    </>
+                    : <></>
+            }
+        </li>)}
     </div>
     const menubar = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/faq'>FAQ</Link></li>
-        <li> <Link to='/dashboard'>Dashboard</Link></li>
+        <li> <Link to='/sellerdashboard'>Dashboard</Link></li>
         <li> <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link>
         </li>
         <li>{profile}</li>

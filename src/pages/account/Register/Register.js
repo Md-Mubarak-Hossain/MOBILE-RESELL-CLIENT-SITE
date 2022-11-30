@@ -2,9 +2,16 @@ import React, { useContext, useState } from 'react';
 import useTitle from '../../../components/Hooks/useTitle';
 import { FaRegAddressBook } from 'react-icons/fa';
 import { AuthContext } from '../../../ContextApi/Context';
+import Login from '../Login/UserLogin/Login';
+import { setAuthToken } from '../../../components/Api/auth';
+import UserLayOut from '../../../Layouts/Default/UserLayOut';
+import { useLocation, useNavigate } from 'react-router-dom';
 const Register = () => {
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/userdashboard';
     const [error, setError] = useState('');
-    const { createUser, loading } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     useTitle('Register Page');
     const handleSub = event => {
         event.preventDefault();
@@ -20,7 +27,9 @@ const Register = () => {
             createUser(email, password)
                 .then(result => {
                     const user = result.user;
+                    setAuthToken(user);
                     console.log(user)
+                    navigate(from, { replace: true })
                 })
                 .catch(err => console.error(err))
 
@@ -37,7 +46,8 @@ const Register = () => {
                 .then(data => {
                     console.log(data)
                     if (data.acknowledged) {
-                        alert('Added success')
+                        alert('Successfully register')
+                        return <Login></Login>
                     }
                     else {
                         alert('sorry');
@@ -47,7 +57,6 @@ const Register = () => {
         else {
             return setError('Password must be more than 6 characters.')
         }
-
     }
     return (
         <div>

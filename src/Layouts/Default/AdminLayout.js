@@ -6,12 +6,12 @@ import { GrUpdate } from 'react-icons/gr';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { VscThreeBars } from 'react-icons/vsc';
 import Footer from '../../pages/shared/Footer/Footer';
-import Navbar from '../../pages/shared/Navbar/AdminNav';
+import AdminNav from '../../pages/shared/Navbar/AdminNav';
 
 const AdminLayout = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            <AdminNav></AdminNav>
             <p className='ml-4'>
                 <label htmlFor="sideNav" className="lg:hidden"><VscThreeBars></VscThreeBars></label>
             </p>
@@ -21,7 +21,7 @@ const AdminLayout = () => {
                     <div className="drawer-content w-full">
                         <Outlet></Outlet>
                     </div>
-                    <div className="drawer-side">
+                    <div data-theme='night' className="drawer-side">
                         <label htmlFor="sideNav" className="drawer-overlay"></label>
                         <ul className="menu p-2 w-40 bg-base-100 text-base-content">
                             <li>

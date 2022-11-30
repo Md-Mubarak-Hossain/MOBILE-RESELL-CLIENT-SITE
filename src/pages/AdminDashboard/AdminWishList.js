@@ -1,36 +1,59 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import useTitle from '../../components/Hooks/useTitle';
-import { AuthContext } from '../../ContextApi/Context';
 
-const GoOther = () => {
-    useTitle('Update Product');
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+const AdminWishList = () => {
     const [mobile, setMobile] = useState([]);
-    const { user } = useContext(AuthContext)
     useEffect(() => {
-        fetch(`https://mobile-server.vercel.app/mobile`)
+        fetch('https://mobile-server.vercel.app/wish')
             .then(res => res.json())
             .then(data => setMobile(data))
-    }, [user])
+    }, [])
     console.log(mobile);
+    const handleReset = (event) => {
+        event.preventDefault();
+    }
+    const handleDelete = id => {
+        const procced = window.confirm(`Are you sure to delete??`)
+        if (procced) {
+            fetch(`https://mobile-server.vercel.app/wish/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        const remainMobile = mobile.filter(d => d._id !== id)
+                        setMobile(remainMobile);
+                        mobile();
+                        handleReset();
+                        alert('successfully deleted')
+                    }
+
+                })
+        }
+    }
     return (
-        <div className="overflow-x-auto w-full rounded">
+        <form data-theme='light' className="overflow-x-auto w-full" >
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-2xl font-bold'>The Seller Update Screen</p>
+                <p className='text-xl lg:text-4xl font-bold'>WishList</p>
                 <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
             <table className="table lg:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
+                        <th>Remove</th>
                         <th>Brand</th>
                         <th>Category</th>
                         <th>resell-price</th>
-                        <th>Update</th>
+                        <th>Payment</th>
                     </tr>
                 </thead>
                 {
                     mobile?.map(d => <tbody key={d._id}>
                         <tr className='border'>
+                            <th>
+                                <Link ><button onClick={() => handleDelete(d._id)} className="btn btn-outline btn-primary btn-sm">X</button></Link>
+                            </th>
                             <td>
                                 <div className="flex items-center space-x-2">
                                     <div className="avatar">
@@ -51,17 +74,18 @@ const GoOther = () => {
                             </td>
                             <td>'$'{d.resalePrice}</td>
                             <th>
-                                <Link to={`/admindashboard/update/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
+                                <Link to={`/userdashboard/payment/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">{d?.paid || "Payment"}</button></Link>
                             </th>
                         </tr>
+
                     </tbody>)}
                 <tfoot>
                     <tr>
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        </form >
     );
 };
 
-export default GoOther;
+export default AdminWishList;

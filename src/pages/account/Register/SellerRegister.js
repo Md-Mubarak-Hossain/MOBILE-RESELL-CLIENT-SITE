@@ -2,9 +2,16 @@ import React, { useContext, useState } from 'react';
 import useTitle from '../../../components/Hooks/useTitle';
 import { FaRegAddressBook } from 'react-icons/fa';
 import { AuthContext } from '../../../ContextApi/Context';
+import SellerLogin from '../Login/SellerLogin/SellerLogin';
+import { setAuthToken } from '../../../components/Api/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 const SellerRegister = () => {
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/sellerdashboard';
     const [error, setError] = useState('');
-    const { createUser, loading } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     useTitle('Seller Register Form');
     const handleSub = event => {
         event.preventDefault();
@@ -20,6 +27,8 @@ const SellerRegister = () => {
             createUser(email, password)
                 .then(result => {
                     const user = result.user;
+                    setAuthToken(user);
+                    navigate(from, { replace: true })
                     console.log(user)
                 })
                 .catch(err => console.error(err))
@@ -31,13 +40,13 @@ const SellerRegister = () => {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(SellerRegister)
-
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
                     if (data.acknowledged) {
-                        alert('Added success')
+                        alert('Successfully register')
+                        return <SellerLogin></SellerLogin>
                     }
                     else {
                         alert('sorry');

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PrivateRouter = () => {
+const AdminSpin = () => {
     return (
         <div>
-
+            <p>loading...</p>
         </div>
     );
 };
 
-export default PrivateRouter;
+export default AdminSpin;

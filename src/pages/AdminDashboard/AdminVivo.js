@@ -1,71 +1,27 @@
+// import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 
-const A5 = () => {
-    useTitle('Oppo A5');
+const AdminVivo = () => {
+    useTitle('Oppo Brand');
     const [mobile, setMobile] = useState([]);
-    const [MobileData, setD] = useState([]);
-    const name = MobileData.d?.name
-    const brand = MobileData.d?.brand
-    const ram = MobileData.d?.ram
-    const picture = MobileData.d?.picture
-    const camera = MobileData.d?.camera
-    const price = MobileData.d?.price
-    const resalePrice = MobileData.d?.resalePrice
-    const battery = MobileData.d?.battery
-    const useTime = MobileData.d?.useTime
-    const location = MobileData.d?.location
-    const seller = MobileData.d?.seller
-    console.log(name)
     useEffect(() => {
         fetch('https://mobile-server.vercel.app/mobile')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
-
-    // data post
-    const mobilePost = {
-        name, brand,
-        ram,
-        picture,
-        camera,
-        price,
-        resalePrice,
-        battery,
-        useTime,
-        location,
-        seller
-    }
-    console.log(mobilePost)
-    const handleClick = () => {
-        fetch('https://mobile-server.vercel.app/wish', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(mobilePost)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.acknowledged) {
-                    alert('Added in wish list')
-                }
-                else {
-                    alert('sorry');
-                }
-            })
-    }
     return (
         <div data-theme='light' className='w-full'>
             <div className='text-center lg:mb-5'>
                 <p className='text-xs lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
                 <p class='text-xs lg:text-2xl font-bold'>Brand: Oppo</p>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-5'>
+            <form className='grid grid-cols-1 lg:grid-cols-5'>
                 {
                     mobile.map(d => <div key={d._id} className="hero">
                         {
-                            d.category?.includes("A5") ?
+                            d.brand?.includes("Oppo") ?
                                 <div className="card place-items-center p-2 w-full rounded-lg">
                                     <div>
                                         <img alt='img' src={d.picture} className=" rounded-lg shadow-xl w-32 h-40" />
@@ -84,8 +40,7 @@ const A5 = () => {
                                             <p className="lg:text-xs">resalePrice:{d.resalePrice}</p>
                                             <p className="lg:text-xs">location:{d.location}</p>
                                         </div>
-                                        <Link to={`/userdashboard/payment2/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
-                                        <Link> <button onClick={() => handleClick(setD(d = { d }))} className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Add Wish List</button></Link>
+                                        <Link to={`/admindashboard/update/${d._id}`}> <button className="btn btn-outline btn-primary btn-xs">update</button></Link>
                                     </div>
                                 </div>
                                 : <>
@@ -93,8 +48,9 @@ const A5 = () => {
                         }
                     </div>)
                 }
-            </div>
+            </form>
         </div >
     );
 };
-export default A5;
+
+export default AdminVivo;

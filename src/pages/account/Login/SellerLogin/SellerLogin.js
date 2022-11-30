@@ -2,9 +2,14 @@ import React, { useContext } from 'react';
 import useTitle from '../../../../components/Hooks/useTitle';
 import sellerlogin from '../../../../assets/sellerlogin.png';
 import { AuthContext } from '../../../../ContextApi/Context';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../../../components/Api/auth';
 const SellerLogin = () => {
     useTitle('Seller Login');
     const { logIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/sellerdashboard';
     const handleSub = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,6 +19,8 @@ const SellerLogin = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setAuthToken(user);
+                navigate(from, { replace: true })
                 alert('successfully login')
             })
             .catch(err => console.error(err))
@@ -40,7 +47,7 @@ const SellerLogin = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" name='password' className="input input-bordered" />
+                                <input type="password" placeholder="password" name='password' className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>

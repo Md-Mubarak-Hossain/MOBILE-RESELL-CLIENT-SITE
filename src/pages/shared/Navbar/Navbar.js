@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo2.png';
 import { AdminAuth } from '../../../ContextApi/AdminContext';
 import { AuthContext } from '../../../ContextApi/Context';
+import { SellerAuth } from '../../../ContextApi/SellerContext';
 import { UserAuth } from '../../../ContextApi/UserContext';
-
 const Navbar = () => {
     const { admins } = useContext(AdminAuth)
     const { users } = useContext(UserAuth)
+    const { sellers } = useContext(SellerAuth)
     const { user, logOut } = useContext(AuthContext);
     const logout = () => {
         logOut()
@@ -21,7 +22,7 @@ const Navbar = () => {
                 <h2 className='text-warning'>Select a Category </h2>
                 <li><Link to='/adminlogin'><button className='btn btn-outline btn-warning'>Admin Login</button></Link></li>
                 <li><Link to='/userlogin'><button className='btn btn-outline btn-warning'>user Login</button></Link></li>
-                <li><Link to='/userlogin'><button className='btn btn-outline btn-warning'>User Login</button></Link></li>
+                <li><Link to='/sellerlogin'><button className='btn btn-outline btn-warning'>Seller Login</button></Link></li>
             </ul>
         </div>
     </>
@@ -31,18 +32,17 @@ const Navbar = () => {
             <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100  rounded-box w-52 absolute top-20 text-center place-items-center">
                 <h2 className='text-warning'>Select a Category </h2>
                 <li><Link to='/register'><button className='btn btn-outline btn-warning'>User</button></Link></li>
-                <li><Link to='/userRegister'><button className='btn btn-outline btn-warning'>user</button></Link></li>
+                <li><Link to='/sellerRegister'><button className='btn btn-outline btn-warning'>Seller</button></Link></li>
             </ul>
         </div>
     </>
     const signOut = < li > <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link></li>
-
     const AdminDashboard =
         <>{
             admins?.map(admin => <li key={admin._id}>
                 {user && user.uid?.includes("WfPgID7xMcQ02ZN9GEWCYBmO9WX2") && admin.email.includes("mubarak@gmail.com") ?
                     <>
-                        <li> <Link to='/admindashboard'>Dashboard</Link></li>
+                        <li> <Link to='/admindashboard'>Admin Dashboard</Link></li>
                         {signOut}
                     </>
                     : <>
@@ -53,10 +53,23 @@ const Navbar = () => {
         </>
 
     const userDashboard = <>{
-        users?.map(user => <li key={user._id}>
-            {user && user.uid && user.email?.includes(user.email) ?
+        users?.map(usr => <li key={usr._id}>
+            {user && user.uid && usr.email?.includes(user.email) ?
                 <>
-                    <li> <Link to='/dashboard'>user Dashboard</Link></li>
+                    <li> <Link to='/userdashboard'>User Dashboard</Link></li>
+                    {signOut}
+                </>
+                : <>
+                </>}
+        </li>)
+
+    }
+    </>
+    const sellerDashboard = <>{
+        sellers?.map(seller => <li key={seller._id}>
+            {user && user.uid && seller.email?.includes(user.email) ?
+                <>
+                    <li> <Link to='/sellerdashboard'>Seller Dashboard</Link></li>
                     {signOut}
                 </>
                 : <>
@@ -84,6 +97,7 @@ const Navbar = () => {
         <li><Link to='/faq'>FAQ</Link></li>
         {AdminDashboard}
         {userDashboard}
+        {sellerDashboard}
         <li>{login}</li>
     </>
     return (
@@ -104,6 +118,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content text-primary  border mt-2">
                         {menubar}
+
                     </ul>
                 </div>
             </div>

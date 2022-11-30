@@ -106,7 +106,7 @@ const UpdateProduct = () => {
                 </div>
             </form>
             <div>
-                <Link to='/dashboard/seeAllProducts'><button className='btn btn-link btn-warning'>Return Products Screen</button></Link>
+                <Link to='/sellerdashboard/seeAllProducts'><button className='btn btn-link btn-warning'>Return Products Screen</button></Link>
             </div>
         </div >
     );

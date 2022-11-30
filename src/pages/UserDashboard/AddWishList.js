@@ -1,28 +1,16 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-
 const AddWishList = () => {
     const [mobile, setMobile] = useState([]);
-    // const [previousMobile, setPreviouMobile] = useState([])
-    const [restMobile, setRestMobile] = useState(mobile);
-    // const { data: Data, isLoading } = useQuery(
-    //     {
-    //         queryKey: ['Data'],
-    //         queryFn: () => fetch('https://mobile-server.vercel.app/mobile')
-    //             .then(res => res.json())
-    //     }
-    // )
     useEffect(() => {
         fetch('https://mobile-server.vercel.app/wish')
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [])
     console.log(mobile);
-
-    const handleReset = () => {
-        return <AddWishList></AddWishList>
-
+    const handleReset = (event) => {
+        event.preventDefault();
     }
     const handleDelete = id => {
         const procced = window.confirm(`Are you sure to delete??`)
@@ -34,8 +22,9 @@ const AddWishList = () => {
                 .then(data => {
                     console.log(data)
                     if (data.deletedCount > 0) {
-                        const remainMobile = restMobile.filter(d => d._id !== id)
+                        const remainMobile = mobile.filter(d => d._id !== id)
                         setMobile(remainMobile);
+                        mobile();
                         handleReset();
                         alert('successfully deleted')
                     }
@@ -47,7 +36,7 @@ const AddWishList = () => {
         <form className="overflow-x-auto w-full" >
             <div className='text-center mb-5'>
                 <p className='text-xl lg:text-4xl font-bold'>WishList</p>
-                <h2>Total Mobiles:{mobile.length}</h2>
+                <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
             <table className="table lg:w-full">
                 <thead>
@@ -60,7 +49,7 @@ const AddWishList = () => {
                     </tr>
                 </thead>
                 {
-                    mobile.map(d => <tbody key={d._id}>
+                    mobile?.map(d => <tbody key={d._id}>
                         <tr className='border'>
                             <th>
                                 <Link ><button onClick={() => handleDelete(d._id)} className="btn btn-outline btn-primary btn-sm">X</button></Link>

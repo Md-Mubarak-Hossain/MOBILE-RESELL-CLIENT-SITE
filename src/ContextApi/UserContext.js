@@ -10,7 +10,7 @@ const UserContext = ({ children }) => {
             .then(res => res.json())
             .then(data => setUser(data))
     }, [])
-    const authInfo = { users }
+    const authInfo = { Auth, users }
     return (
         <UserAuth.Provider value={authInfo}>
             {children}
