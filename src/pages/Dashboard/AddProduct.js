@@ -125,12 +125,8 @@ const AddProduct = () => {
                                                     </label>
                                                     <input type="text" defaultValue={seller.username} placeholder='enter seller name' name='seller' className="input input-bordered" />
                                                 </>
-                                                : <>
-                                                    <label className="label">
-                                                        <span className="label-text">Seller name</span>
-                                                    </label>
-                                                    <input type="text" placeholder='enter seller name' name='seller' className="input input-bordered" />
-                                                </>
+                                                : <div className='hidden'>
+                                                </div>
                                         }
                                     </div>)
                                 }
