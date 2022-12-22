@@ -10,9 +10,6 @@ const SellerProtected = ({ children }) => {
     if (user && user.uid) {
         return children;
     }
-    if (loading) {
-        return <Spin></Spin >
-    }
     return (
         <Navigate
             to='/sellerlogin'

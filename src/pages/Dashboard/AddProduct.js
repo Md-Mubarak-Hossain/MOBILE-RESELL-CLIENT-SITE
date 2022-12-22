@@ -123,7 +123,7 @@ const AddProduct = () => {
                                                     <label className="label">
                                                         <span className="label-text">Seller name</span>
                                                     </label>
-                                                    <input type="text" defaultValue={seller.username} placeholder='enter seller name' name='seller' className="input input-bordered" />
+                                                    <input type="text" defaultValue={seller.username} placeholder='enter seller name' name='seller' className="input input-bordered" disabled />
                                                 </>
                                                 : <div className='hidden'>
                                                 </div>
@@ -134,7 +134,7 @@ const AddProduct = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" defaultValue={user.email} placeholder='enter email' name='email' className="input input-bordered" />
+                                    <input type="email" defaultValue={user.email} placeholder='enter email' name='email' className="input input-bordered" disabled />
                                 </div>
                                 <div className="form-control lg:px-2">
                                     <label className="label">
@@ -147,7 +147,7 @@ const AddProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Picture Link</span>
                                 </label>
-                                <input type="text" placeholder='enter product picture link' name='picture' className="input input-bordered" />
+                                <input type="text" placeholder='enter product picture link' name='picture' className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-outline btn-primary">Add product</button>

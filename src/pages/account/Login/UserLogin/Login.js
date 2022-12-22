@@ -3,8 +3,9 @@ import { FcGoogle } from 'react-icons/fc';
 import useTitle from '../../../../components/Hooks/useTitle';
 import userlogin from '../../../../assets/userlogin.jpg';
 import { AuthContext } from '../../../../ContextApi/Context';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setAuthToken } from '../../../../components/Api/auth';
+import UserLayOut from '../../../../Layouts/Default/UserLayOut';
 const Login = () => {
     const { googleLogIn, logIn } = useContext(AuthContext);
     useTitle('User Login');
@@ -23,6 +24,7 @@ const Login = () => {
                 setAuthToken(user);
                 navigate(from, { replace: true })
                 alert('successfully login')
+
             })
             .catch(err => console.error(err))
     }
@@ -89,6 +91,10 @@ const Login = () => {
                             <div className='divider divider-horizontal'></div>
                             <div className="form-control mt-6">
                                 <button onClick={googleLogin} className="btn btn-outline btn-warning w-full"><FcGoogle></FcGoogle>sign in with google</button>
+
+                            </div>
+                            <div>
+                                <Link to='/register' className='text-xs'>Haven't account?<button className='btn btn-link btn-sm text-xs lowercase'>register</button></Link>
                             </div>
                         </form>
                     </div>

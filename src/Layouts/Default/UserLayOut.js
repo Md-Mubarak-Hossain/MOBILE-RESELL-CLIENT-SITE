@@ -10,7 +10,7 @@ import UserNav from '../../pages/shared/Navbar/UserNav';
 
 const UserLayOut = () => {
     return (
-        <div>
+        < div >
             <UserNav></UserNav>
             <p className='ml-4'>
                 <label htmlFor="sideNav" className="lg:hidden "><VscThreeBars></VscThreeBars></label>

@@ -1,12 +1,12 @@
 import React from 'react';
 import BuyProductScreen from './BuyProductScreen';
 
-const UserDashBoard = () => {
+const UserDashboard = () => {
     return (
-        <div>
+        <>
             <BuyProductScreen></BuyProductScreen>
-        </div>
+        </>
     );
 };
 
-export default UserDashBoard;
+export default UserDashboard;

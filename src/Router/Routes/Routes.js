@@ -65,27 +65,27 @@ const Routes = () => {
                 },
                 {
                     path: '/A5',
-                    element: <A5></A5>
+                    element: <UserProtected><A5></A5></UserProtected>
                 },
                 {
                     path: '/oppo',
-                    element: <Oppo></Oppo>
+                    element: <UserProtected><Oppo></Oppo></UserProtected>
                 },
                 {
                     path: '/vivo',
-                    element: <Vivo></Vivo>
+                    element: <UserProtected><Vivo></Vivo></UserProtected>
                 },
                 {
                     path: '/infinix',
-                    element: <Infinix></Infinix>
+                    element: <UserProtected><Infinix></Infinix></UserProtected>
                 },
                 {
                     path: '/A9',
-                    element: <A9></A9>
+                    element: <UserProtected><A9></A9></UserProtected>
                 },
                 {
                     path: '/F7',
-                    element: <F7></F7>
+                    element: <UserProtected><F7></F7></UserProtected>
                 },
                 {
                     path: '/blog',
@@ -255,6 +255,10 @@ const Routes = () => {
                     element: <UserDashBoard></UserDashBoard>
                 },
                 {
+                    path: '/userdashboard/userlogin',
+                    element: <Login></Login>
+                },
+                {
                     path: '/userdashboard/buyerProduct',
                     element: <UserProtected><BuyProduct></BuyProduct></UserProtected>
                 },
@@ -272,6 +276,43 @@ const Routes = () => {
                     path: '/userdashboard/payment2/:id',
                     element: <UserProtected><Payment2></Payment2></UserProtected>,
                     loader: ({ params }) => fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)
+                },
+                // .......
+                {
+                    path: '/userdashboard/home',
+                    element: <Home></Home>,
+                },
+                {
+                    path: '/userdashboard/A5',
+                    element: <UserProtected><A5></A5></UserProtected>
+                },
+                {
+                    path: '/userdashboard/oppo',
+                    element: <UserProtected><Oppo></Oppo></UserProtected>
+                },
+                {
+                    path: '/userdashboard/vivo',
+                    element: <UserProtected><Vivo></Vivo></UserProtected>
+                },
+                {
+                    path: '/userdashboard/infinix',
+                    element: <UserProtected><Infinix></Infinix></UserProtected>
+                },
+                {
+                    path: '/userdashboard/A9',
+                    element: <UserProtected><A9></A9></UserProtected>
+                },
+                {
+                    path: '/userdashboard/F7',
+                    element: <UserProtected><F7></F7></UserProtected>
+                },
+                {
+                    path: '/userdashboard/blog',
+                    element: <Blog></Blog>
+                },
+                {
+                    path: '/userdashboard/faq',
+                    element: <Faq></Faq>
                 },
             ]
         },

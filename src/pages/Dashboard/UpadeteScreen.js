@@ -4,15 +4,15 @@ import useTitle from '../../components/Hooks/useTitle';
 import { AuthContext } from '../../ContextApi/Context';
 
 const UpadeteScreen = () => {
-    useTitle('Update Product');
-    const [mobile, setMobile] = useState([]);
+    useTitle('Update Product')
+    const [mobile, setMobile] = useState([])
     const { user } = useContext(AuthContext)
     useEffect(() => {
         fetch(`https://mobile-server.vercel.app/mobileWithEmail?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMobile(data))
     }, [user])
-    console.log(mobile);
+    console.log(mobile)
     return (
         <div className="overflow-x-auto w-full rounded">
             <div className='text-center mb-5'>

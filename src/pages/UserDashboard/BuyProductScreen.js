@@ -43,7 +43,7 @@ const BuyProductScreen = () => {
         <div>
             <div className='text-center'>
                 <p className='text-xl lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
-                <p class='text-xl font-bold'>Total:{mobile.length}</p>
+                <p className='text-xl font-bold'>Total:{mobile.length}</p>
             </div>
             <div className='grid grid-cols-1  lg:grid-cols-4'>
                 {
@@ -67,7 +67,7 @@ const BuyProductScreen = () => {
                                     <p className="lg:text-xs text-xl">price:{d.price}</p>
                                     <p className="lg:text-xs text-xl">resalePrice:{d.resalePrice}</p>
                                     <Link to={`/userdashbord/payment/${d._id}`}> <button className="badge badge-primary btn-outline btn-xs text-xs ">Buy Now</button></Link>
-                                    <Link> <button onClick={() => handleClick(setD(d))} className="badge badge-primary btn-outline btn-xs text-xs">Add Wish List</button></Link>
+                                    <Link> <button onClick={() => handleClick(setD(d = { d }))} className="badge badge-primary btn-outline btn-xs text-xs">Add Wish List</button></Link>
                                 </div>
                             </div>
                         </div>

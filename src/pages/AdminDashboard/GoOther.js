@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import useTitle from '../../components/Hooks/useTitle';
 import { AuthContext } from '../../ContextApi/Context';
 
 const GoOther = () => {
     useTitle('Update Product');
-    const [mobile, setMobile] = useState([]);
+    const [mobile, setMobile] = useState([])
     const { user } = useContext(AuthContext)
     useEffect(() => {
         fetch(`https://mobile-server.vercel.app/mobile`)
@@ -62,6 +62,6 @@ const GoOther = () => {
             </table>
         </div>
     );
-};
+}
 
 export default GoOther;

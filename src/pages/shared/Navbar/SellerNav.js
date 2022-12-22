@@ -47,18 +47,17 @@ const SellerNav = () => {
                             {menubar}
                         </ul>
                     </div>
-                    <div className="dropdown lg:hidden">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden text-end">
+                    <div className="dropdown lg:hidden w-full">
+                        <label tabIndex={0} className="lg:hidden text-end flex flex-col place-items-end btn-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content text-primary  border mt-2">
+                        <ul data-theme="night" tabIndex={0} className=" absolute w-full mx-0 px-0 menu menu-compact dropdown-content text-primary top-5 left-0 right-5 mt-2">
                             {menubar}
                         </ul>
                     </div>
                 </div>
-            </div >
-        </div >
-    );
+            </div>
+        </div>);
 };
 
 export default SellerNav;

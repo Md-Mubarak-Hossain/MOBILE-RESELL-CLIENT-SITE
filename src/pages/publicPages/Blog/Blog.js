@@ -22,7 +22,7 @@ const Blog = () => {
                 </div>
                 {
                     blogs.map(blog => <div key={blog._id} className='hero' >
-                        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 mt-20 border border-warning rounded-lg shadow-xl p-5">
+                        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 mt-20  rounded-lg shadow-xl p-5">
                             <div className='w-full'>
                                 <img alt='img' src={blog.img} className="h-full w-full rounded-lg shadow-xl" />
                             </div>
