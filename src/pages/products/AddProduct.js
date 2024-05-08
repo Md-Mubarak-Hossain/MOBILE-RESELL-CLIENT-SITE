@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md'
-import useTitle from '../../../components/Hooks/useTitle';
-import { AuthContext } from '../../../ContextApi/Context';
-import { SellerAuth } from '../../../ContextApi/SellerContext';
+import { AuthContext } from '../../ContextApi/Context';
+import { SellerAuth } from '../../ContextApi/SellerContext';
+import useTitle from '../../components/Hooks/useTitle';
+
 const AddProduct = () => {
     useTitle('Seller AddProduct');
     const { user } = useContext(AuthContext);

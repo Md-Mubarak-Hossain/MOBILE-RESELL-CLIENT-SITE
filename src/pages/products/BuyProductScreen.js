@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
+import useTitle from '../../components/Hooks/useTitle';
 
 const BuyProductScreen = () => {
-    useTitle('Buy Product');
+    useTitle('Buy Product Screen');
     const [mobile, setMobile] = useState([]);
     const [MobileData, setD] = useState([]);
     const { name, brand, ram, camera, useTime, price, resalePrice, category, seller, email,

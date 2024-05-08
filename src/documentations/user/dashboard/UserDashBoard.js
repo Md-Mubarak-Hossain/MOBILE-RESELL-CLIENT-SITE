@@ -1,5 +1,5 @@
 import React from 'react';
-import BuyProductScreen from './BuyProductScreen';
+import BuyProductScreen from '../../../pages/products/BuyProductScreen';
 
 const UserDashboard = () => {
     return (

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import{bkash,rocket} from '../../../components/Image';
+import { bkash,rocket } from '../../components/Image';
 import { BiPhoneCall } from 'react-icons/bi';
 import { useLoaderData } from 'react-router-dom';
 
-const Payment = () => {
+const Payment2 = () => {
     const product = useLoaderData();
     const { seller, useTime, category, ram, camera, price, name, brand, resalePrice, picture } = product;
     const [updateData, setData] = useState(product)
@@ -153,4 +153,4 @@ const Payment = () => {
     );
 };
 
-export default Payment;
+export default Payment2;

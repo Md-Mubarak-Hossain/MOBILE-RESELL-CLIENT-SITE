@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
-import { AuthContext } from '../../../ContextApi/Context';
+import useTitle from '../../components/Hooks/useTitle';
+import { AuthContext } from '../../ContextApi/Context';
 
 const UpadeteScreen = () => {
     useTitle('Update Product')

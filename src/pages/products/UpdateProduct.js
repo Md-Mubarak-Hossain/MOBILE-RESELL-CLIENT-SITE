@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import useTitle from '../../../components/Hooks/useTitle';
-import { update } from '../../../components/Image';
+import useTitle from '../../components/Hooks/useTitle';
+import { update } from '../../components/Image';
 
 const UpdateProduct = () => {
     useTitle('Seller Update Page');

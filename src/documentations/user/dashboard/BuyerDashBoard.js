@@ -4,8 +4,9 @@ import { MdAddShoppingCart } from 'react-icons/md';
 import { SiFampay } from 'react-icons/si';
 import { BiCreditCard } from 'react-icons/bi';
 import useTitle from '../../../components/Hooks/useTitle';
-import BuyProductScreen from './BuyProductScreen';
+
 import Footer from '../../../pages/shared/Footer/Footer';
+import BuyProductScreen from '../../../pages/products/BuyProductScreen';
 
 const BuyerDashBoard = () => {
     useTitle('Buyer Dashboard');
