@@ -59,7 +59,7 @@ const A9 = () => {
         <div data-theme='light' className='w-full'>
             <div className='text-center lg:mb-5'>
                 <p className='text-xs lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
-                <p class='text-xs lg:text-2xl font-bold'>Brand: Oppo</p>
+                <p className='text-xs lg:text-2xl font-bold'>Brand: Oppo</p>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-5'>
                 {

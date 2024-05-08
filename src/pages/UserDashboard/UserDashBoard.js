@@ -3,9 +3,9 @@ import BuyProductScreen from './BuyProductScreen';
 
 const UserDashboard = () => {
     return (
-        <>
+        <div className="pt-20">
             <BuyProductScreen></BuyProductScreen>
-        </>
+        </div>
     );
 };
 

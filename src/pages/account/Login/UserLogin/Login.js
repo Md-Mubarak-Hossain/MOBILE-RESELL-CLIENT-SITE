@@ -5,7 +5,7 @@ import userlogin from '../../../../assets/userlogin.jpg';
 import { AuthContext } from '../../../../ContextApi/Context';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setAuthToken } from '../../../../components/Api/auth';
-import UserLayOut from '../../../../Layouts/Default/UserLayOut';
+
 const Login = () => {
     const { googleLogIn, logIn } = useContext(AuthContext);
     useTitle('User Login');
@@ -94,7 +94,7 @@ const Login = () => {
 
                             </div>
                             <div>
-                                <Link to='/register' className='text-xs'>Haven't account?<button className='btn btn-link btn-sm text-xs lowercase'>register</button></Link>
+                                <Link to='/register' className='text-xs'>Have not account?<button className='btn btn-link btn-sm text-xs lowercase'>register</button></Link>
                             </div>
                         </form>
                     </div>

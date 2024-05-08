@@ -52,7 +52,7 @@ const UpadeteScreen = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">{d.brand}</span>
                             </td>
-                            <td>'$'{d.resalePrice}</td>
+                            <td>$ {d.resalePrice}</td>
                             <th>
                                 <Link to={`/sellerdashboard/updateSellerProduct/${d._id}`}> <button className="btn btn-outline btn-primary btn-sm">update</button></Link>
                             </th>

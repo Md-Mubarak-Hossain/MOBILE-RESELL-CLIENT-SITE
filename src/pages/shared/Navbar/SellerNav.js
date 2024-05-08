@@ -9,7 +9,7 @@ const SellerNav = () => {
     const { user, logOut } = useContext(AuthContext);
     const logout = () => {
         logOut()
-            .then(result => { })
+            .then(result => {console.log(result)})
             .catch(err => console.error(err))
     }
     const profile = <div className="avatar">

@@ -4,7 +4,6 @@ import { FaRegAddressBook } from 'react-icons/fa';
 import { AuthContext } from '../../../ContextApi/Context';
 import Login from '../Login/UserLogin/Login';
 import { setAuthToken } from '../../../components/Api/auth';
-import UserLayOut from '../../../Layouts/Default/UserLayOut';
 import { useLocation, useNavigate } from 'react-router-dom';
 const Register = () => {
     const navigate = useNavigate();

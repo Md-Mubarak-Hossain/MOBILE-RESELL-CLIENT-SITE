@@ -9,7 +9,7 @@ const AdminNavbar = () => {
     const { logOut } = useContext(AuthContext);
     const logout = () => {
         logOut()
-            .then(result => { })
+         .then(() => { })
             .catch(err => console.error(err))
     }
     const menubar = <>

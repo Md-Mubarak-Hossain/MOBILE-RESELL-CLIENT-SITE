@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import bkash from '../../../src/pages/UserDashboard/PaymentLogo/bkash.png';
 import rocket from '../../../src/pages/UserDashboard/PaymentLogo/rocket.png';
 import { BiPhoneCall } from 'react-icons/bi';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 const Payment = () => {
     const product = useLoaderData();

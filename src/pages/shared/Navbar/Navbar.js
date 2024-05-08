@@ -12,41 +12,41 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const logout = () => {
         logOut()
-            .then(result => { })
+             .then(() => { })
             .catch(err => console.error(err))
     }
     const LoginMenu = <>
         <div className="dropdown dropdown-hover relative">
-            <label tabIndex={0} className="btn my-1">Login</label>
-            <ul tabIndex={0} className="dropdown-content rounded-box p-1 shadow w-52 absolute lg:top-10 right-1 place-items-center text-black bg-base-100 ">
-                <h2 className='text-warning'>Select a Category </h2>
-                <li className='lg:text-xs mx-0 px-0'><Link to='/adminlogin'><button className='btn btn-outline btn-warning btn-sm w-16 text-xs'>Admin Login</button></Link></li>
-                <li className='lg:text-xs mx-0 px-0'><Link to='/userdashboard/userlogin'><button className='btn btn-outline btn-warning btn-sm w-16 text-xs'>user Login</button></Link></li>
-                <li className='lg:text-xs mx-0 px-0'><Link to='/sellerlogin'><button className='btn btn-outline btn-warning btn-sm w-16 text-xs'>Seller Login</button></Link></li>
+            <li><label tabIndex={0} className="mr-1">Sign In</label></li>
+            <ul tabIndex={0} className="dropdown-content p-1 w-48 md:top-12 right-0 bg-base-100 text-sm">
+                <h2 className='text-warning'>Category:</h2>
+                <li><Link className="hover:border-b" to='/adminlogin'>Admin Sign In</Link></li>
+                <li><Link className="hover:border-b" to='/userdashboard/userlogin'>User Sign In</Link></li>
+                <li><Link className="hover:border-b" to='/sellerlogin'>Seller Sign In</Link></li>
             </ul>
         </div>
     </>
     const registerMenu = <>
-        <div className="dropdown dropdown-hover relative">
-            <label tabIndex={0} className="btn m-1">Register</label>
-            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100  rounded-box w-52 absolute lg:top-10 text-center place-items-center">
-                <h2 className='text-warning'>Select a Category </h2>
-                <li className='lg:text-xs mx-0 px-0'><Link to='/register'><button className='btn btn-outline btn-warning btn-sm w-16 text-xs'>User</button></Link></li>
-                <li className='lg:text-xs mx-0 px-0'><Link to='/sellerRegister'><button className='btn btn-outline btn-warning btn-sm w-16 text-xs'>Seller</button></Link></li>
+        <div className="dropdown dropdown-hover relative ">
+            <li><label tabIndex={0} className="ml-1">Sign Up</label></li>
+            <ul tabIndex={0} className="dropdown-content  p-2 bg-base-100 w-48 absolute md:top-12 md:right-0 text-sm">
+                <h2 className="md:pt-5 text-warning">Category:</h2>
+                <li><Link className='px-5 hover:border-b' to='/register'>User Sign Up</Link></li>
+                <li><Link className='px-5 hover:border-b' to='/sellerRegister'>Seller Sign Up</Link></li>
             </ul>
         </div>
     </>
-    const signOut = <li className='text-xs px-0 mx-0'> <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link></li>
+    const signOut = <li className='text-xs px-0 mx-0'> <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost '>Log out</button></Link></li>
     const AdminDashboard =
         <>{
             admins?.map(admin => <li key={admin._id}>
                 {user && user.uid?.includes("WfPgID7xMcQ02ZN9GEWCYBmO9WX2") && admin.email.includes("mubarak@gmail.com") ?
                     <>
-                        <li className='lg:text-xs mx-0 px-0'> <Link to='/admindashboard'>Admin Dashboard</Link></li>
+                        <li className='md:text-xs mx-0 px-0'> <Link to='/admindashboard'>Admin Dashboard</Link></li>
                         {signOut}
                     </>
-                    : <>
-                    </>}
+                    : <div className="hidden">
+                    </div>}
             </li>)
 
         }
@@ -56,13 +56,13 @@ const Navbar = () => {
         users?.map(usr => <li key={usr._id}>
             {user && user.uid && usr.email?.includes(user.email) ?
                 <>
-                    <li className='lg:text-xs mx-0 px-0 text-orange-400'>
+                    <li className='md:text-xs mx-0 px-0 text-orange-400'>
                         <Link to='/userdashboard'>
                             User Dashboard</Link></li>
                     {signOut}
                 </>
-                : <>
-                </>}
+                : <div className="hidden">
+                </div>}
         </li>)
 
     }
@@ -71,11 +71,11 @@ const Navbar = () => {
         sellers?.map(seller => <li key={seller._id}>
             {user && user.uid && seller.email?.includes(user.email) ?
                 <>
-                    <li className='lg:text-xs mx-0 px-0'> <Link to='/sellerdashboard'>Seller Dashboard</Link></li>
+                    <li className='md:text-xs mx-0 px-0'> <Link to='/sellerdashboard'>Seller Dashboard</Link></li>
                     {signOut}
                 </>
-                : <>
-                </>}
+                : <div className="hidden">
+                </div>}
         </li>)
 
     }
@@ -83,7 +83,7 @@ const Navbar = () => {
     const login = <>
         {
             user && user.uid ?
-                <></>
+                <div className="hidden"></div>
                 :
                 <div>
                     {registerMenu}
@@ -91,42 +91,42 @@ const Navbar = () => {
                 </div>
         }
     </>
-    const lgMenubar = <>
-        <li className='lg:text-xs mx-0 px-0'><Link to='/'>Home</Link></li>
-        <li className='lg:text-xs mx-0 px-0'><Link to='/blog'>Blog</Link></li>
-        <li className='lg:text-xs mx-0 px-0'><Link to='/faq'>FAQ</Link></li>
+    const mdMenubar = <>
         {AdminDashboard}
         {userDashboard}
         {sellerDashboard}
-        <li className='flex '>{login}</li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/faq'>FAQ</Link></li>
+        {login}
     </>
     const smMenubar = <>
-        <li className='lg:text-xs mx-0 px-0'><Link to='/'>Home</Link></li>
-        <li className='lg:text-xs mx-0 px-0'><Link to='/blog'>Blog</Link></li>
-        <li className='lg:text-xs mx-0 px-0'><Link to='/faq'>FAQ</Link></li>
+        <li className='md:text-xs mx-0 px-0'><Link to='/'>Home</Link></li>
+        <li className='md:text-xs mx-0 px-0'><Link to='/blog'>Blog</Link></li>
+        <li className='md:text-xs mx-0 px-0'><Link to='/faq'>FAQ</Link></li>
         {AdminDashboard}
         {userDashboard}
         {sellerDashboard}
     </>
     return (
-        <div className="navbar bg-night ">
-            <div className="navbar-start h-16">
-                <Link className="btn btn-ghost normal-case text-xl rounded-full"><img src={logo} alt="Mobile Shop" className='w-16 h-14 rounded-full' /></Link>
-                <h2 className='hidden lg:flex lg:text-xl uppercase lg:font-semibold text-warning'>mobile reuser</h2>
+        <div className="navbar bg-night">
+            <div className="navbar-start">
+                <Link className="w-10 h-10 bg-gray-300 rounded-full flex justify-center items-center"><img src={logo} alt="Mobile Shop" className='w-8 h-8 rounded-full' /></Link>
+                <h2 className='hidden md:flex capitalize md:font-semibold pl-2'>mobile reuser</h2>
             </div>
             <div className="navbar-end">
-                <div className="hidden lg:flex">
+                <div className="hidden md:flex">
                     <ul className="menu menu-horizontal p-0">
-                        {lgMenubar}
+                        {mdMenubar}
                     </ul>
                 </div>
-                <div className='flex lg:hidden lg:w-0 lg:h-0'>
-                    <div className='flex lg:hidden'>
+                <div className='flex md:hidden'>
+                    <div className='flex md:hidden'>
                         {registerMenu}
                         {LoginMenu}
                     </div>
-                    <div className="dropdown lg:hidden">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden text-end">
+                    <div className="dropdown md:hidden">
+                        <label tabIndex={0} className="btn btn-ghost md:hidden text-end">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="bg-black menu menu-compact dropdown-content text-primary  mt-2">

@@ -58,7 +58,7 @@ const BuyProduct = () => {
         <div>
             <div className='text-center lg:mb-5'>
                 <p className='text-xl lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
-                <p class='text-xl font-bold'>Total:{mobile.length}</p>
+                <p className='text-xl font-bold'>Total:{mobile.length}</p>
             </div>
             <div className='grid grid-cols-1 gap-2 lg:grid-cols-4'>
                 {

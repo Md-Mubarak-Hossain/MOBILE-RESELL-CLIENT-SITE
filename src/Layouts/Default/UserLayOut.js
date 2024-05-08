@@ -10,17 +10,17 @@ import UserNav from '../../pages/shared/Navbar/UserNav';
 
 const UserLayOut = () => {
     return (
-        < div >
-            <UserNav></UserNav>
-            <p className='ml-4'>
-                <label htmlFor="sideNav" className="lg:hidden "><VscThreeBars></VscThreeBars></label>
-            </p>
+        <div>
+            <div><UserNav></UserNav></div>
+            <div className='ml-4'>
+                <label htmlFor="sideNav" className="md:hidden"><VscThreeBars></VscThreeBars></label>
+            </div>
             <div data-theme="light" className="drawer drawer-mobile w-full">
                 <input id="sideNav" type="checkbox" className="drawer-toggle w-0 h-0" />
-                <div className="drawer-content w-full m-0">
+                <div className="drawer-content w-full mt-20">
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side mt-20">
                     <label htmlFor="sideNav" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-40 bg-base-100 text-base-content place-items-center">
                         <li>

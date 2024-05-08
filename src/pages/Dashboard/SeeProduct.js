@@ -34,7 +34,7 @@ const SeeProduct = () => {
     console.log(mobile);
     return (
         <form data-theme="light">
-            <div className='text-center mb-5'>
+            <div className='text-center'>
                 <p className='text-xl lg:text-2xl font-bold'>The Second Hand Mobile Screen</p>
                 <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
