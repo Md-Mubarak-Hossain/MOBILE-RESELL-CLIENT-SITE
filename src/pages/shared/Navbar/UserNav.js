@@ -4,7 +4,7 @@ import logo from '../../../assets/logo2.png';
 import { AuthContext } from '../../../ContextApi/Context';
 import { UserAuth } from '../../../ContextApi/UserContext';
 
-const Navbar = () => {
+const UserNav = () => {
     const { users } = useContext(UserAuth)
     const { user, logOut } = useContext(AuthContext);
     const logout = () => {
@@ -12,8 +12,11 @@ const Navbar = () => {
             .then(() => { })
             .catch(err => console.error(err))
     }
-    const profile = <div className="avatar">
-        {users?.map(usr => <li key={usr._id}>
+    // const profile = <div className="avatar">
+    //     <div>
+    //         <img src={user.photoURL} title={user.displayName} alt='profile' className="w-10 h-10 rounded-full"/>
+    //     </div>
+        {/* {users?.map(usr => <li key={usr._id}>
             {user && user.uid && usr.email?.includes(user.email) ?
                 <>
                     <div className="w-16 rounded-full">
@@ -24,17 +27,16 @@ const Navbar = () => {
                 <div className="hidden"></div>
 
             }
-        </li>)}
-    </div>
+        </li>)} */}
+    // </div>
     const menubar = <>
         <li><Link to='/userdashboard/home'>Home</Link></li>
         <li> <Link to='/userdashboard'>User Dashboard</Link></li>
-        <li><Link to='/userdashboard/blog'>Blog</Link></li>
-        <li><Link to='/userdashboard/faq'>FAQ</Link></li>
         <li> <Link to='/userdashboard/wishlist'>Wish List</Link></li>
         <li> <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost'>Log out</button></Link>
         </li>
-        <li>{profile}</li>
+        {/* <li>{profile}</li> */}
+        <li><img src={user.photoURL} title={user.displayName} alt='profile' className="w-14 h-14 rounded-full"/></li>
     </>
     return (
         <div className='w-full bg-night text-center fixed h-16 z-20 bg-base-300'>
@@ -65,4 +67,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default UserNav;

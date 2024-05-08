@@ -17,7 +17,7 @@ const UserLayOut = () => {
             </div>
             <div data-theme="light" className="drawer drawer-mobile w-full">
                 <input id="sideNav" type="checkbox" className="drawer-toggle w-0 h-0" />
-                <div className="drawer-content w-full mt-20">
+                <div className="drawer-content w-full mt-20 h-screen">
                     <Outlet></Outlet>
                 </div>
                 <div className="drawer-side mt-20">

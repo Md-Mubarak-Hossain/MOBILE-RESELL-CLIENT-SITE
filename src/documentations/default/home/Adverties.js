@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import config from '../../../config';
 import {
-    AdvertisingProvider, AdvertisingSlot, logVersionInfo
+    AdvertisingProvider, AdvertisingSlot, 
 } from 'react-advertising';
 import{infinix ,oppo ,vivo} from '../../../components/Image';
 import { useQuery } from '@tanstack/react-query';
@@ -27,9 +27,9 @@ const Advertise = () => {
                 .then(res => res.json())
     })
     if (isLoading) return <Spin></Spin >
-    console.log(imag)
-    console.log(mobile)
-    logVersionInfo();
+    // console.log(imag)
+    // console.log(mobile)
+    
     return (
         <div className='flex flex-col justify-center items-center place-items-start mb-0 pb-0'>
             {
