@@ -1,12 +1,11 @@
 import React from 'react';
-import { A5, A9, F7, vivo } from '../../components/Image';
-
-const Banner = () => {
+import {vivo ,A5 ,A9 ,F7} from '../../../components/Image';
+const AdminBanner = () => {
     return (
         <div>
-            <div className="carousel w-full">
+            <div className="carousel w- full pt-2">
                 <div id="item1" className="carousel-item w-full">
-                    <img alt='img' src={A5} className=" w-full  h-64" />
+                    <img alt='img' src={A5} className=" w-full rounded h-64" />
                 </div>
                 <div id="item2" className="carousel-item w-full">
                     <img alt='img' src={A9} className=" w-full h-64" />
@@ -28,4 +27,4 @@ const Banner = () => {
     );
 };
 
-export default Banner;
+export default AdminBanner;

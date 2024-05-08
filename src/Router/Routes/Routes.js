@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Main from '../../Layouts/Default/Main';
+import Main from '../../documentations/default/layout/Main';
 import AdminLogin from '../../pages/account/Login/AdminLogin/AdminLogin';
 import SellerLogin from '../../pages/account/Login/SellerLogin/SellerLogin';
 import Login from '../../pages/account/Login/UserLogin/Login';
@@ -12,45 +12,45 @@ import A9 from '../../pages/Categories/Oppo/A9';
 import F7 from '../../pages/Categories/Oppo/F7';
 import Oppo from '../../pages/Categories/Oppo/Oppo';
 import Vivo from '../../pages/Categories/Vivo/Vivo';
-import GoOther from '../../pages/AdminDashboard/GoOther';
-import User from '../../pages/AdminDashboard/User';
-import Home from '../../pages/Home/Home';
+import GoOther from '../../documentations/admin/dashboard/GoOther';
+import User from '../../documentations/admin/dashboard/User';
+import Home from '../../documentations/default/home/Home';
 import Blog from '../../pages/publicPages/Blog/Blog';
 import Faq from '../../pages/publicPages/FAQ/Faq';
 import FourOfFour from '../FourOfFour/FourOfFour';
-import AddWishList from '../../pages/UserDashboard/AddWishList';
-import Payment from '../../pages/UserDashboard/Payment';
+import AddWishList from '../../documentations/user/dashboard/AddWishList';
+import Payment from '../../documentations/user/dashboard/Payment';
 import SellerRegister from '../../pages/account/Register/SellerRegister';
-import BuyProduct from '../../pages/UserDashboard/BuyProduct';
-import Dashboard from '../../pages/Dashboard/Dashboard';
-import SellerLayout from '../../Layouts/Default/SellerLayout';
-import AddProduct from '../../pages/Dashboard/AddProduct';
-import UpdateProduct from '../../pages/Dashboard/UpdateProduct';
-import SeeProduct from '../../pages/Dashboard/SeeProduct';
-import UpadeteScreen from '../../pages/Dashboard/UpadeteScreen';
-import UserLayOut from '../../Layouts/Default/UserLayOut';
-import UserDashBoard from '../../pages/UserDashboard/UserDashBoard';
-import AdminLayout from '../../Layouts/Default/AdminLayout';
-import AddminDashBoard from '../../pages/AdminDashboard/AddminDashBoard';
-import SeeAllProducts from '../../pages/AdminDashboard/SeeAllProducts';
-import Seller from '../../pages/AdminDashboard/Seller';
-import UpdateProducts from '../../pages/AdminDashboard/UpdateProducts';
-import AddProducts from '../../pages/AdminDashboard/AddProducts';
-import Products from '../../pages/AdminDashboard/Products';
-import Payment2 from '../../pages/UserDashboard/Payment2';
+import BuyProduct from '../../documentations/user/dashboard/BuyProduct';
+import Dashboard from '../../documentations/default/dashboard/Dashboard';
+import SellerLayout from '../../documentations/seller/layout/SellerLayout';
+import AddProduct from '../../documentations/default/dashboard/AddProduct';
+import UpdateProduct from '../../documentations/default/dashboard/UpdateProduct';
+import SeeProduct from '../../documentations/default/dashboard/SeeProduct';
+import UpadeteScreen from '../../documentations/default/dashboard/UpadeteScreen';
+import UserLayOut from '../../documentations/user/layout/UserLayOut';
+import UserDashBoard from '../../documentations/user/dashboard/UserDashBoard';
+import AdminLayout from '../../documentations/admin/layout/AdminLayout';
+import AddminDashBoard from '../../documentations/admin/dashboard/AddminDashBoard';
+import SeeAllProducts from '../../documentations/admin/dashboard/SeeAllProducts';
+import Seller from '../../documentations/admin/dashboard/Seller';
+import UpdateProducts from '../../documentations/admin/dashboard/UpdateProducts';
+import AddProducts from '../../documentations/admin/dashboard/AddProducts';
+import Products from '../../documentations/admin/dashboard/Products';
+import Payment2 from '../../documentations/user/dashboard/Payment2';
 import AdminProtected from '../ProtectedRoute/AdminProtected';
-import AdminWishList from '../../pages/AdminDashboard/AdminWishList';
-import AdminBlog from '../../pages/AdminDashboard/AdminBlog';
-import AdminFaq from '../../pages/AdminDashboard/AdminFaq';
-import AdminHome from '../../pages/AdminDashboard/AdminHome';
-import AdminOppo from '../../pages/AdminDashboard/AdminOppo';
-import AdminVivo from '../../pages/AdminDashboard/AdminVivo';
-import AdminInfinix from '../../pages/AdminDashboard/AdminInfinix';
-import AdminA9 from '../../pages/AdminDashboard/AdminA9';
-import AdminA5 from '../../pages/AdminDashboard/AdminA5';
-import AdminF7 from '../../pages/AdminDashboard/AdminF7';
-import AdminSpin from '../../pages/AdminDashboard/AdminSpin';
-import AdminCategory from '../../pages/AdminDashboard/Other/AdminCategory';
+import AdminWishList from '../../documentations/admin/dashboard/AdminWishList';
+import AdminBlog from '../../documentations/admin/dashboard/AdminBlog';
+import AdminFaq from '../../documentations/admin/dashboard/AdminFaq';
+import AdminHome from '../../documentations/admin/dashboard/AdminHome';
+import AdminOppo from '../../documentations/admin/dashboard/AdminOppo';
+import AdminVivo from '../../documentations/admin/dashboard/AdminVivo';
+import AdminInfinix from '../../documentations/admin/dashboard/AdminInfinix';
+import AdminA9 from '../../documentations/admin/dashboard/AdminA9';
+import AdminA5 from '../../documentations/admin/dashboard/AdminA5';
+import AdminF7 from '../../documentations/admin/dashboard/AdminF7';
+import AdminSpin from '../../documentations/admin/dashboard/AdminSpin';
+import AdminCategory from '../../documentations/admin/dashboard/AdminCategory';
 import SellerProtected from '../ProtectedRoute/SellerProtected';
 import UserProtected from '../ProtectedRoute/UserProtected';
 const Routes = () => {
@@ -324,7 +324,7 @@ const Routes = () => {
     return (
         <RouterProvider router={router}>
 
-        </RouterProvider >
+        </RouterProvider>
     );
 };
 
