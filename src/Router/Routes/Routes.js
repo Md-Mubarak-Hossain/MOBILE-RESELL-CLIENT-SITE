@@ -21,17 +21,27 @@ import Payment from '../../pages/payment/Payment';
 import UserProtected from '../ProtectedRoute/UserProtected';
 import Advertise from '../../documentations/default/home/Adverties';
 import ErrorBoundary from '../ErrorBoundary';
+import SeeProduct from '../../pages/products/SeeProduct';
+import BuyProduct from '../../pages/products/BuyProduct';
 const Routes = () => {
     const router = createBrowserRouter([
         {
             path: '/',
             element: <Main></Main>,
-           
              errorElement:<ErrorBoundary/>,
+             loader:async()=>fetch("https://mobile-server.vercel.app/mobile"),
             children: [
                 {
                     path: '/',
                     element: <Home></Home>,
+                },
+                {
+                    path: '/product',
+                    element: <SeeProduct></SeeProduct>,
+                },
+                {
+                    path: '/buyproduct',
+                    element: <BuyProduct></BuyProduct>,
                 },
                 {
                     path: '/A5',

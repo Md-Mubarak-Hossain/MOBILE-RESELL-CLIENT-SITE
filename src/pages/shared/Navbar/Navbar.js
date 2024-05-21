@@ -15,7 +15,7 @@ const Navbar = () => {
         <li><Link className='px-5 hover:border-b' to='/register'>Sign Up</Link></li>
         <div className="dropdown dropdown-hover relative">
             <label tabIndex={0} className="mr-1">Sign In</label>
-            <ul tabIndex={0} className="dropdown-content p-1 w-48 md:top-12 right-0 bg-base-100 text-sm">
+            <ul tabIndex={0} className="dropdown-content p-1 w-48 md:top-10 right-0 bg-base-100 text-sm">
                 <li><Link className="hover:border-b" to='/adminlogin'>Admin Sign In</Link></li>
                 <li><Link className="hover:border-b" to='/login'>User Sign In</Link></li>
             </ul>
