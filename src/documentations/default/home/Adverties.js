@@ -1,53 +1,27 @@
 import React, { useState } from 'react';
-import config from '../../../config';
-import {
-    AdvertisingProvider, AdvertisingSlot, 
-} from 'react-advertising';
-import{infinix ,oppo ,vivo} from '../../../components/Image';
-import { useQuery } from '@tanstack/react-query';
-import Spin from '../../../pages/account/Spinner/Spin';
+import { A5, A9, F7, vivo } from '../../../components/Image';
 
 const Advertise = () => {
     let [imag, setImag] = useState(0)
-    let img = [oppo, infinix, vivo]
+    let img = [A5, A9, F7, vivo]
 
     const slide = () => {
         setInterval(() => {
-            if (imag === img.length) {
+            if (imag === img.length - 1) {
                 setImag(imag = 0)
             }
             setImag(imag + 1);
-        }, 48000)
+        }, 50000)
     }
     slide();
-    const { isLoading, data: mobile } = useQuery({
-        queryKey: ['mobile'],
-        queryFn: () =>
-            fetch('https://mobile-server.vercel.app/mobile')
-                .then(res => res.json())
-    })
-    if (isLoading) return <Spin></Spin >
-    // console.log(imag)
-    // console.log(mobile)
-    
+
+
     return (
-        <div className='flex flex-col justify-center items-center place-items-start mb-0 pb-0'>
-            {
-                mobile?.length > 0 ?
-                    <div className='card justify-center items-center place-items-center relative'>
-                        <AdvertisingProvider config={config} >
-                            <p className='text-xl text-white'>
-                                <img src={img[imag]} alt="The Product Is Comming Soon" />
-                            </p>
-                            <div>
-                                <AdvertisingSlot id="banner-ad" />
-                            </div>
-                        </AdvertisingProvider>
-                    </div >
-                    : <div className='text-xl text-center text-orange-500'>
-                        <h2>No Product available</h2>
-                    </div>}
-        </div >
+        <div className='flex flex-col justify-center items-center w-screen mx-auto'>
+            <div className='card justify-center items-center'>  
+                    <img src={img[imag]} alt="Product" className='h-32 w-screen bg-base-300 p-2'/>
+            </div >
+        </div>
     );
 }
 

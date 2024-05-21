@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Register = () => {
     const navigate = useNavigate();
     const location = useLocation()
-    const from = location.state?.from?.pathname || '/userdashboard';
+    const from = location.state?.from?.pathname || '/';
     const [error, setError] = useState('');
     const { createUser } = useContext(AuthContext);
     useTitle('Register Page');

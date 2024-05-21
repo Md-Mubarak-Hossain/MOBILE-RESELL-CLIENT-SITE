@@ -5,8 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Context from './ContextApi/Context';
-import SellerContext from './ContextApi/SellerContext';
-import UserContext from './ContextApi/UserContext';
 import AdminContext from './ContextApi/AdminContext';
 
 const queryClient = new QueryClient()
@@ -16,13 +14,11 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <AdminContext>
-        <UserContext>
-          <SellerContext>
+       
             <Context>
               <App />
             </Context>
-          </SellerContext>
-        </UserContext>
+          
       </AdminContext>
     </QueryClientProvider>
   </React.StrictMode >
