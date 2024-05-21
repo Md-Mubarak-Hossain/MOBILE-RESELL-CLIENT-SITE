@@ -7,13 +7,13 @@ import useTitle from '../../../components/Hooks/useTitle';
 const AdminBrand = () => {
     useTitle('Brand');
     return (
-        <div className='mx-6 lg:mx-16 '>
+        <div className='mx-6 md:mx-16 '>
             <div className='w-full text-center'>
                 <h2 className='text-xl'>Super Brand</h2>
                 <h2 className='text-3xl font-bold'>Our Re-Sale Product</h2>
             </div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col md:flex-row">
                     <div>
                         <img alt='img' src={oppo} className="rounded-lg shadow-2xl" />
                     </div>
@@ -39,9 +39,9 @@ const AdminBrand = () => {
                 </div>
             </div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col md:flex-row-reverse">
                     <div>
-                        <img alt='img' src={infinix} className="rounded-lg shadow-2xl lg:w-full lg:h-screen" />
+                        <img alt='img' src={infinix} className="rounded-lg shadow-2xl md:w-full md:h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Infinix Hot12i</h1>
@@ -65,9 +65,9 @@ const AdminBrand = () => {
                 </div>
             </div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col md:flex-row">
                     <div>
-                        <img alt='img' src={vivo} className="rounded-lg shadow-2xl w-full lg:h-screen" />
+                        <img alt='img' src={vivo} className="rounded-lg shadow-2xl w-full md:h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Vivo</h1>

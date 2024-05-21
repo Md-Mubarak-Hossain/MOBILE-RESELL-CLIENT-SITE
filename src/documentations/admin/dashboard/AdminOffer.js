@@ -5,12 +5,12 @@ import { infinix, oppo, vivo } from '../../../components/Image';
 const AdminOffer = () => {
     useTitle('Offer Page');
     return (
-        <div className='m-6 lg:m-16'>
+        <div className='m-6 md:m-16'>
             <div className='py-6'>
                 <h2 className='text-xl badge badge-primary'>Offer</h2>
                 <h2 className='text-4xl'>Resale Great Offer!!!</h2>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
                 <div className="card  bg-base-100 shadow-xl">
                     <figure><img src={vivo} alt="img" /></figure>
                     <div className="card-body">

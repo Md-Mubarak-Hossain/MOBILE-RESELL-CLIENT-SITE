@@ -29,8 +29,8 @@ const AdminLogin = () => {
     return (
         <form onSubmit={handleSub}>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+                <div className="hero-content flex-col md:flex-row-reverse">
+                    <div className="text-center md:text-left">
                         <h1 className="text-5xl font-bold">Only Admin Login!</h1>
                         <p className="py-6">
                             <img src={login} alt="img" />

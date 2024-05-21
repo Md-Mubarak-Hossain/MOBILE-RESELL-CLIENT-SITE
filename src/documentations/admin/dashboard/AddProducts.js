@@ -55,93 +55,93 @@ const AddProducts = () => {
     return (
         <div>
             <div className='text-center my-5'>
-                <h2 className='text-xl lg:text-4xl text-orange-400 font-bold underline'>Admin Add Products Page</h2>
+                <h2 className='text-xl md:text-4xl text-orange-400 font-bold underline'>Admin Add Products Page</h2>
             </div>
             <form onSubmit={handleSub}>
-                <div className="hero-content flex-col lg:flex-row-reverse ">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-3xl lg:text-5xl font-bold">Add Product</h1>
+                <div className="hero-content flex-col md:flex-row-reverse ">
+                    <div className="text-center md:text-left">
+                        <h1 className="text-3xl md:text-5xl font-bold">Add Product</h1>
                         <div className='py-6 text-rose-500 text-9xl'>
                             <MdAddShoppingCart></MdAddShoppingCart>
                         </div>
                     </div>
-                    <div className="card flex-shrink-0 w-full lg:w-3/4  shadow-2xl">
-                        <div className="card-body lg:w-full">
-                            <div className='lg:grid lg:grid-cols-2'>
-                                <div className="form-control lg:px-2">
+                    <div className="card flex-shrink-0 w-full md:w-3/4  shadow-2xl">
+                        <div className="card-body md:w-full">
+                            <div className='md:grid md:grid-cols-2'>
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
                                     <input placeholder='enter the mobile name' name='name' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Brand</span>
                                     </label>
                                     <input type="text" placeholder='enter the brand name' name='brand' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Category</span>
                                     </label>
                                     <input type="text" placeholder='enter category' name='category' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Ram</span>
                                     </label>
                                     <input type="text" placeholder='enter ram size' name='ram' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Camera</span>
                                     </label>
                                     <input type="text" placeholder='enter camera' name='camera' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Battery</span>
                                     </label>
                                     <input type="text" placeholder='enter battery' name='battery' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
                                     <input type="text" placeholder='enter price' name='price' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Re-sale Price</span>
                                     </label>
                                     <input type="text" placeholder='enter Resale price' name='resalePrice' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">useTime</span>
                                     </label>
                                     <input type="text" placeholder='enter use time' name='useTime' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Seller name</span>
                                     </label>
                                     <input type="text" placeholder='enter seller name' name='seller' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
                                     <input type="email" placeholder='enter email' name='email' className="input input-bordered" />
                                 </div>
-                                <div className="form-control lg:px-2">
+                                <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Location</span>
                                     </label>
                                     <input type="text" placeholder='enter location' name='location' className="input input-bordered" />
                                 </div>
                             </div>
-                            <div className="form-control lg:px-2">
+                            <div className="form-control md:px-2">
                                 <label className="label">
                                     <span className="label-text">Product Picture Link</span>
                                 </label>

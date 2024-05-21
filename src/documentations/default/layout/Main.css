@@ -1,0 +1,7 @@
+#myBg{
+    background-image: url('../../../assets/vivobanner.webp');
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-attachment: fixed;
+    background-blend-mode:color;
+}

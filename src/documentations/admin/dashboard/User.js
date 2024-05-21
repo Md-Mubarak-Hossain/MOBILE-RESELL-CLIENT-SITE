@@ -31,10 +31,10 @@ const User = () => {
     return (
         <div className="overflow-x-auto w-full">
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>The User Update Screen</p>
+                <p className='text-xl md:text-4xl font-bold'>The User Update Screen</p>
                 <h2>Total users:{user.length}</h2>
             </div>
-            <table className="table lg:w-full">
+            <table className="table md:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
                         <th>username</th>

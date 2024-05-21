@@ -13,7 +13,7 @@ const AdminLayout = () => {
         <div>
             <AdminNav></AdminNav>
             <p className='ml-4'>
-                <label htmlFor="sideNav" className="lg:hidden"><VscThreeBars></VscThreeBars></label>
+                <label htmlFor="sideNav" className="md:hidden"><VscThreeBars></VscThreeBars></label>
             </p>
             <div data-theme="light">
                 <div className="drawer drawer-mobile">

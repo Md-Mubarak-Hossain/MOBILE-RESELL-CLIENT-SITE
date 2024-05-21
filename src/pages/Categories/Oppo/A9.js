@@ -57,11 +57,11 @@ const A9 = () => {
     }
     return (
         <div data-theme='light' className='w-full'>
-            <div className='text-center lg:mb-5'>
-                <p className='text-xs lg:text-3xl font-bold'>The Second Hand Mobile Screen</p>
-                <p className='text-xs lg:text-2xl font-bold'>Brand: Oppo</p>
+            <div className='text-center md:mb-5'>
+                <p className='text-xs md:text-3xl font-bold'>The Second Hand Mobile Screen</p>
+                <p className='text-xs md:text-2xl font-bold'>Brand: Oppo</p>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-5'>
+            <div className='grid grid-cols-1 md:grid-cols-5'>
                 {
                     mobile.map(d => <div key={d._id} className="hero">
                         {
@@ -71,18 +71,18 @@ const A9 = () => {
                                         <img alt='img' src={d.picture} className=" rounded-lg shadow-xl w-32 h-40" />
                                     </div>
                                     <div>
-                                        <h1 className="lg:text-xs font-bold">{d.name}</h1>
-                                        <div className='grid gap-2 lg:gap-0 grid-cols-2 lg:grid-cols-1 w-full'>
-                                            <p className="lg:text-xs">Brand:{d.brand}</p>
-                                            <p className="lg:text-xs">Category:{d.category}</p>
-                                            <p className="lg:text-xs">Seller:{d.seller}</p>
-                                            <p className="lg:text-xs">Ram:{d.ram}</p>
-                                            <p className="lg:text-xs">Camera:{d.camera}</p>
-                                            <p className="lg:text-xs">Battery:{d.battery}</p>
-                                            <p className="lg:text-xs">useTime:{d.useTime}</p>
-                                            <p className="lg:text-xs">price:{d.price}</p>
-                                            <p className="lg:text-xs">resalePrice:{d.resalePrice}</p>
-                                            <p className="lg:text-xs">location:{d.location}</p>
+                                        <h1 className="md:text-xs font-bold">{d.name}</h1>
+                                        <div className='grid gap-2 md:gap-0 grid-cols-2 md:grid-cols-1 w-full'>
+                                            <p className="md:text-xs">Brand:{d.brand}</p>
+                                            <p className="md:text-xs">Category:{d.category}</p>
+                                            <p className="md:text-xs">Seller:{d.seller}</p>
+                                            <p className="md:text-xs">Ram:{d.ram}</p>
+                                            <p className="md:text-xs">Camera:{d.camera}</p>
+                                            <p className="md:text-xs">Battery:{d.battery}</p>
+                                            <p className="md:text-xs">useTime:{d.useTime}</p>
+                                            <p className="md:text-xs">price:{d.price}</p>
+                                            <p className="md:text-xs">resalePrice:{d.resalePrice}</p>
+                                            <p className="md:text-xs">location:{d.location}</p>
                                         </div>
                                         <Link to={`/userdashboard/payment2/${d._id}`}> <button className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Buy Now</button></Link>
                                         <Link> <button onClick={() => handleClick(setD(d = { d }))} className="badge badge-outline btn-outline btn-secondary btn-xs text-xs">Add Wish List</button></Link>

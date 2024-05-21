@@ -35,10 +35,10 @@ const AddWishList = () => {
     return (
         <form className="overflow-x-auto w-full" >
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>WishList</p>
+                <p className='text-xl md:text-4xl font-bold'>WishList</p>
                 <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
-            <table className="table lg:w-full">
+            <table className="table md:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
                         <th>Remove</th>

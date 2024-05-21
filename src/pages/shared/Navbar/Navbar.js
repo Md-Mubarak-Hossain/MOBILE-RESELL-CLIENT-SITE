@@ -40,26 +40,28 @@ const Navbar = () => {
     
     const mdMenubar = <>
         {AdminDashboard}
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/faq'>Faq</Link></li>
-        {user && user?.uid ?<></>:<div className='flex justify-center items-center'>{account}</div>}
+        <li><Link className='text-xs' to='/'>Home</Link></li>
+        <li><Link className='text-xs' to="/brand">Brand</Link></li>
+        <li><Link className='text-xs' to='/blog'>Blog</Link></li>
+        <li><Link className='text-xs' to='/faq'>Faq</Link></li>
+        {user && user?.uid ?<></>:<div className='flex justify-center items-center text-xs'>{account}</div>}
     </>
     const smMenubar = <>
-        <li className='md:text-xs mx-0 px-0'><Link to='/'>Home</Link></li>
-        <li className='md:text-xs mx-0 px-0'><Link to='/blog'>Blog</Link></li>
-        <li className='md:text-xs mx-0 px-0'><Link to='/faq'>Faq</Link></li>
+        <li className='text-xs'><Link to='/'>Home</Link></li>
+        <li className='text-xs'><Link to='/blog'>Blog</Link></li>
+        <li className='text-xs'><Link to='/faq'>Faq</Link></li>
         {AdminDashboard}
     </>
     return (
-        <div className="navbar">
+        <div className="navbar fixed top-0 bg-base-200 mb-10 z-20">
             <div className="navbar-start">
-                <Link className="w-10 h-10 bg-gray-300 rounded-full flex justify-center items-center"><img src={logo} alt="Mobile Shop" className='w-8 h-8 rounded-full' /></Link>
-                <h2 className='hidden md:flex capitalize md:font-semibold pl-2'>mobile reuser</h2>
+                <Link className="flex justify-center items-center">
+                    <img src={logo} alt="Mobile Shop" className='rounded-full w-8 h-8' />
+                <span className='hidden md:flex capitalize md:font-semibold pl-2'>mobile reuser</span></Link>
             </div>
             <div className="navbar-end">
                 <div className="hidden md:flex">
-                    <ul className="menu menu-horizontal p-0">
+                    <ul className="menu menu-horizontal">
                         {mdMenubar}
                     </ul>
                 </div>

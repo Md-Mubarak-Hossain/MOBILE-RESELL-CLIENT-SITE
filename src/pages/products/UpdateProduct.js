@@ -47,8 +47,8 @@ const UpdateProduct = () => {
     return (
         <div>
             <form onSubmit={handleSub} className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+                <div className="hero-content flex-col md:flex-row-reverse">
+                    <div className="text-center md:text-left">
                         <h1 className="text-5xl font-bold">Update now!</h1>
                         <div className='py-6'>
                             <img src={update} alt="img" />

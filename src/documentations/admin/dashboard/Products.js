@@ -17,13 +17,13 @@ const Products = () => {
     return (
         <div data-theme='light' className='w-full'>
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-4xl font-bold'>The Second Hand Mobile Screen</p>
+                <p className='text-xl md:text-4xl font-bold'>The Second Hand Mobile Screen</p>
                 <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
             <div>
                 {
                     mobile?.slice(0, 3).map(d => <div key={d._id} className="hero  my-5 w-full">
-                        <div className="hero-content flex-col lg:flex-row p-2 w-full">
+                        <div className="hero-content flex-col md:flex-row p-2 w-full">
                             <div>
                                 <img alt='img' src={d.picture} className=" rounded-lg shadow-xl h-96" />
                             </div>

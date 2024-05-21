@@ -19,21 +19,25 @@ import FourOfFour from '../FourOfFour/FourOfFour';
 import AddWishList from '../../pages/wishlist/AddWishList';
 import Payment from '../../pages/payment/Payment';
 import UserProtected from '../ProtectedRoute/UserProtected';
-import Advertise from '../../documentations/default/home/Adverties';
 import ErrorBoundary from '../ErrorBoundary';
 import SeeProduct from '../../pages/products/SeeProduct';
 import BuyProduct from '../../pages/products/BuyProduct';
+import Brand from '../../documentations/default/home/Brand';
 const Routes = () => {
     const router = createBrowserRouter([
         {
             path: '/',
             element: <Main></Main>,
-             errorElement:<ErrorBoundary/>,
-             loader:async()=>fetch("https://mobile-server.vercel.app/mobile"),
+            loader:async()=>fetch("https://mobile-server.vercel.app/mobile"),
+            errorElement:<ErrorBoundary/>,
             children: [
                 {
                     path: '/',
                     element: <Home></Home>,
+                },
+                {
+                    path: '/brand',
+                    element: <Brand></Brand>,
                 },
                 {
                     path: '/product',
@@ -101,7 +105,7 @@ const Routes = () => {
     ])
     return (
         <>
-            <Advertise></Advertise>
+           
             <RouterProvider router={router}>
             </RouterProvider>
         </>

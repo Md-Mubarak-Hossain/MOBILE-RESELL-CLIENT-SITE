@@ -36,10 +36,10 @@ const SeeProduct = () => {
         <>
         {mobile?.length>0?<form data-theme="light">
             <div className='text-center'>
-                <p className='text-xl lg:text-2xl font-bold'>The Second Hand Mobile Screen</p>
+                <p className='text-xl md:text-2xl font-bold'>The Second Hand Mobile Screen</p>
                 <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
-            <div className='grid grid-cols-1 gap-2 lg:grid-cols-4'>
+            <div className='grid grid-cols-1 gap-2 md:grid-cols-4'>
                 {
                     mobile?.map(d => <div key={d?._id} className="hero border">
                         <div className="hero-content flex p-2 border-2 border-dotted">

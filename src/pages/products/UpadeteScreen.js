@@ -16,10 +16,10 @@ const UpadeteScreen = () => {
     return (
         <div className="overflow-x-auto w-full rounded">
             <div className='text-center mb-5'>
-                <p className='text-xl lg:text-2xl font-bold'>The Seller Update Screen</p>
+                <p className='text-xl md:text-2xl font-bold'>The Seller Update Screen</p>
                 <h2>Total Mobiles:{mobile?.length}</h2>
             </div>
-            <table className="table lg:w-full">
+            <table className="table md:w-full">
                 <thead>
                     <tr className='border bg-orange-500'>
                         <th>Delete</th>

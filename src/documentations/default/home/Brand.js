@@ -5,15 +5,15 @@ import useTitle from '../../../components/Hooks/useTitle';
 const Brand = () => {
     useTitle('Brand');
     return (
-        <div className='mx-6 lg:mx-16 '>
-            <div className='w-full text-center'>
+        <div className='mx-auto md:w-9/12'>
+            <div className='w-full text-center py-5'>
                 <h2 className='text-xl'>Super Brand</h2>
-                <h2 className='text-3xl font-bold'>Our Re-Sale Product</h2>
+                <h2 className='text-2xl font-bold'>Our Re-Sale Product</h2>
             </div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
+            <div className="hero min-h-screen bg-base-300">
+                <div className="hero-content flex-col md:flex-row">
                     <div>
-                        <img alt='img' src={oppoWebp} className="rounded-lg shadow-2xl" />
+                        <img alt='img' src={oppoWebp} className="rounded-lg shadow-2xl border-2 border-dotted h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Oppo</h1>
@@ -30,16 +30,15 @@ const Brand = () => {
                                 <li> No FM Radio.</li>
                             </ul>
                         </p>
-                        <Link to='/oppo'>
-                            <button className="btn btn-warning btn-outline">See more products</button>
+                        <Link to='/oppo' className="btn btn-warning btn-outline rounded-full">See more products
                         </Link>
                     </div>
                 </div>
             </div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col md:flex-row-reverse">
                     <div>
-                        <img alt='img' src={infinix} className="rounded-lg shadow-2xl w-full lg:h-screen" />
+                        <img alt='img' src={infinix} className="rounded-lg shadow-2xl border-2 border-dotted h-screen w-full md:h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Infinix Hot12i</h1>
@@ -56,16 +55,15 @@ const Brand = () => {
                                 <li>FM Radio.</li>
                             </ul>
                         </p>
-                        <Link to='/infinix'>
-                            <button className="btn btn-warning btn-outline">See more products</button>
+                        <Link to='/infinix' className="btn btn-warning btn-outline rounded-full">See more products
                         </Link>
                     </div>
                 </div>
             </div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col md:flex-row">
                     <div>
-                        <img alt='img' src={vivo} className="rounded-lg shadow-2xl w-full lg:h-screen" />
+                        <img alt='img' src={vivo} className="rounded-lg shadow-2xl border-2 border-dotted h-screen w-full md:h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Vivo</h1>
@@ -82,8 +80,7 @@ const Brand = () => {
                                 <li>FM Radio.</li>
                             </ul>
                         </p>
-                        <Link to='/vivo'>
-                            <button className="btn btn-warning btn-outline">See more products</button>
+                        <Link to='/vivo' className="btn btn-warning btn-outline rounded-full">See more products
                         </Link>
                     </div>
                 </div>

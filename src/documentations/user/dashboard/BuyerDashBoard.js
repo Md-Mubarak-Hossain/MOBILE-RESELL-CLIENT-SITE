@@ -12,9 +12,9 @@ const BuyerDashBoard = () => {
     useTitle('Buyer Dashboard');
     return (
         <>
-            <div data-theme="light" className='flex flex-col lg:flex-row'>
+            <div data-theme="light" className='flex flex-col md:flex-row'>
                 <div className='px-5 bg-base-300'>
-                    <ul className="menu  lg:w-48 p-2 rounded-box">
+                    <ul className="menu  md:w-48 p-2 rounded-box">
                         <li>
                             <Link to='/userdashboard/buyerProduct'>
                                 <BiCreditCard></BiCreditCard>

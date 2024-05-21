@@ -64,8 +64,8 @@ const Login = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+                <div className="hero-content flex-col md:flex-row-reverse">
+                    <div className="text-center md:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">
                             <img src={userlogin} alt="img" className='w-64 rounded-lg shadow-2xl' />

@@ -6,11 +6,11 @@ import { exchangeOffer, freeShipping, onlinePayment, onlineResell, onlineShop, r
 const AdminServices = () => {
 
     return (
-        <div className='card shadow-2xl lg:m-16  place-items-center'>
+        <div className='card shadow-2xl md:m-16  place-items-center'>
             <h2 className='text-xl font-bold'>Services</h2>
             <h2 className='text-4xl font-bold'>Our Best Services</h2>
-            <div className='p-5 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-3'>
-                <div className='lg:border border-fuchsia-700 card px-3 pt-3'>
+            <div className='p-5 mx-auto grid grid-cols-1 md:grid-cols-3 gap-3'>
+                <div className='md:border border-fuchsia-700 card px-3 pt-3'>
                     <div className='w-full text-center'>
                         <h2 className='text-3xl font-bold text-warning'>Online Payment</h2>
                     </div>
@@ -60,7 +60,7 @@ const AdminServices = () => {
                 </div>
 
                 {/* .....online shope..... */}
-                <div className='lg:border border-fuchsia-700 card py-3'>
+                <div className='md:border border-fuchsia-700 card py-3'>
                     <div className='w-full text-center'>
                         <h2 className='text-3xl font-bold text-warning'>Online Shop</h2>
                     </div>
@@ -110,7 +110,7 @@ const AdminServices = () => {
                 </div>
 
                 {/* ....online resale.... */}
-                <div className='lg:border border-fuchsia-700 card py-3'>
+                <div className='md:border border-fuchsia-700 card py-3'>
                     <div className='w-full text-center'>
                         <h2 className='text-3xl font-bold text-warning'>Online Resale</h2>
                     </div>
@@ -160,7 +160,7 @@ const AdminServices = () => {
                 </div>
 
                 {/* ....free shipping.... */}
-                <div className='lg:border border-fuchsia-700 card py-3'>
+                <div className='md:border border-fuchsia-700 card py-3'>
                     <div className='w-full text-center'>
                         <h2 className='text-3xl font-bold text-warning'>Free Shipping</h2>
                     </div>
@@ -210,7 +210,7 @@ const AdminServices = () => {
                 </div>
 
                 {/* ...exchange.... */}
-                <div className='lg:border border-fuchsia-700 card py-3'>
+                <div className='md:border border-fuchsia-700 card py-3'>
                     <div className='w-full text-center'>
                         <h2 className='text-3xl font-bold text-warning'>Old To New</h2>
                     </div>
@@ -260,7 +260,7 @@ const AdminServices = () => {
                 </div>
 
                 {/* .......free repair.... */}
-                <div className='lg:border border-fuchsia-700 card py-3'>
+                <div className='md:border border-fuchsia-700 card py-3'>
                     <div className='w-full text-center'>
                         <h2 className='text-3xl font-bold text-warning'>Free Repair</h2>
                     </div>
