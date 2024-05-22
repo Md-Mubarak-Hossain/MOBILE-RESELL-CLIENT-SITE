@@ -6,13 +6,13 @@ import Advertise from '../home/Adverties';
 
 const Main = () => {
     return (
-        <div>
+        <div className='relative'>
             <Navbar></Navbar>
-            <div className='py-14 mx-auto'>
+            <div className='pt-14 mx-auto'>
                 <Advertise></Advertise>
-                <Outlet></Outlet>
+                <div><Outlet></Outlet></div>
             </div>
-            <Footer></Footer>
+            <div className='z-20'><Footer></Footer></div>
         </div>
     );
 };

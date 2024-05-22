@@ -23,17 +23,34 @@ import ErrorBoundary from '../ErrorBoundary';
 import SeeProduct from '../../pages/products/SeeProduct';
 import BuyProduct from '../../pages/products/BuyProduct';
 import Brand from '../../documentations/default/home/Brand';
+import UserDashboard from '../../documentations/user/dashboard/UserDashBoard';
+import AddProduct from '../../pages/products/AddProduct';
+
 const Routes = () => {
     const router = createBrowserRouter([
         {
             path: '/',
             element: <Main></Main>,
-            loader:async()=>fetch("https://mobile-server.vercel.app/mobile"),
-            errorElement:<ErrorBoundary/>,
+            loader: async () => fetch("https://mobile-server.vercel.app/mobile"),
+            errorElement: <ErrorBoundary />,
             children: [
                 {
                     path: '/',
                     element: <Home></Home>,
+                },
+                {
+                    path: '/userdashboard',
+                    element: <UserDashboard></UserDashboard>,
+                    children: [
+                        {path: '/userdashboard',element: <Brand />},
+                        {path: '/userdashboard/addproduct',element: <AddProduct />},
+                        { path: '/userdashboard/addwishlist', element: <AddWishList/> },
+                        { path: '/userdashboard/addproduct', element: <AddProduct /> },
+                        { path: '/userdashboard/buyproduct', element: <BuyProduct /> },
+                        { path: '/userdashboard/seeproduct', element: <SeeProduct /> },
+                        { path: '/userdashboard/payment', element: <Payment /> },
+                        // { path: '/userdashboard/updatescreen', element: <UpdateScreen />}
+                    ]
                 },
                 {
                     path: '/brand',
@@ -91,7 +108,7 @@ const Routes = () => {
                     path: '/login',
                     element: <Login></Login>
                 },
-                
+
                 {
                     path: '/register',
                     element: <Register></Register>
@@ -105,7 +122,7 @@ const Routes = () => {
     ])
     return (
         <>
-           
+
             <RouterProvider router={router}>
             </RouterProvider>
         </>

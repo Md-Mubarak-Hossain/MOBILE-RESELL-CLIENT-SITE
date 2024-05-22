@@ -66,5 +66,4 @@ const UpadeteScreen = () => {
         </div>
     );
 };
-
 export default UpadeteScreen;

@@ -1,7 +1,6 @@
 import React from 'react';
 import useTitle from '../../../components/Hooks/useTitle';
 import Category from '../../../pages/Categories/Category';
-import Brand from './Brand';
 import Offer from './Offer';
 import Services from './Services';
 import BuyProduct from '../../../pages/products/BuyProduct';

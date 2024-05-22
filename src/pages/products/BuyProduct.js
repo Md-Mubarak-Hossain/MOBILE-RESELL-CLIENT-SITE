@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../components/Hooks/useTitle';
-import { A9 } from '../../components/Image';
 
 const BuyProduct = () => {
     useTitle('Buy Product');

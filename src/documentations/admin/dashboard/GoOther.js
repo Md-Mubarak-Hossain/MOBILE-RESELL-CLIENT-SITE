@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import useTitle from '../../../components/Hooks/useTitle';
 import { AuthContext } from '../../../ContextApi/Context';
 
-const GoOther = () => {
+const  GoOther = () => {
     useTitle('Update Product');
     const [mobile, setMobile] = useState([])
     const { user } = useContext(AuthContext)

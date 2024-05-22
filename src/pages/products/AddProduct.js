@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md'
 import { AuthContext } from '../../ContextApi/Context';
-import { SellerAuth } from '../../ContextApi/SellerContext';
 import useTitle from '../../components/Hooks/useTitle';
 
 const AddProduct = () => {
     useTitle('Seller AddProduct');
     const { user } = useContext(AuthContext);
-    const { sellers } = useContext(SellerAuth);
-    console.log(user.email);
+    // console.log(user.email);
     const handleSub = event => {
         event.preventDefault();
         const form = event.target;
@@ -36,7 +34,7 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.acknowledged) {
                     form.reset();
                     alert('Added success')
@@ -117,25 +115,23 @@ const AddProduct = () => {
                                     <input type="text" placeholder='enter use time' name='useTime' className="input input-bordered" />
                                 </div>
                                 {
-                                    sellers?.map(seller => <div key={seller._id} className="form-control md:px-2">
-                                        {
-                                            seller?.email.includes(user.email) ?
+                                   user.email?
                                                 <>
                                                     <label className="label">
                                                         <span className="label-text">Seller name</span>
                                                     </label>
-                                                    <input type="text" defaultValue={seller.username} placeholder='enter seller name' name='seller' className="input input-bordered" disabled />
+                                                    <input type="text" defaultValue={user?.displayName} placeholder='enter seller name' name='seller' className="input input-bordered" disabled />
                                                 </>
                                                 : <div className='hidden'>
                                                 </div>
                                         }
-                                    </div>)
-                                }
+                                   
+                                
                                 <div className="form-control md:px-2">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" defaultValue={user.email} placeholder='enter email' name='email' className="input input-bordered" disabled />
+                                    <input type="email" defaultValue={user?.email} placeholder='enter email' name='email' className="input input-bordered" disabled />
                                 </div>
                                 <div className="form-control md:px-2">
                                     <label className="label">

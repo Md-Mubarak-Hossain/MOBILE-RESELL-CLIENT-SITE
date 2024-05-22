@@ -5,6 +5,7 @@ import { AuthContext } from '../../../ContextApi/Context';
 import Login from '../Login/UserLogin/Login';
 import { setAuthToken } from '../../../components/Api/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Home from '../../../documentations/default/home/Home';
 const Register = () => {
     const navigate = useNavigate();
     const location = useLocation()
@@ -46,7 +47,7 @@ const Register = () => {
                     console.log(data)
                     if (data.acknowledged) {
                         alert('Successfully register')
-                        return <Login></Login>
+                        return <Home></Home>
                     }
                     else {
                         alert('sorry');

@@ -3,12 +3,12 @@ import{infinix ,vivo ,oppoWebp} from '../../../components/Image';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../components/Hooks/useTitle';
 const Brand = () => {
-    useTitle('Brand');
+    useTitle('brand');
     return (
-        <div className='mx-auto md:w-9/12'>
+        <div className='mx-auto w-full'>
             <div className='w-full text-center py-5'>
-                <h2 className='text-xl'>Super Brand</h2>
-                <h2 className='text-2xl font-bold'>Our Re-Sale Product</h2>
+                <h2 className='text-xl'>Our Super Brand</h2>
+                <h2 className='text-2xl font-bold'>Re-Sale Product</h2>
             </div>
             <div className="hero min-h-screen bg-base-300">
                 <div className="hero-content flex-col md:flex-row">

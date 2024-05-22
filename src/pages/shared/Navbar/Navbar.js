@@ -12,28 +12,25 @@ const Navbar = () => {
             .catch(err => console.error(err))
     }
     const account = <>
-        <li><Link className='px-5 hover:border-b' to='/register'>Sign Up</Link></li>
+        <li><Link className='px-5 hover:border-b' to='/register'>Register</Link></li>
         <div className="dropdown dropdown-hover relative">
-            <label tabIndex={0} className="mr-1">Sign In</label>
-            <ul tabIndex={0} className="dropdown-content p-1 w-48 md:top-10 right-0 bg-base-100 text-sm">
-                <li><Link className="hover:border-b" to='/adminlogin'>Admin Sign In</Link></li>
-                <li><Link className="hover:border-b" to='/login'>User Sign In</Link></li>
+            <label tabIndex={0} className="mr-1">Login</label>
+            <ul tabIndex={0} className="dropdown-content w-28 px-1 md:top-4 right-1 bg-base-100 text-xs mx-auto flex flex-col justify-center itrms-center">
+                <li><Link className="hover:border-b text-xs" to='/adminlogin'>Admin login</Link></li>
+                <li><Link className="hover:border-b text-xs" to='/login'>User login</Link></li>
             </ul>
         </div>
     </>
    
-    const signOut = <li className='text-xs px-0 mx-0'> <Link to='/'><button onClick={() => logout()} className='btn btn-sm btn-ghost '>Log out</button></Link></li>
+    const signOut = <Link  onClick={() => logout()} className='btn btn-sm btn-ghost text-xs'>Log out</Link>
     const AdminDashboard =
         <>{
-            admins?.map(admin => <li key={admin._id}>
-                {user && user?.uid?.includes("WfPgID7xMcQ02ZN9GEWCYBmO9WX2") && admin?.email.includes("mubarak@gmail.com") ?
-                    <>
-                        <li className='md:text-xs'> <Link to='/admindashboard'>Admin Dashboard</Link></li>
-                        {signOut}
-                    </>
-                    : <>
-                    </>}
-            </li>)
+           admins.length>0? <>{admins?.map(admin => <li key={admin._id}>
+            {user && user?.uid?.includes("WfPgID7xMcQ02ZN9GEWCYBmO9WX2") && admin?.email.includes("mubarak@gmail.com") ?
+                    <li className='md:text-xs'> <Link to='/admindashboard'>Admin Dashboard</Link></li>
+                : <>
+                </>}
+        </li>)}</>:<div className='hidden'></div>
 
         }
         </>
@@ -41,10 +38,11 @@ const Navbar = () => {
     const mdMenubar = <>
         {AdminDashboard}
         <li><Link className='text-xs' to='/'>Home</Link></li>
+        {user && user?.uid ?<li><Link className='text-xs' to='/userdashboard'>Dashboard</Link></li>:<></>}
         <li><Link className='text-xs' to="/brand">Brand</Link></li>
         <li><Link className='text-xs' to='/blog'>Blog</Link></li>
         <li><Link className='text-xs' to='/faq'>Faq</Link></li>
-        {user && user?.uid ?<></>:<div className='flex justify-center items-center text-xs'>{account}</div>}
+        {user && user?.uid ?<li>{signOut}</li>:<div className='flex justify-center items-center text-xs'>{account}</div>}
     </>
     const smMenubar = <>
         <li className='text-xs'><Link to='/'>Home</Link></li>

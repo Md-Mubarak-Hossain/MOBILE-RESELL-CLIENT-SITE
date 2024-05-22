@@ -10,15 +10,15 @@ const Advertise = () => {
                 setImag(imag = 0)
             }
             setImag(imag + 1);
-        }, 50000)
+        }, 80000)
     }
     slide();
 
 
     return (
-        <div className='flex flex-col justify-center items-center w-screen mx-auto py-2'>
-            <div className='card justify-center items-center'>  
-                    <img src={img[imag]} alt="Product" className='h-32 w-screen bg-base-300'/>
+        <div className='flex flex-col justify-center items-center w-screen mx-auto'>
+            <div className='flex justify-center items-center'>  
+                    <img src={img[imag]} alt="Product" className='h-32 w-screen'/>
             </div >
         </div>
     );
