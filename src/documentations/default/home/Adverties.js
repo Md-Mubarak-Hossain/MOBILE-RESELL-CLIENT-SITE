@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { A5, A9, F7, vivo,vivobanner,oppoWebp } from '../../../components/Image';
+import { A5, A9,vivo,vivobanner,oppoWebp } from '../../../components/Image';
 const Advertise = () => {
     let [imag, setImag] = useState(0)
-    let img = [vivobanner,oppoWebp,A5, A9, vivo]
+    let img = [oppoWebp,A5, A9, vivo,vivobanner]
 
     const slide = () => {
         setInterval(() => {

@@ -32,23 +32,27 @@ const Routes = () => {
             path: '/',
             element: <Main></Main>,
             loader: async () => fetch("https://mobile-server.vercel.app/mobile"),
-            errorElement: <ErrorBoundary />,
+                    errorElement: <ErrorBoundary />,
             children: [
                 {
                     path: '/',
                     element: <Home></Home>,
+                    loader: async () => fetch("https://mobile-server.vercel.app/mobile"),
                 },
                 {
                     path: '/userdashboard',
-                    element: <UserDashboard></UserDashboard>,
+                    element: <UserProtected><UserDashboard/></UserProtected>,
+                    loader: async () => fetch("https://mobile-server.vercel.app/mobile"),
+                   
                     children: [
-                        {path: '/userdashboard',element: <Brand />},
+                        {path: '/userdashboard', element: <Brand />},
                         {path: '/userdashboard/addproduct',element: <AddProduct />},
                         { path: '/userdashboard/addwishlist', element: <AddWishList/> },
                         { path: '/userdashboard/addproduct', element: <AddProduct /> },
                         { path: '/userdashboard/buyproduct', element: <BuyProduct /> },
                         { path: '/userdashboard/seeproduct', element: <SeeProduct /> },
-                        { path: '/userdashboard/payment', element: <Payment /> },
+                        { path: '/userdashboard/payment/:id', element: <Payment />,
+                        loader:async({params})=>fetch(`https://mobile-server.vercel.app/mobile/${params.id}`)},
                         // { path: '/userdashboard/updatescreen', element: <UpdateScreen />}
                     ]
                 },

@@ -59,13 +59,10 @@ const BuyProduct = () => {
         <>
             {
                 mobile.length > 0 ? <div className='w-10/12 mx-auto'>
-                    {/* <div className='text-center md:mb-5'>
-                        <p className='text-xl md:text-3xl font-bold'>The Second Hand Mobile Screen</p>
-                        <p className='text-xl font-bold'>Total:{mobile?.length}</p>
-                    </div> */}
-                    <div className='grid grid-cols-1 gap-2 md:grid-cols-3'>
+                   
+                    <div className='grid grid-cols-1 gap-2 md:grid-cols-3 pt-10'>
                         {
-                            mobile?.map(d => <div key={d?._id} className="p-4 border-2 border-dotted">
+                            mobile?.map(d => <div key={d?._id} className="p-4 border-2 border-dotted bg-base-300">
 
                                 <div className="hero-content flex p-1 w-full rounded-lg">
                                     <div>
@@ -87,7 +84,7 @@ const BuyProduct = () => {
                                     </div>
                                 </div>
                                 <div className='flex justify-between p-2'>
-                                    <Link to={`/payment/${d?._id}`} className="badge badge-primary btn-outline btn-xs text-xs rounded-full px-2"> Buy Now</Link>
+                                    <Link to={`/userdashboard/payment/${d?._id}`} className="badge badge-primary btn-outline btn-xs text-xs rounded-full px-2"> Buy Now</Link>
                                      <Link onClick={() => handleClick(setD(d = { d }))} className="btn badge badge-primary btn-outline btn-xs text-xs rounded-full px-2">Add Wish List</Link>
                                 </div>
                             </div>)

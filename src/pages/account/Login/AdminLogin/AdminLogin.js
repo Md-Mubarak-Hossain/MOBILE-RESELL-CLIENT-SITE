@@ -4,7 +4,7 @@ import login from '../../../../assets/login.jpg';
 import { AuthContext } from '../../../../ContextApi/Context';
 import { useLocation, useNavigate } from 'react-router-dom';
 const AdminLogin = () => {
-    useTitle('Admin Login');
+    useTitle('admin Login');
     const { user, logIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()

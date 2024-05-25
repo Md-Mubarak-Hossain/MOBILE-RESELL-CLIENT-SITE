@@ -2,18 +2,20 @@ import React from 'react';
 import{infinix ,vivo ,oppoWebp} from '../../../components/Image';
 import { Link } from 'react-router-dom';
 import useTitle from '../../../components/Hooks/useTitle';
+import BrandBanner from './BrandBanner';
 const Brand = () => {
     useTitle('brand');
     return (
-        <div className='mx-auto w-full'>
+        <div className='mx-auto w-full bg-base-300'>
             <div className='w-full text-center py-5'>
                 <h2 className='text-xl'>Our Super Brand</h2>
                 <h2 className='text-2xl font-bold'>Re-Sale Product</h2>
             </div>
-            <div className="hero min-h-screen bg-base-300">
+            <div className='bg-base-200 px-10'><BrandBanner/></div>
+            <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col md:flex-row">
                     <div>
-                        <img alt='img' src={oppoWebp} className="rounded-lg shadow-2xl border-2 border-dotted h-screen" />
+                        <img alt='img' src={oppoWebp} className="rounded-lg p-5 h-screen w-full md:h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Oppo</h1>
@@ -38,7 +40,7 @@ const Brand = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col md:flex-row-reverse">
                     <div>
-                        <img alt='img' src={infinix} className="rounded-lg shadow-2xl border-2 border-dotted h-screen w-full md:h-screen" />
+                        <img alt='img' src={infinix} className="rounded-lg p-5 h-screen w-full md:h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Infinix Hot12i</h1>
@@ -63,7 +65,7 @@ const Brand = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col md:flex-row">
                     <div>
-                        <img alt='img' src={vivo} className="rounded-lg shadow-2xl border-2 border-dotted h-screen w-full md:h-screen" />
+                        <img alt='img' src={vivo} className="rounded-lg p-5 h-screen w-full md:h-screen" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">Vivo</h1>

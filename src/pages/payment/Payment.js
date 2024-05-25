@@ -6,7 +6,7 @@ import { bkash,rocket } from '../../components/Image';
 
 const Payment = () => {
     const product = useLoaderData();
-    const { seller, useTime, category, ram, camera, price, name, brand, resalePrice, picture } = product;
+    const { seller,useTime, category, ram, camera, price, name, brand, resalePrice, picture } = product;
     const [updateData, setData] = useState(product)
     const handleSub = event => {
         event.preventDefault();

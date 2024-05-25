@@ -11,7 +11,7 @@ const UserProtected = ({ children }) => {
     }
     return (
         <Navigate
-            to='/userlogin'
+            to='/login'
             state={{ from: location }}
             replace>
         </Navigate >

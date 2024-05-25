@@ -38,7 +38,7 @@ const Vivo = () => {
         location,
         seller
     }
-    console.log(mobilePost)
+    // console.log(mobilePost)
     const handleClick = () => {
         fetch('https://mobile-server.vercel.app/wish', {
             method: 'POST',

@@ -2,14 +2,13 @@ import React, { useContext, useState } from 'react';
 import useTitle from '../../../components/Hooks/useTitle';
 import { FaRegAddressBook } from 'react-icons/fa';
 import { AuthContext } from '../../../ContextApi/Context';
-import Login from '../Login/UserLogin/Login';
 import { setAuthToken } from '../../../components/Api/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Home from '../../../documentations/default/home/Home';
+import UserDashboard from '../../../documentations/user/dashboard/UserDashBoard';
 const Register = () => {
     const navigate = useNavigate();
     const location = useLocation()
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/userdashboard';
     const [error, setError] = useState('');
     const { createUser } = useContext(AuthContext);
     useTitle('Register Page');
@@ -47,7 +46,7 @@ const Register = () => {
                     console.log(data)
                     if (data.acknowledged) {
                         alert('Successfully register')
-                        return <Home></Home>
+                        return <UserDashboard></UserDashboard>
                     }
                     else {
                         alert('sorry');

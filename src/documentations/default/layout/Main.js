@@ -10,9 +10,9 @@ const Main = () => {
             <Navbar></Navbar>
             <div className='pt-14 mx-auto'>
                 <Advertise></Advertise>
-                <div><Outlet></Outlet></div>
-            </div>
-            <div className='z-20'><Footer></Footer></div>
+                <Outlet></Outlet>
+            </div> 
+           <Footer></Footer>
         </div>
     );
 };

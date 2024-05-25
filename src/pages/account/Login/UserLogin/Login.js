@@ -8,7 +8,7 @@ import { setAuthToken } from '../../../../components/Api/auth';
 
 const Login = () => {
     const { googleLogIn, logIn } = useContext(AuthContext);
-    useTitle('User Login');
+    useTitle('User login');
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || '/userdashboard';
@@ -50,7 +50,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                        // console.log(data)
                         if (data.acknowledged) {
                             alert('login success')
                         }

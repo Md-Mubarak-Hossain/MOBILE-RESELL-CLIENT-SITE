@@ -4,13 +4,13 @@ import Category from '../../../pages/Categories/Category';
 import Offer from './Offer';
 import Services from './Services';
 import BuyProduct from '../../../pages/products/BuyProduct';
+import Banner from './Banner';
 
 const Home = () => {
     useTitle('Home');
     return (
-        <>
+        <>  <Banner/>
             <BuyProduct/>
-            {/* <Brand></Brand> */}
             <Category></Category>
             <Offer></Offer>
             <Services></Services>

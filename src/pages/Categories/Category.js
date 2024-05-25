@@ -17,7 +17,7 @@ const Category = () => {
             </div>
             <div className="flex flex-col w-full md:flex-row gap-2">
                 {
-                    category?.map(ct=><div className="p-2 md:w-1/3  border-2 border-dotted rounded-lg p-2">
+                    category?.map(ct=><div className="md:w-1/3  border-2 border-dotted rounded-lg p-2">
                     <img src={ct?.src} alt="img" className='w-fit h-56 rounded-lg px-1 mx-auto' />
                     <Link to={ct?.to} className='btn btn-sm btn-outline w-full px-2 my-2'>{ct?.content}
                     </Link>
