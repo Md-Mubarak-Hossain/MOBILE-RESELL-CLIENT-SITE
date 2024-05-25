@@ -48,14 +48,14 @@ const Payment = () => {
                             </div>
                             <div>
                                 <p className='text-xl font-semibold text-primary'>seller: {seller}</p>
-                                <div className='grid grid-cols-2 pt-4'>
+                                <div className='grid grid-cols-2 pt-4 gap-2'>
                                     <h2 className="text-xm font-semibold">{name}</h2>
                                     <p className='text-xm font-semibold'>use:{useTime}</p>
                                     <p className='text-xm font-semibold'>brand:{brand}</p>
                                     <p className='text-xm font-semibold'>category:{category}</p>
                                     <p className='text-xm font-semibold'>camera:{camera}</p>
                                     <p className='text-xm font-semibold'>ram:{ram}</p>
-                                    <p className='text-xm font-semibold text-secondary'>resale: ${resalePrice}</p>
+                                    <p className='text-xm font-semibold text-secondary'>resale:${resalePrice}</p>
                                     <p className='text-xm font-semibold'>price: ${price}</p>
                                 </div>
                             </div>
@@ -67,15 +67,15 @@ const Payment = () => {
 
                     <div className='shadow-2xl py-16 flex flex-col justify-center items-center place-items-center rounded-xl'>
                         {/* bkash account */}
-                        <label htmlFor="bkashPay" className="bg-transparent my-5">
-                            <img src={bkash} alt="img" className='btn btn-outline btn-secondary  h-32 w-72' />
+                        <label htmlFor="bkashPay" className=" my-5">
+                            <img src={bkash} alt="img" className='btn btn-outline btn-secondary bg-white h-32 w-72' />
                         </label>
                         <input type="checkbox" id="bkashPay" className="modal-toggle" />
                         <form onSubmit={handleSub} className="modal  sm:modal-middle h-screen right-10  ">
                             <div className="w-80  bg-pink-600 pb-5">
-                                <h3 className="font-bold text-lg py-2 ">
+                                <div className="font-bold text-lg py-2 ">
                                     <img src={bkash} alt=" img" className='bg-white w-full h-24' />
-                                </h3>
+                                </div>
                                 <div className='p-5'>
                                     <div className='card text-white shadow-pink-900 shadow-2xl p-2 text-center'>
                                         <h2>Merchant:{Math.floor(Math.random() * 100)}{(Math.random() + 1).toString(36).substring(7)}</h2>
@@ -108,8 +108,8 @@ const Payment = () => {
                             </div>
                         </form>
                         {/* rocket account */}
-                        <label htmlFor="rocketPay" className="bg-transparent">
-                            <img src={rocket} alt="img" className='btn btn-outline  btn-primary h-32 w-72' />
+                        <label htmlFor="rocketPay" className="">
+                            <img src={rocket} alt="img" className='btn btn-outline  btn-primary bg-white h-32 w-72' />
                         </label>
                         <input type="checkbox" id="rocketPay" className="modal-toggle" />
                         <div className="modal  sm:modal-middle h-screen right-10  ">
